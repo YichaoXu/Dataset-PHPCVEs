@@ -1,4 +1,4 @@
-# CVEs Dataset
+# Dataset PHPCVEs
 
 ## 1. Overview
 This dataset contains the five most frequently occurring vulnerabilities from [CVEListV5@2025-02-14_1700Z](https://github.com/CVEProject/cvelistV5). To ensure efficiency, we only included vulnerabilities that are available on GitHub.
@@ -49,7 +49,7 @@ $ python reproduce.py clean      # Remove Docker image
 ### Important Notes
 - The dataset was last downloaded on **February 17, 2025**.
 - If a repository is renamed or removed after this date, the dataset may differ.
-- For consistency, we recommend using zip format of the dataset provided in this repository.
+- For consistency, we recommend using zip format of the dataset provided in the release page.
 
 ## Contact
 For questions or issues, please contact the project maintainer.
