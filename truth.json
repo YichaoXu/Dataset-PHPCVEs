@@ -1,1 +1,1570 @@
-[]
+[
+  {
+    "name": "CWE-434/CVE-2019-1010062/pluck-cms_pluck_cad5f6",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-434/CVE-2020-11011/Alanaktion_phproject_10dba6",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-434/CVE-2020-15277/baserproject_basercms_d14f50",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-434/CVE-2020-26255/getkirby_kirby_6112f1",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-434/CVE-2023-23607/erohtar_Dasherr_e1e13b",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-434/CVE-2023-3852/OpenRapid_rapidcms_e0ce52",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-434/CVE-2023-4220/chamilo_chamilo-lms_385a75",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-434/CVE-2023-4223/chamilo_chamilo-lms_ed7291",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-434/CVE-2023-4224/chamilo_chamilo-lms_46247d",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-434/CVE-2023-4225/chamilo_chamilo-lms_46247d",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-434/CVE-2023-4226/chamilo_chamilo-lms_46247d",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-434/CVE-2023-47129/statamic_cms_36d8a5",
+    "vulnerabilities": [
+      null
+    ]
+  },
+  {
+    "name": "CWE-434/CVE-2023-47621/duncanmcclean_guest-entries_323004",
+    "vulnerabilities": [
+      null
+    ]
+  },
+  {
+    "name": "CWE-434/CVE-2023-5227/thorsten_phpmyfaq_baa93e",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-434/CVE-2024-28105/thorsten_phpMyFAQ_c94b3d",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-434/CVE-2024-38529/Admidio_admidio_045a23",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-434/CVE-2024-38530/gunet_openeclass_6b1a32",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-434/CVE-2024-40645/FOGProject_fogproject_2413bc",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-434/CVE-2025-21624/MacWarrior_clipbucket-v5_75d663",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-77/CVE-2020-36642/trampgeek_jobe_955fa7",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-77/CVE-2021-41116/composer_composer_1a994e",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-77/CVE-2023-0789/thorsten_phpmyfaq_f34d84",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-77/CVE-2023-28854/paijp_nophp_dc26ab",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-77/CVE-2024-29895/Cacti_cacti_837403",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-77/CVE-2024-35241/composer_composer_fc57b9",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-77/CVE-2024-35242/composer_composer_fa3b95",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-77/CVE-2024-39914/FOGProject_fogproject_f97b01",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-78/CVE-2021-32682/Studio-42_elFinder_60d1d7",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-78/CVE-2023-3368/chamilo_chamilo-lms_0ced3e",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-78/CVE-2023-4221/chamilo_chamilo-lms_6f3262",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-78/CVE-2023-4222/chamilo_chamilo-lms_6f3262",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-78/CVE-2025-22605/coollabsio_coolify_f9411b",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2009-10001/jianlinwei_cool-php-captcha_c4e850",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2009-10004/Turante_sandbox-theme_573671",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2010-10002/simplesamlphp_simplesamlphp-module-openid_1b9ea1",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2010-10004/simplesamlphp_simplesamlphp-module-infocard_429c8d",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2010-10008/simplesamlphp_simplesamlphp-module-openidprovider_d4bbc9",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2010-10010/StarsAlliance_PsychoStats_fa1705",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2012-10002/ahmyi_rivettracker_54e816",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2012-10003/ahmyi_rivettracker_444679",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2012-10004/backdrop-contrib_basiccart_9d90ca",
+    "vulnerabilities": [
+      null
+    ]
+  },
+  {
+    "name": "CWE-79/CVE-2012-10005/manikandan170890_php-form-builder-class_7e818a",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2014-125027/yunasc_tbdev_0399b5",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2014-125031/kirill2485_TekNet_6f7b74",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2014-125034/stiiv_contactapp_f9e516",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2015-10006/admont28_ingnovarq_f7eb27",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2015-10019/foxoverflow_MySimplifiedSQL_4915f7",
+    "vulnerabilities": [
+      null
+    ]
+  },
+  {
+    "name": "CWE-79/CVE-2015-10032/StevenElberger_HealthMateWeb_770c02",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2015-10058/wikisource_ws-cat-browser_6cc12c",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2015-10073/tinymighty_wiki-seo_b8a947",
+    "vulnerabilities": [
+      null
+    ]
+  },
+  {
+    "name": "CWE-79/CVE-2015-10074/OpenSeaMap_onlinechart_ca9e79",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2015-10075/georgestephanis_Custom-Content-Width_1f0cf1",
+    "vulnerabilities": [
+      null
+    ]
+  },
+  {
+    "name": "CWE-79/CVE-2016-15022/mosbth_cimage_f0ab94",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2016-15029/Ydalb_mapicoin_e1f4f1",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2016-15032/mback2k_mhhttpbl_99f850",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2016-2138/ikoniaris_kippo-graph_988641",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2016-2139/ikoniaris_kippo-graph_988641",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2016-9128/revive-adserver_revive-adserver_3aaebc",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2016-9130/revive-adserver_revive-adserver_38223a",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2016-9457/revive-adserver_revive-adserver_5a48f3",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2016-9470/revive-adserver_revive-adserver_71812b",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2017-20158/vova07_yii2-fileapi-widget_a392ab",
+    "vulnerabilities": [
+      null
+    ]
+  },
+  {
+    "name": "CWE-79/CVE-2017-20175/DaSchTour_matomo-mediawiki-extension_ceadbc",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2017-20176/ciubotaru_share-on-diaspora_9e8651",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2017-20185/fuzzymannerz_swmp_34752b",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2018-25065/wikimedia_mediawiki-extensions-I18nTags_a90495",
+    "vulnerabilities": [
+      null
+    ]
+  },
+  {
+    "name": "CWE-79/CVE-2018-25073/Newcomer1989_TSN-Ranksystem_b2f8fc",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2018-25080/serbanghita_Mobile-Detect_4da80e",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2018-25086/sea75300_fanpresscm3_05a3ef",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2019-16780/WordPress_wordpress-develop_b19754",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2019-25086/IET-OU_open-media-player_6ea652",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2019-25092/Nakiami_mellivora_66df66",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2019-25105/lgommans_dro.pm_31ecf0",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2019-25156/dstar2018_agency-code-repo_8f2b61",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2020-15155/baserproject_basercms_1a2fb0",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2020-15159/baserproject_basercms_2dcaa2",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2020-15177/glpi-project_glpi_6ca9a0",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2020-15249/octobercms_library_098969",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2020-25706/Cacti_cacti_99d3bf",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2020-36637/Chris92de_AdminServ_9a4508",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2020-36638/Chris92de_AdminServ_7bc4f9",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2020-36653/GENI-NSF_geni-portal_51b12a",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2020-36654/GENI-NSF_geni-portal_c2356c",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2020-36828/codersclub_DiscuzX_a7450c",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2021-21258/glpi-project_glpi_df91ea",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2021-22871/revive-adserver_revive-adserver_2980cc",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2021-22872/revive-adserver_revive-adserver_62a2a0",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2021-22874/revive-adserver_revive-adserver_1a05c5",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2021-22875/revive-adserver_revive-adserver_e2a67c",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2021-22889/revive-adserver_revive-adserver_071f22",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2021-25955/Dolibarr_dolibarr_0d7fcc",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2021-29625/vrana_adminer_60ad16",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2021-32644/ampache_ampache_dcc8fa",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2021-41139/anuko_timetracker_71796c",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2021-41162/Combodo_iTop_20f441",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2021-41236/oroinc_platform_d9d021",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2021-4282/FreePBX_voicemail_2cff65",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2021-4283/FreePBX_voicemail_2cff65",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2021-4293/gnuboard_youngcart5_607a8b",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2021-4302/slackero_phpwcms_4db6ac",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2021-4303/shannah_xataface_dfa953",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2021-4310/01-Scripts_01-Artikelsystem_c081ea",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2021-4312/Th3-822_rapidleech_e77169",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2021-43808/laravel_framework_2d72d1",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2021-43810/Admidio_admidio_d6c562",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2021-4431/msyk_FMDataAPI_0965e5",
+    "vulnerabilities": [
+      null
+    ]
+  },
+  {
+    "name": "CWE-79/CVE-2022-1226/phpipam_phpipam_63af25",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2022-21648/nette_latte_a69d0b",
+    "vulnerabilities": [
+      null
+    ]
+  },
+  {
+    "name": "CWE-79/CVE-2022-21715/codeigniter4_CodeIgniter4_99e079",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2022-23638/darylldoyle_svg-sanitizer_307b42",
+    "vulnerabilities": [
+      null
+    ]
+  },
+  {
+    "name": "CWE-79/CVE-2022-24708/anuko_timetracker_bb7d08",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2022-24746/shopware_platform_47b4b0",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2022-31109/laminas_laminas-diactoros_d1bc56",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2022-36020/TYPO3_html-sanitizer_aac22d",
+    "vulnerabilities": [
+      null
+    ]
+  },
+  {
+    "name": "CWE-79/CVE-2022-3608/thorsten_phpmyfaq_ac3d7e",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2022-36107/TYPO3_typo3_56af2b",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2022-36108/TYPO3_typo3_bd58d2",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2022-3765/thorsten_phpmyfaq_ec1e48",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2022-3766/thorsten_phpmyfaq_372428",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2022-40704/phoronix-test-suite_phoronix-test-suite_216025",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2022-4407/thorsten_phpmyfaq_e2ea33",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2022-4408/thorsten_phpmyfaq_c16cc2",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2022-4820/flatpressblog_flatpress_91857e",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2022-4821/flatpressblog_flatpress_d3f329",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2022-4822/flatpressblog_flatpress_2e7cac",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2022-4876/kaltura_mwEmbed_0afca9",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2022-4892/andrzuk_MyCMS_37bfb4",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2022-4957/librespeed_speedtest_4234f5",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-0306/thorsten_phpmyfaq_cd65a9",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-0308/thorsten_phpmyfaq_53099a",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-0309/thorsten_phpmyfaq_65d419",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-0310/thorsten_phpmyfaq_fb88fe",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-0312/thorsten_phpmyfaq_fe6e9f",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-0313/thorsten_phpmyfaq_863f6c",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-0314/thorsten_phpmyfaq_1123c0",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-0327/saemorris_TheRadSystem_45d588",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-0676/phpipam_phpipam_b6c303",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-0677/phpipam_phpipam_3df854",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-0786/thorsten_phpmyfaq_47480b",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-0787/thorsten_phpmyfaq_77b42b",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-0791/thorsten_phpmyfaq_d89645",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-0794/thorsten_phpmyfaq_697a57",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-1212/phpipam_phpipam_4f1fb9",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-1754/thorsten_phpmyfaq_0dc8e5",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-1755/thorsten_phpmyfaq_49db61",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-1756/thorsten_phpmyfaq_bbc5d4",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-1757/thorsten_phpmyfaq_fecc80",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-1759/thorsten_phpmyfaq_a26421",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-1760/thorsten_phpmyfaq_671f95",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-1761/thorsten_phpmyfaq_ae6c1d",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-1875/thorsten_phpmyfaq_f612a7",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-1878/thorsten_phpmyfaq_400d9c",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-1879/thorsten_phpmyfaq_7c7699",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-1880/thorsten_phpmyfaq_e01882",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-1882/thorsten_phpmyfaq_56295b",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-1884/thorsten_phpmyfaq_d773df",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-1885/thorsten_phpmyfaq_ee509f",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-2427/thorsten_phpmyfaq_0a4980",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-2428/thorsten_phpmyfaq_b8f11a",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-24814/TYPO3_typo3_db06e6",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-2550/thorsten_phpmyfaq_fd2cda",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-2752/thorsten_phpmyfaq_6ed70e",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-2753/thorsten_phpmyfaq_a58331",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-28447/smarty-php_smarty_5512d6",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-2998/thorsten_phpmyfaq_937913",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-2999/thorsten_phpmyfaq_6e8801",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-34446/Combodo_iTop_17d222",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-34447/Combodo_iTop_b99ff5",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-3469/thorsten_phpmyfaq_5d4cd2",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-36828/statamic_cms_f806b6",
+    "vulnerabilities": [
+      null
+    ]
+  },
+  {
+    "name": "CWE-79/CVE-2023-37269/wintercms_storm_edf208",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-38500/TYPO3_html-sanitizer_476383",
+    "vulnerabilities": [
+      null
+    ]
+  },
+  {
+    "name": "CWE-79/CVE-2023-39518/fobybus_social-media-skeleton_ac3aa8",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-4007/thorsten_phpmyfaq_e16daf",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-46734/symfony_symfony_d4a701",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-46735/symfony_symfony_5bff8c",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-47125/TYPO3_html-sanitizer_67876f",
+    "vulnerabilities": [
+      null
+    ]
+  },
+  {
+    "name": "CWE-79/CVE-2023-48295/librenms_librenms_3768e5",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-49086/Cacti_cacti_c0ba9a",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-5316/thorsten_phpmyfaq_95ed9b",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-5317/thorsten_phpmyfaq_409571",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-5319/thorsten_phpmyfaq_abf524",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-5320/thorsten_phpmyfaq_66f158",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-5631/roundcube_roundcubemail_d08d16",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-5793/flusity_flusity-CMS_b06dda",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-5810/flusity_flusity-CMS_81252b",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-5811/flusity_flusity-CMS_81252b",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-5835/hu60t_hu60wap6_fca7cd",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-5863/thorsten_phpmyfaq_d0d66b",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-5864/thorsten_phpmyfaq_8b14f8",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-5867/thorsten_phpmyfaq_4dc881",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-5917/phpbb_phpbb_8fe3a9",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-6889/thorsten_phpmyfaq_97d90e",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-6890/thorsten_phpmyfaq_43311c",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2023-7076/otsoft_myaac_7b43c9",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-25976/HAWK-Digital-Environments_HAWKI_f352dc",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-27300/thorsten_phpMyFAQ_7dc4b9",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-28106/thorsten_phpMyFAQ_3ad85b",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-30268/Cacti_cacti_018f8c",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-31443/Cacti_cacti_0d85e7",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-32479/librenms_librenms_49f826",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-32877/yiisoft_yii2_628d40",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-32890/librespeed_speedtest_8be8ab",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-32981/silverstripe_silverstripe-framework_c13ec3",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-34067/pterodactyl_panel_b1fa39",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-34081/mantisbt_mantisbt_809a4e",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-36123/StarCitizenTools_mediawiki-skins-Citizen_c11fbf",
+    "vulnerabilities": [
+      null
+    ]
+  },
+  {
+    "name": "CWE-79/CVE-2024-45046/PHPOffice_PhpSpreadsheet_e63e8a",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-45057/portabilis_i-educar_7cd2ed",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-45803/wireui_wireui_2df327",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-47069/oveleon_contao-cookiebar_cff5f4",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-47184/ampache_ampache_dd300e",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-47186/filamentphp_filament_2f77c6",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-47523/librenms_librenms_7620d2",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-47524/librenms_librenms_ce89f5",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-47525/librenms_librenms_0643bb",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-47526/librenms_librenms_6af12d",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-47527/librenms_librenms_f259ed",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-47528/librenms_librenms_36b38a",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-47617/sulu_sulu_bdb983",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-47618/sulu_sulu_3485e1",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-49754/librenms_librenms_237f4d",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-49759/librenms_librenms_84e276",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-49764/librenms_librenms_62bde7",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-50350/librenms_librenms_f1e4e5",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-50351/librenms_librenms_82a744",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-50352/librenms_librenms_f4bc89",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-50355/librenms_librenms_30e522",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-51494/librenms_librenms_f1e4e5",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-51495/librenms_librenms_c03d9d",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-51496/librenms_librenms_5b2e94",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-51497/librenms_librenms_8f9b5e",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-52526/librenms_librenms_af15ea",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-53255/BoidCMS_BoidCMS_3faf83",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-53277/silverstripe_silverstripe-framework_09b505",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-56361/tltneon_lgsl_0ff555",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-56365/PHPOffice_PhpSpreadsheet_687d87",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-56366/PHPOffice_PhpSpreadsheet_687d87",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-56408/PHPOffice_PhpSpreadsheet_687d87",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-56409/PHPOffice_PhpSpreadsheet_687d87",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-56410/PHPOffice_PhpSpreadsheet_700a80",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-56411/PHPOffice_PhpSpreadsheet_700a80",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-56412/PHPOffice_PhpSpreadsheet_700a80",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-56517/tltneon_lgsl_a2755d",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-9007/jeanmarc77_123solar_80cb17",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2024-9101/leenooks_phpLDAPadmin_1b55c8",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2025-22131/PHPOffice_PhpSpreadsheet_51b1d1",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2025-22132/nilsonLazarin_WeGIA_f2cdf7",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2025-22613/LabRedesCefetRJ_WeGIA_cdb8e8",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2025-22614/LabRedesCefetRJ_WeGIA_0d8107",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2025-22615/LabRedesCefetRJ_WeGIA_420b88",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2025-22616/LabRedesCefetRJ_WeGIA_d358e6",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2025-22617/LabRedesCefetRJ_WeGIA_5a1cd3",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2025-22618/LabRedesCefetRJ_WeGIA_44a531",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2025-22619/LabRedesCefetRJ_WeGIA_f3b1cd",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2025-23030/LabRedesCefetRJ_WeGIA_f1233c",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2025-23031/LabRedesCefetRJ_WeGIA_8eb446",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2025-23032/LabRedesCefetRJ_WeGIA_8a3702",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2025-23033/LabRedesCefetRJ_WeGIA_f35910",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2025-23034/LabRedesCefetRJ_WeGIA_782080",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2025-23035/LabRedesCefetRJ_WeGIA_09affa",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2025-23036/LabRedesCefetRJ_WeGIA_35d374",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2025-23037/LabRedesCefetRJ_WeGIA_e6bfae",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2025-23038/LabRedesCefetRJ_WeGIA_ef1f9f",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2025-23210/PHPOffice_PhpSpreadsheet_ed6627",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2025-24017/YesWiki_yeswiki_8355e2",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2025-24018/YesWiki_yeswiki_8355e2",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-79/CVE-2025-25287/lakejason0_mediawiki-skins-Lakeus_82ad2c",
+    "vulnerabilities": [
+      null
+    ]
+  },
+  {
+    "name": "CWE-89/CVE-2007-10001/web-cyradm_web-cyradm_610d7b",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2007-10002/web-cyradm_web-cyradm_3e8f07",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2008-10003/iGamingModules_flashgames_a4ae2e",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2010-10007/lierdakil_click-reminder_293192",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2011-10002/rotelok_weblabyrinth_bc8992",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2013-10015/fanzila_WebFinance_6b0a80",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2013-10016/fanzila_WebFinance_6cfeb2",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2013-10017/fanzila_WebFinance_7e86e1",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2013-10018/fanzila_WebFinance_bfccab",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2014-125029/ttskch_PaginationServiceProvider_f1616a",
+    "vulnerabilities": [
+      null
+    ]
+  },
+  {
+    "name": "CWE-89/CVE-2014-125032/porpeeranut_go-with-me_d91c64",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2014-125040/stevejagodzinski_DevNewsAggregator_49ac5b",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2014-125045/Miesvanderlippe_meol1_73e4c8",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2014-125051/himiklab_yii2-jqgrid-widget_55460d",
+    "vulnerabilities": [
+      null
+    ]
+  },
+  {
+    "name": "CWE-89/CVE-2014-125053/Piwigo_Piwigo-Guest-Book_2dfd04",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2014-125062/ananich_bitstorm_f0a662",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2014-125076/NoxxieNl_Criminals_0feeea",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2014-125077/pointhi_searxstats_49f159",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2015-10018/DBRisinajumi_d2files_b5101d",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2015-10031/purpleparrots_491-Project_e53baf",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2015-10041/Dovgalyuk_AIBattle-disabled-_5e5124",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2015-10042/Dovgalyuk_AIBattle-disabled-_09c36d",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2015-10045/tutrantta_projecttodolist_8b688a",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2015-10050/brandonfire_miRNADatabasebyPHPMySql_7838db",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2015-10051/bony2023_Discussion-Board_bbfb29",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2015-10063/saemorris_TheRadSystem_45d588",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2015-10064/VictorFerraresi_pokemon-database-php_372740",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2015-10066/tynx_wuersch_039d04",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2015-10070/copperwall_twiddit_0c8b77",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2015-10077/webbuilders-group_silverstripe-kapost-bridge_d02049",
+    "vulnerabilities": [
+      null
+    ]
+  },
+  {
+    "name": "CWE-89/CVE-2015-10084/irontec_klear-library_f7b292",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2015-10086/OpenCycleCompass_server-php_edda78",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2015-10097/grinnellplans_grinnellplans-php_4512e3",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2015-10106/mback2k_mhhttpbl_7ad9f0",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2016-15013/ForumHulp_searchresults_3ed315",
+    "vulnerabilities": [
+      null
+    ]
+  },
+  {
+    "name": "CWE-89/CVE-2016-15016/mrtnmtth_joomlamodeinsatzstats_4cc081",
+    "vulnerabilities": [
+      null
+    ]
+  },
+  {
+    "name": "CWE-89/CVE-2016-15020/liftkit_database_5082c0",
+    "vulnerabilities": [
+      null
+    ]
+  },
+  {
+    "name": "CWE-89/CVE-2016-15031/ipoelnet_php-login_c3b62d",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2016-15034/dynacase-labs_dynacase-webdesk_837ce0",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2017-20163/RedSnapper_NView_f3fe36",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2017-20168/jfm-so_piWallet_c8adf5",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2017-20169/GGGGGGGG_ToN-MasterServer_a2ed9d",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2017-20170/ollpu_parontalli_422be9",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2017-20173/AlexRed_contentmap_280fff",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2017-20195/LUNAD3v_areaload_1a1103",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2018-25057/mikebharris_simplephplinkshortener_96a0af",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2018-25067/JoomGallery_JoomGallery_67b041",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2018-25071/roxlukas_lmeve_f22517",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2018-25076/timbuckingham_bigtree-events_7b2fef",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2018-25106/webuidesigning_NebulaX_7d3ddb",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2019-25100/happyman_twmap_f13a8d",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2019-25159/mpedraza2020_IESMONTEROSOINTRANET_5e6274",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2020-36630/FreePBX_cdr_e933ce",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2020-5292/Leantime_leantime_bf3339",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2021-4301/slackero_phpwcms_0d27ad",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2021-4313/NethServer_nethserver-phonehome_ef5af2",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2021-4336/ITRS-Group_monitor-ninja_985d20",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2021-43822/jackalope_jackalope-doctrine-dbal_86e7bb",
+    "vulnerabilities": [
+      null
+    ]
+  },
+  {
+    "name": "CWE-89/CVE-2021-43851/anuko_timetracker_94fda0",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2022-1219/pimcore_pimcore_e64959",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2022-1339/pimcore_pimcore_809851",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2022-1429/pimcore_pimcore_f29d3b",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2022-21643/Aaron-Junker_USOC_06217c",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2022-21644/Aaron-Junker_USOC_9b65bd",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2022-21664/WordPress_wordpress-develop_17efac",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2022-21666/Aaron-Junker_USOC_1be52f",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2022-24752/Sylius_SyliusGridBundle_789ab3",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2022-31181/PrestaShop_PrestaShop_dc8dc1",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2022-4871/ummmmm_nflpick-em.com_1612e2",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2022-4889/visegripped_stracker_b662ea",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2022-4933/ATM-Consulting_dolibarrmodulequicksupplierprice_9304ff",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2023-1211/phpipam_phpipam_470a17",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2023-22727/cakephp_cakephp_d22961",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2023-32308/anuko_timetracker_010a05",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2023-37270/Piwigo_Piwigo_639c9d",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2023-41884/ZoneMinder_zoneminder_3f95e0",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2023-45826/Leantime_leantime_fa5fa3",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2023-47637/pimcore_pimcore_33cb0b",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2024-12894/TreasureHuntGame_TreasureHunt_963e0e",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2024-12895/TreasureHuntGame_TreasureHunt_963e0e",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2024-23646/pimcore_admin-ui-classic-bundle_8a1361",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2024-24572/WillyXJ_facileManager_5613ba",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2024-27299/thorsten_phpMyFAQ_1f9d46",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2024-28107/thorsten_phpMyFAQ_4fed1d",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2024-31445/Cacti_cacti_f946fa",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2024-32461/librenms_librenms_d7737b",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2024-32480/librenms_librenms_36dc9d",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2024-37906/Admidio_admidio_a4d8ab",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2024-39304/ChurchCRM_CRM_a16602",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2024-45059/portabilis_i-educar_701a1b",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2024-51482/ZoneMinder_zoneminder_335900",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2024-54145/Cacti_cacti_096a40",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2024-54146/Cacti_cacti_096a40",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2025-23218/LabRedesCefetRJ_WeGIA_1ac0d0",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2025-23219/LabRedesCefetRJ_WeGIA_1739e1",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2025-23220/LabRedesCefetRJ_WeGIA_7465f7",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2025-24368/Cacti_cacti_096a40",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-89/CVE-2025-26520/Cacti_cacti_94526a",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-94/CVE-2015-10009/nonfiction_nterchangebackend_510127",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-94/CVE-2019-16774/PHPSocialNetwork_phpfastcache_afb1d1",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-94/CVE-2022-29221/smarty-php_smarty_3f97b7",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-94/CVE-2023-0788/thorsten_phpmyfaq_40515c",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-94/CVE-2023-0792/thorsten_phpmyfaq_00c040",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-94/CVE-2023-34251/getgrav_grav_259e77",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-94/CVE-2023-48217/statamic_cms_334ebc",
+    "vulnerabilities": [
+      null
+    ]
+  },
+  {
+    "name": "CWE-94/CVE-2024-28119/getgrav_grav_592841",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-94/CVE-2024-35226/smarty-php_smarty_61db28",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-94/CVE-2024-55661/laravel_pulse_f8dc14",
+    "vulnerabilities": [
+      null
+    ]
+  },
+  {
+    "name": "CWE-94/CVE-2024-56145/craftcms_cms_2c9177",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-94/CVE-2024-9006/jeanmarc77_123solar_94bf9a",
+    "vulnerabilities": []
+  },
+  {
+    "name": "CWE-94/CVE-2025-22133/nilsonLazarin_WeGIA_211769",
+    "vulnerabilities": []
+  }
+]
