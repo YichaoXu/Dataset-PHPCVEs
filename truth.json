@@ -45,15 +45,11 @@
   },
   {
     "name": "CWE-434/CVE-2023-47129/statamic_cms_36d8a5",
-    "vulnerabilities": [
-      null
-    ]
+    "vulnerabilities": [null]
   },
   {
     "name": "CWE-434/CVE-2023-47621/duncanmcclean_guest-entries_323004",
-    "vulnerabilities": [
-      null
-    ]
+    "vulnerabilities": [null]
   },
   {
     "name": "CWE-434/CVE-2023-5227/thorsten_phpmyfaq_baa93e",
@@ -165,9 +161,7 @@
   },
   {
     "name": "CWE-79/CVE-2012-10004/backdrop-contrib_basiccart_9d90ca",
-    "vulnerabilities": [
-      null
-    ]
+    "vulnerabilities": [null]
   },
   {
     "name": "CWE-79/CVE-2012-10005/manikandan170890_php-form-builder-class_7e818a",
@@ -191,9 +185,7 @@
   },
   {
     "name": "CWE-79/CVE-2015-10019/foxoverflow_MySimplifiedSQL_4915f7",
-    "vulnerabilities": [
-      null
-    ]
+    "vulnerabilities": [null]
   },
   {
     "name": "CWE-79/CVE-2015-10032/StevenElberger_HealthMateWeb_770c02",
@@ -205,9 +197,7 @@
   },
   {
     "name": "CWE-79/CVE-2015-10073/tinymighty_wiki-seo_b8a947",
-    "vulnerabilities": [
-      null
-    ]
+    "vulnerabilities": [null]
   },
   {
     "name": "CWE-79/CVE-2015-10074/OpenSeaMap_onlinechart_ca9e79",
@@ -215,9 +205,7 @@
   },
   {
     "name": "CWE-79/CVE-2015-10075/georgestephanis_Custom-Content-Width_1f0cf1",
-    "vulnerabilities": [
-      null
-    ]
+    "vulnerabilities": [null]
   },
   {
     "name": "CWE-79/CVE-2016-15022/mosbth_cimage_f0ab94",
@@ -257,9 +245,7 @@
   },
   {
     "name": "CWE-79/CVE-2017-20158/vova07_yii2-fileapi-widget_a392ab",
-    "vulnerabilities": [
-      null
-    ]
+    "vulnerabilities": [null]
   },
   {
     "name": "CWE-79/CVE-2017-20175/DaSchTour_matomo-mediawiki-extension_ceadbc",
@@ -275,9 +261,7 @@
   },
   {
     "name": "CWE-79/CVE-2018-25065/wikimedia_mediawiki-extensions-I18nTags_a90495",
-    "vulnerabilities": [
-      null
-    ]
+    "vulnerabilities": [null]
   },
   {
     "name": "CWE-79/CVE-2018-25073/Newcomer1989_TSN-Ranksystem_b2f8fc",
@@ -437,9 +421,7 @@
   },
   {
     "name": "CWE-79/CVE-2021-4431/msyk_FMDataAPI_0965e5",
-    "vulnerabilities": [
-      null
-    ]
+    "vulnerabilities": [null]
   },
   {
     "name": "CWE-79/CVE-2022-1226/phpipam_phpipam_63af25",
@@ -447,9 +429,7 @@
   },
   {
     "name": "CWE-79/CVE-2022-21648/nette_latte_a69d0b",
-    "vulnerabilities": [
-      null
-    ]
+    "vulnerabilities": [null]
   },
   {
     "name": "CWE-79/CVE-2022-21715/codeigniter4_CodeIgniter4_99e079",
@@ -457,9 +437,7 @@
   },
   {
     "name": "CWE-79/CVE-2022-23638/darylldoyle_svg-sanitizer_307b42",
-    "vulnerabilities": [
-      null
-    ]
+    "vulnerabilities": [null]
   },
   {
     "name": "CWE-79/CVE-2022-24708/anuko_timetracker_bb7d08",
@@ -475,9 +453,7 @@
   },
   {
     "name": "CWE-79/CVE-2022-36020/TYPO3_html-sanitizer_aac22d",
-    "vulnerabilities": [
-      null
-    ]
+    "vulnerabilities": [null]
   },
   {
     "name": "CWE-79/CVE-2022-3608/thorsten_phpmyfaq_ac3d7e",
@@ -701,9 +677,7 @@
   },
   {
     "name": "CWE-79/CVE-2023-36828/statamic_cms_f806b6",
-    "vulnerabilities": [
-      null
-    ]
+    "vulnerabilities": [null]
   },
   {
     "name": "CWE-79/CVE-2023-37269/wintercms_storm_edf208",
@@ -711,9 +685,7 @@
   },
   {
     "name": "CWE-79/CVE-2023-38500/TYPO3_html-sanitizer_476383",
-    "vulnerabilities": [
-      null
-    ]
+    "vulnerabilities": [null]
   },
   {
     "name": "CWE-79/CVE-2023-39518/fobybus_social-media-skeleton_ac3aa8",
@@ -733,9 +705,7 @@
   },
   {
     "name": "CWE-79/CVE-2023-47125/TYPO3_html-sanitizer_67876f",
-    "vulnerabilities": [
-      null
-    ]
+    "vulnerabilities": [null]
   },
   {
     "name": "CWE-79/CVE-2023-48295/librenms_librenms_3768e5",
@@ -855,9 +825,7 @@
   },
   {
     "name": "CWE-79/CVE-2024-36123/StarCitizenTools_mediawiki-skins-Citizen_c11fbf",
-    "vulnerabilities": [
-      null
-    ]
+    "vulnerabilities": [null]
   },
   {
     "name": "CWE-79/CVE-2024-45046/PHPOffice_PhpSpreadsheet_e63e8a",
@@ -1101,9 +1069,7 @@
   },
   {
     "name": "CWE-79/CVE-2025-25287/lakejason0_mediawiki-skins-Lakeus_82ad2c",
-    "vulnerabilities": [
-      null
-    ]
+    "vulnerabilities": [null]
   },
   {
     "name": "CWE-89/CVE-2007-10001/web-cyradm_web-cyradm_610d7b",
@@ -1143,9 +1109,7 @@
   },
   {
     "name": "CWE-89/CVE-2014-125029/ttskch_PaginationServiceProvider_f1616a",
-    "vulnerabilities": [
-      null
-    ]
+    "vulnerabilities": [null]
   },
   {
     "name": "CWE-89/CVE-2014-125032/porpeeranut_go-with-me_d91c64",
@@ -1161,9 +1125,7 @@
   },
   {
     "name": "CWE-89/CVE-2014-125051/himiklab_yii2-jqgrid-widget_55460d",
-    "vulnerabilities": [
-      null
-    ]
+    "vulnerabilities": [null]
   },
   {
     "name": "CWE-89/CVE-2014-125053/Piwigo_Piwigo-Guest-Book_2dfd04",
@@ -1227,9 +1189,7 @@
   },
   {
     "name": "CWE-89/CVE-2015-10077/webbuilders-group_silverstripe-kapost-bridge_d02049",
-    "vulnerabilities": [
-      null
-    ]
+    "vulnerabilities": [null]
   },
   {
     "name": "CWE-89/CVE-2015-10084/irontec_klear-library_f7b292",
@@ -1249,21 +1209,15 @@
   },
   {
     "name": "CWE-89/CVE-2016-15013/ForumHulp_searchresults_3ed315",
-    "vulnerabilities": [
-      null
-    ]
+    "vulnerabilities": [null]
   },
   {
     "name": "CWE-89/CVE-2016-15016/mrtnmtth_joomlamodeinsatzstats_4cc081",
-    "vulnerabilities": [
-      null
-    ]
+    "vulnerabilities": [null]
   },
   {
     "name": "CWE-89/CVE-2016-15020/liftkit_database_5082c0",
-    "vulnerabilities": [
-      null
-    ]
+    "vulnerabilities": [null]
   },
   {
     "name": "CWE-89/CVE-2016-15031/ipoelnet_php-login_c3b62d",
@@ -1347,9 +1301,7 @@
   },
   {
     "name": "CWE-89/CVE-2021-43822/jackalope_jackalope-doctrine-dbal_86e7bb",
-    "vulnerabilities": [
-      null
-    ]
+    "vulnerabilities": [null]
   },
   {
     "name": "CWE-89/CVE-2021-43851/anuko_timetracker_94fda0",
@@ -1537,9 +1489,7 @@
   },
   {
     "name": "CWE-94/CVE-2023-48217/statamic_cms_334ebc",
-    "vulnerabilities": [
-      null
-    ]
+    "vulnerabilities": [null]
   },
   {
     "name": "CWE-94/CVE-2024-28119/getgrav_grav_592841",
@@ -1551,9 +1501,7 @@
   },
   {
     "name": "CWE-94/CVE-2024-55661/laravel_pulse_f8dc14",
-    "vulnerabilities": [
-      null
-    ]
+    "vulnerabilities": [null]
   },
   {
     "name": "CWE-94/CVE-2024-56145/craftcms_cms_2c9177",
