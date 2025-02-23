@@ -80,10 +80,13 @@ def clean():
 
 @app.command()
 def download(
-    output_dir: str = typer.Argument("data", help="📂 Path to the output directory"),
+    output_dir: str = typer.Argument(None, help="📂 Path to the output directory"),
     gh_token: str = typer.Option(None, "--token", help="🔑 GitHub API Token")
 ):
     """📥 Run the container and download the dataset to the output directory."""
+    if output_dir is None: 
+        script_path = os.path.abspath(__file__)
+        output_dir = os.path.dirname(script_path)
     output_dir = os.path.abspath(output_dir)
     os.makedirs(output_dir, exist_ok=True)
 

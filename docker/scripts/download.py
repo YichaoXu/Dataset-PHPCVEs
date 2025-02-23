@@ -3,6 +3,7 @@ import csv
 import requests
 import argparse
 import zipfile
+import shutil
 from collections import defaultdict
 
 def normalize_cwe(cwe_string):
@@ -12,25 +13,43 @@ def normalize_cwe(cwe_string):
     return {f"CWE-{cwe}" if not cwe.startswith("CWE-") else cwe for cwe in cwe_string.split(",")}
 
 def download_commit_archive(repo_url, commit_hash, save_path, headers):
-    """Download the specified commit archive (zip) from GitHub"""
+    """Download and extract the specified commit archive from GitHub, placing contents directly in save_path"""
     repo_path = repo_url.replace("https://github.com/", "").strip()
     archive_url = f"https://github.com/{repo_path}/archive/{commit_hash}.zip"
-
+    if os.path.exists(save_path): 
+        shutil.rmtree(save_path)
+    os.makedirs(save_path, exist_ok=False)
     print(f"Downloading {repo_path}/{commit_hash} to {save_path}")
-    
     response = requests.get(archive_url, headers=headers, stream=True)
     if response.status_code == 200:
         zip_path = f"{save_path}.zip"
         with open(zip_path, "wb") as f:
-            for chunk in response.iter_content(chunk_size=8192):  f.write(chunk)
-        
-        # Extract the downloaded zip file
-        with zipfile.ZipFile(zip_path, 'r') as zip_ref: 
-            os.makedirs(save_path, exist_ok=True)
-            zip_ref.extractall(save_path)
+            for chunk in response.iter_content(chunk_size=8192):
+                f.write(chunk)
+
+        # Extract the downloaded zip file to a temporary directory
+        temp_extract_path = f"{save_path}_temp"
+        os.makedirs(temp_extract_path, exist_ok=True)
+
+        with zipfile.ZipFile(zip_path, "r") as zip_ref:
+            zip_ref.extractall(temp_extract_path)
+
+        # Move extracted contents to save_path, preserving structure
+        extracted_root = os.path.join(temp_extract_path, os.listdir(temp_extract_path)[0])  # Extracted folder
+        for item in os.listdir(extracted_root):
+            src_path = os.path.join(extracted_root, item)
+            dest_path = os.path.join(save_path, item)
+            if os.path.isdir(src_path):
+                shutil.move(src_path, dest_path)
+            else:
+                shutil.move(src_path, save_path)
+
+        # Cleanup
+        shutil.rmtree(temp_extract_path)
         os.remove(zip_path)
+        print(f"Extracted files successfully to {save_path}")
     else:
-        print(f"Failed to download {repo_url} commit {commit_hash}, Status Code: {response.status_code}")
+        print(f"❌ Failed to download {repo_url} commit {commit_hash}, Status Code: {response.status_code}")
 
 def process_csv(csv_file, target_cwes, download_dir, github_token):
     """Read the CSV file and download previous commit archives matching the target CWE types, organizing them by CWE."""

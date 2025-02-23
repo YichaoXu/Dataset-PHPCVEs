@@ -19,12 +19,29 @@ The dataset consists of:
 
 The dataset is categorized by year, and ground truth labels are provided.
 
-## 2. Usage
+## 2. Download
 
-### 2.1 Running with Docker
-To build and run the dataset container, execute the following commands:
+### OPTION-1 Download released zip files for the dataset
+You can find the downloadable zip files under the [release page](https://github.com/YichaoXu/Dataset-PHPCVEs/releases)
+
+### OPTION-2 Download dataset by a Python Script 
+A Python script (`reproduce.py`) is provided to automate dataset retrieval and ensure reproducibility. 
+**Please notice that the docker engine is still required for this script.**
+
+#### Example Usage:
 ```sh
-$ cd path/to/this/readme
+$ pip install -r requirements.txt
+$ python reproduce.py install    # Build the Docker image
+$ python reproduce.py download --output data_storage_dir --token YOUR_GITHUB_TOKEN # Download dataset
+$ python reproduce.py clean      # Remove Docker image
+```
+
+### OPTION-3 Download dataset by a Docker container
+To build and run the dataset container, execute the following commands:
+
+#### Example Usage:
+```sh
+$ cd docker
 $ docker build -t cves-dataset .
 $ docker run --rm \
     -v "$(pwd)/output:/output" \
@@ -33,21 +50,7 @@ $ docker run --rm \
 ```
 After execution, the projects will be downloaded into the `output` directory.
 
-### 2.2 Running with Python Script
-A Python script (`reproduce.py`) is provided to automate dataset retrieval and ensure reproducibility. 
-
-**Please notice that the docker backend is still required for this script.**
-
-#### Example Usage:
-```sh
-$ pip install -r requirements.txt
-$ python reproduce.py install    # Build and install Docker image
-$ python reproduce.py download --output data --token YOUR_GITHUB_TOKEN   # Download dataset
-$ python reproduce.py clean      # Remove Docker image
-```
-
 ### Important Notes
-- The dataset was last downloaded on **February 17, 2025**.
 - If a repository is renamed or removed after this date, the dataset may differ.
 - For consistency, we recommend using zip format of the dataset provided in the release page.
 

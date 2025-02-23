@@ -174,5 +174,5 @@ cython_debug/
 .pypirc
 
 venv/
-data/
 **/.DS_Store
+CWE*/
