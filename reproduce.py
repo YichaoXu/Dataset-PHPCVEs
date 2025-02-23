@@ -20,8 +20,9 @@ def install(
 
     # Get the script's directory
     script_dir = os.path.dirname(os.path.abspath(__file__))
-
-    typer.echo(f"🚀 Checking if Docker image exists in {script_dir}...")
+    docker_dir = os.path.join(script_dir, "docker")
+    typer.echo(f"🚀 Checking if Docker build file exists in {docker_dir}...")
+    if not os.path.exists(docker_dir): raise "❌ Dockerfile do not exist, you may changed the script location."
 
     # Check if the image already exists
     try:
@@ -45,9 +46,9 @@ def install(
 
     # Build the image and stream progress logs
     try:
-        typer.echo(f"🔨 Building Docker image from {script_dir} ...")
+        typer.echo(f"🔨 Building Docker image from {docker_dir} ...")
         image_build_logs = client.api.build(
-            path=script_dir, nocache=no_cache, tag=IMAGE_NAME, decode=True
+            path=docker_dir, nocache=no_cache, tag=IMAGE_NAME, decode=True
         )
 
         # Display progress in real-time
