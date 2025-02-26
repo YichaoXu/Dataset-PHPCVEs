@@ -53,6 +53,7 @@ After execution, the projects will be downloaded into the `output` directory.
 ### Important Notes
 - If a repository is renamed or removed after this date, the dataset may differ.
 - For consistency, we recommend using zip format of the dataset provided in the release page.
+- Please also consider to cite our paper, if you used this dataset in your work
 
 ## Contact
 For questions or issues, please contact the project maintainer.
