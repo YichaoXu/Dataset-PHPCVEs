@@ -1,59 +1,80 @@
-# Dataset PHPCVEs
+# Dataset-PHPCVEs
 
-## 1. Overview
-This dataset contains the five most frequently occurring vulnerabilities from [CVEListV5@2025-02-14_1700Z](https://github.com/CVEProject/cvelistV5). To ensure efficiency, we only included vulnerabilities that are available on GitHub.
+A tool for collecting PHP-related CVE data with GitHub commit information.
 
-### 1.1 Filtering Criteria
-The CVEs in this dataset were selected based on the following criteria:
-1. The CVE record in **CVEListV5** contains **PHP-related keywords**.
-2. The **refers** section of the CVE record includes a **GitHub patch link**.
-3. The **GitHub patch** contains at least one **PHP-related file** (e.g., `.php`).
+## Features
 
-### 1.2 Dataset Composition
-The dataset consists of:
-- **236** instances of XSS (CWE-79)
-- **98** instances of SQL Injection (CWE-89)
-- **19** instances of Unrestricted File Upload (CWE-434)
-- **13** instances of Code Injection (CWE-94)
-- **13** instances of Command Injection (CWE-77 & CWE-78)
+- Downloads and extracts CVE data from the official CVE Project repository
+- Filters for PHP-related vulnerabilities
+- Extracts GitHub repository and commit information
+- Determines project type (Web App, Framework Plugin, Library, etc.)
+- Saves the dataset to a CSV file
 
-The dataset is categorized by year, and ground truth labels are provided.
+## Installation
 
-## 2. Download
-
-### OPTION-1 Download released zip files for the dataset
-You can find the downloadable zip files under the [release page](https://github.com/YichaoXu/Dataset-PHPCVEs/releases)
-
-### OPTION-2 Download dataset by a Python Script 
-A Python script (`reproduce.py`) is provided to automate dataset retrieval and ensure reproducibility. 
-**Please notice that the docker engine is still required for this script.**
-
-#### Example Usage:
-```sh
-$ pip install -r requirements.txt
-$ python reproduce.py install    # Build the Docker image
-$ python reproduce.py download --output data_storage_dir --token YOUR_GITHUB_TOKEN # Download dataset
-$ python reproduce.py clean      # Remove Docker image
+```bash
+git clone https://github.com/yourusername/Dataset-PHPCVEs.git
+cd Dataset-PHPCVEs
+pip install -r requirements.txt
 ```
 
-### OPTION-3 Download dataset by a Docker container
-To build and run the dataset container, execute the following commands:
+## Usage
 
-#### Example Usage:
-```sh
-$ cd docker
-$ docker build -t cves-dataset .
-$ docker run --rm \
-    -v "$(pwd)/output:/output" \
-    -e GITHUB_TOKEN=? \
-    cves-dataset
+### Collect CVE Data
+
+```bash
+python reproduce.py collect ./output --token YOUR_GITHUB_TOKEN
 ```
-After execution, the projects will be downloaded into the `output` directory.
 
-### Important Notes
-- If a repository is renamed or removed after this date, the dataset may differ.
-- For consistency, we recommend using zip format of the dataset provided in the release page.
-- Please also consider to cite our paper, if you used this dataset in your work
+Options:
+- `--token`: GitHub API token (optional, but recommended to avoid rate limits)
+- `--no-cache`: Disable using cached dataset
 
-## Contact
-For questions or issues, please contact the project maintainer.
+### Download Code
+
+```bash
+python reproduce.py download ./output/dataset.csv ./code
+```
+
+### Generate Statistics
+
+```bash
+python reproduce.py statistic ./output/dataset.csv
+```
+
+### Clean Cache
+
+```bash
+python reproduce.py clean [cache_type]
+```
+
+Options:
+- `cache_type`: Type of cache to clean (default: "all")
+  - `all`: Clean all cache files
+  - `collect`: Clean all collect command cache
+  - `download`: Clean all download command cache
+  - `statistic`: Clean all statistic command cache
+  - `cve`: Clean only raw CVE data
+  - `processed`: Clean only processed CVE cache
+
+## Project Structure
+
+```
+Dataset-PHPCVEs/
+├── reproduce.py                # Main entry point
+├── src/
+│   ├── commands/               # CLI commands
+│   ├── core/                   # Core business logic
+│   ├── models/                 # Data models
+│   ├── utils/                  # Utility functions
+│   └── config.py               # Configuration
+├── .inter/                     # Intermediate files
+└── output/                     # Output directory
+```
+
+## Requirements
+
+- Python 3.8+
+- Rich (for progress display)
+- Typer (for CLI)
+- Requests (for API calls)

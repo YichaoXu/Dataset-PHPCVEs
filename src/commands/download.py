@@ -3,12 +3,12 @@ import csv
 import time
 from pathlib import Path
 import typer
-from utils.logger import Logger
-from core.validator import DataValidator
-from core.downloader import CodeDownloader
-from models.metadata import MetadataGenerator
-from commands.collect import collect
-from config import config
+from src.utils.logger import Logger
+from src.core.validator import DataValidator
+from src.core.downloader import CodeDownloader
+from src.models.metadata import MetadataGenerator
+from src.commands.collect import collect
+from src.config import config
 
 def download(
     output_dir: str = typer.Argument(..., help="📂 Download output directory path (required)"),
@@ -29,8 +29,9 @@ def download(
     output_dir = Path(output_dir)
     os.makedirs(output_dir, exist_ok=True)
     
-    # Ensure intermediate directory exists
-    os.makedirs(config.inter_dir, exist_ok=True)
+    # Define command-specific cache directories
+    download_cache_dir = config.inter_dir / "download"
+    ensure_dir(download_cache_dir)
     
     # Use dataset path if provided, otherwise look in output directory
     if dataset_path:

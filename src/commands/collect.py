@@ -2,19 +2,19 @@ import os
 import typer
 from pathlib import Path
 from typing import Optional
-from utils.logger import Logger
-from utils.github import GitHubAPI
-from core.processor import CVEProcessor
-from core.extractor import CVEExtractor
-from core.downloader import CVEDownloader
-from utils.file_utils import ensure_dir, copy_file
-from utils.error_handler import ErrorHandler
-from config import config
+from src.utils.logger import Logger
+from src.utils.github import GitHubAPI
+from src.core.processor import CVEProcessor
+from src.core.extractor import CVEExtractor
+from src.core.downloader import CVEDownloader
+from src.utils.file_utils import ensure_dir, copy_file
+from src.config import config
 
 def collect(
     output_dir: str = typer.Argument(..., help="📂 Output directory path (required)"),
     github_token: Optional[str] = typer.Option(None, "--token", help="🔑 GitHub API Token"),
     do_use_cache: bool = typer.Option(True, "--no-cache", help="🔄 Disable using cached dataset"),
+    use_processed_cache: bool = typer.Option(True, "--no-processed-cache", help="🔄 Disable using processed CVE cache"),
 ):
     """
     Collect PHP-related CVE dataset with commit information.
@@ -22,28 +22,36 @@ def collect(
     This command downloads the latest CVE data, filters for PHP-related vulnerabilities,
     extracts GitHub commit information, and saves the results to a CSV file.
     """
-    # Set up directories
-    output_dir = Path(output_dir)
-    ensure_dir(output_dir)
-    ensure_dir(config.inter_dir)
-    
-    # Define paths
-    dataset_path: Path = output_dir / "dataset.csv"
-    cache_path: Path = config.cache_dir / "dataset.csv"
-    
-    # Check cache
-    if do_use_cache and cache_path.exists():
-        Logger.info("Using cached dataset")
-        copy_file(cache_path, dataset_path)
-        return
-
-    # Initialize components
-    github_api = GitHubAPI(github_token)
-    downloader = CVEDownloader(config.inter_dir, do_use_cache)
-    extractor = CVEExtractor(config.inter_dir, do_use_cache)
-    processor = CVEProcessor(github_api)
-
     try:
+        # Set up directories
+        output_dir = Path(output_dir)
+        ensure_dir(output_dir)
+        ensure_dir(config.inter_dir)
+        
+        # Define command-specific cache directories
+        collect_cache_dir = config.inter_dir / "collect"
+        ensure_dir(collect_cache_dir)
+        
+        cve_zip_path = collect_cache_dir / "cve_data.zip"
+        cve_dir = collect_cache_dir / "cves"
+        cve_processed_dir = collect_cache_dir / "processed"
+        dataset_cache_path = collect_cache_dir / "dataset.csv"
+        
+        # Define paths
+        dataset_path: Path = output_dir / "dataset.csv"
+        
+        # Check cache
+        if do_use_cache and dataset_cache_path.exists():
+            Logger.info("Using cached dataset")
+            copy_file(dataset_cache_path, dataset_path)
+            return
+
+        # Initialize components
+        github_api = GitHubAPI(github_token)
+        downloader = CVEDownloader(collect_cache_dir, cve_zip_path, do_use_cache)
+        extractor = CVEExtractor(collect_cache_dir, cve_dir, cve_zip_path, do_use_cache)
+        processor = CVEProcessor(github_api, cve_processed_dir, use_processed_cache)
+
         # Step 1: Get CVE data (download and extract)
         if not extractor.cve_data_exists() or not do_use_cache:
             # Download and extract CVE data
@@ -64,7 +72,7 @@ def collect(
             raise typer.Exit(code=1)
         
         # Save dataset
-        processor.save_dataset(records, dataset_path, cache_path)
+        processor.save_dataset(records, dataset_path, dataset_cache_path)
         Logger.success(f"Dataset saved to: {dataset_path}")
         
         # Print statistics

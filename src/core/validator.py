@@ -1,35 +1,52 @@
+import os
 import csv
 from pathlib import Path
-from utils.logger import Logger
+from src.utils.logger import Logger
+from src.config import config
 
 class DataValidator:
-    """Dataset format validator"""
-    REQUIRED_FIELDS = {'cve_id', 'cwe_type', 'repository', 'current_commit', 'previous_commit', 'project_type'}
-
+    """Validates dataset files and structures."""
+    
     @staticmethod
-    def validate_dataset(path: Path) -> bool:
+    def validate_dataset(dataset_path: Path) -> bool:
+        """
+        Validate that the dataset CSV file exists and has the required columns.
+        
+        Args:
+            dataset_path: Path to the dataset CSV file
+            
+        Returns:
+            True if the dataset is valid, False otherwise
+        """
+        if not os.path.exists(dataset_path):
+            Logger.error(f"Dataset file not found: {dataset_path}")
+            return False
+            
         try:
-            if not path.exists():
-                Logger.error(f"Dataset file not found: {path}")
-                return False
+            with open(dataset_path, 'r') as f:
+                reader = csv.reader(f)
+                header = next(reader)
                 
-            with open(path, 'r', encoding='utf-8') as f:
-                reader = csv.DictReader(f)
-                if not reader.fieldnames:
-                    Logger.error("Invalid CSV file: no headers found")
+                required_columns = [
+                    'cve_id', 'cwe_type', 'repository', 
+                    'current_commit', 'previous_commit', 'project_type'
+                ]
+                
+                missing_columns = [col for col in required_columns if col not in header]
+                
+                if missing_columns:
+                    Logger.error(f"Dataset missing required columns: {', '.join(missing_columns)}")
                     return False
                     
-                missing_fields = DataValidator.REQUIRED_FIELDS - set(reader.fieldnames)
-                if missing_fields:
-                    Logger.error(f"Missing required fields: {', '.join(missing_fields)}")
+                # Check if there's at least one row of data
+                try:
+                    next(reader)
+                except StopIteration:
+                    Logger.warning("Dataset is empty (no data rows)")
                     return False
                     
-                # Validate data integrity
-                for row_num, row in enumerate(reader, start=2):
-                    if not all(row.get(field) for field in DataValidator.REQUIRED_FIELDS):
-                        Logger.warning(f"Row {row_num} has missing values")
-                        
                 return True
+                
         except Exception as e:
-            Logger.error(f"Dataset validation failed: {e}")
+            Logger.error(f"Error validating dataset: {str(e)}")
             return False 

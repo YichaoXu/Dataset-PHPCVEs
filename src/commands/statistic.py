@@ -4,10 +4,10 @@ import re
 from pathlib import Path
 import typer
 from collections import Counter, defaultdict
-from utils.logger import Logger
-from core.validator import DataValidator
-from commands.collect import collect
-from config import config
+from src.utils.logger import Logger
+from src.core.validator import DataValidator
+from src.commands.collect import collect
+from src.config import config
 
 def statistic(
     output_dir: str = typer.Argument(..., help="📂 Statistics output directory path (required)"),
@@ -25,12 +25,9 @@ def statistic(
     output_dir = Path(output_dir)
     os.makedirs(output_dir, exist_ok=True)
     
-    # Ensure intermediate directory exists
-    os.makedirs(config.inter_dir, exist_ok=True)
-    
-    # Define statistics directory in output directory
-    stats_dir = output_dir / "statistics"
-    os.makedirs(stats_dir, exist_ok=True)
+    # Define command-specific cache directories
+    statistic_cache_dir = config.inter_dir / "statistic"
+    ensure_dir(statistic_cache_dir)
     
     # Use dataset path if provided, otherwise look in output directory
     if dataset_path:
@@ -47,7 +44,7 @@ def statistic(
         raise typer.Exit(code=1)
 
     try:
-        os.makedirs(stats_dir, exist_ok=True)
+        os.makedirs(statistic_cache_dir, exist_ok=True)
         
         stats = {
             'total': 0,
@@ -94,7 +91,7 @@ def statistic(
                 })
 
         # Save summary
-        with open(stats_dir / "summary.txt", 'w', encoding='utf-8') as f:
+        with open(statistic_cache_dir / "summary.txt", 'w', encoding='utf-8') as f:
             f.write(f"Total CVEs: {stats['total']}\n")
             f.write(f"Unique CWEs: {len(stats['cwe_counts'])}\n")
             f.write(f"Unique Repositories: {len(stats['repo_counts'])}\n")
@@ -113,7 +110,7 @@ def statistic(
                 f.write(f"{year}: {count} CVEs\n")
 
         # Save project type details
-        with open(stats_dir / "project_type_details.csv", 'w', newline='', encoding='utf-8') as f:
+        with open(statistic_cache_dir / "project_type_details.csv", 'w', newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
             writer.writerow(['Project Type', 'Total CVEs', 'Unique CWEs', 'Most Common CWE', 'Repositories'])
             for ptype, cves in project_type_details.items():
@@ -133,7 +130,7 @@ def statistic(
         if not project_types:
             Logger.warning("No project types found, skipping matrix CSV")
         else:
-            with open(stats_dir / "cwe_project_type_matrix.csv", 'w', newline='', encoding='utf-8') as f:
+            with open(statistic_cache_dir / "cwe_project_type_matrix.csv", 'w', newline='', encoding='utf-8') as f:
                 writer = csv.writer(f)
                 writer.writerow(['CWE'] + project_types)
                 
@@ -144,7 +141,7 @@ def statistic(
                     writer.writerow(row)
 
         # Save project type trends
-        with open(stats_dir / "project_type_trends.csv", 'w', newline='', encoding='utf-8') as f:
+        with open(statistic_cache_dir / "project_type_trends.csv", 'w', newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
             writer.writerow(['Year'] + project_types)
             
@@ -154,7 +151,7 @@ def statistic(
                     row.append(stats['project_type_by_year'][year][ptype])
                 writer.writerow(row)
 
-        Logger.success(f"Statistics saved to: {stats_dir}")
+        Logger.success(f"Statistics saved to: {statistic_cache_dir}")
 
     except Exception as e:
         Logger.error(f"Statistics generation failed: {e}")

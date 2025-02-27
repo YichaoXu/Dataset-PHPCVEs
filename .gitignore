@@ -205,6 +205,11 @@ venv/
 **/.DS_Store
 CWE*/
 
-# New directory
+# Cache directories
 .inter/
+.inter/collect/
+.inter/download/
+.inter/statistic/
+
+# Output directories
 output/

@@ -1,6 +1,7 @@
 import os
 import shutil
 from pathlib import Path
+from src.utils.logger import Logger
 
 def ensure_dir(dir_path: Path) -> None:
     """Create directory if it doesn't exist."""

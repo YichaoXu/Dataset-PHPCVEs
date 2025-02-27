@@ -2,9 +2,9 @@ import time
 import random
 import requests
 from typing import Dict, Optional
-from config import config
-from utils.logger import Logger
-from utils.error_handler import ErrorHandler
+from src.config import config
+from src.utils.logger import Logger
+from src.utils.error_handler import ErrorHandler
 
 class GitHubAPI:
     """GitHub API client for retrieving repository information."""
@@ -98,6 +98,13 @@ class GitHubAPI:
         max_retries = 5
         base_delay = 2
         
+        # Extract repo info from URL for better error messages
+        repo_info = "unknown"
+        if "/repos/" in url:
+            parts = url.split("/repos/")[1].split("/")
+            if len(parts) >= 2:
+                repo_info = f"{parts[0]}/{parts[1]}"
+        
         while retry_attempts < max_retries:
             try:
                 response = requests.get(url, headers=self.headers)
@@ -112,10 +119,10 @@ class GitHubAPI:
                     delay = base_delay * (2 ** retry_attempts) + random.uniform(0, 1)
                     time.sleep(min(delay, 300))
                 else:
-                    Logger.error(f"API request failed: {response.status_code}")
+                    Logger.error(f"API request failed for {repo_info}: {response.status_code}")
                     return None
             except Exception as e:
-                Logger.error(f"Request error: {e}")
+                Logger.error(f"Request error for {repo_info}: {e}")
                 retry_attempts += 1
                 time.sleep(base_delay * (2 ** retry_attempts))
         return None

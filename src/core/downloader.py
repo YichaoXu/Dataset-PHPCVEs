@@ -3,7 +3,8 @@ import shutil
 import requests
 import zipfile
 from pathlib import Path
-from utils.logger import Logger
+from src.utils.logger import Logger
+from src.utils.file_utils import ensure_dir
 from src.config import config
 
 class CodeDownloader:
@@ -70,17 +71,25 @@ class CodeDownloader:
 class CVEDownloader:
     """Handles downloading of CVE data."""
     
-    def __init__(self, inter_dir: Path, use_cache: bool = True):
-        self.inter_dir = inter_dir
+    def __init__(self, cache_dir: Path, cve_zip_path: Path, use_cache: bool = True):
+        """
+        Initialize the downloader.
+        
+        Args:
+            cache_dir: Directory to store downloaded files
+            cve_zip_path: Path to the CVE zip file
+            use_cache: Whether to use cached files
+        """
+        self.cache_dir = cache_dir
         self.use_cache = use_cache
-        self.main_zip_path = inter_dir / "cve_data.zip"
+        self.cve_zip_path = cve_zip_path
+        ensure_dir(self.cache_dir)
     
     def download_cve_data(self) -> bool:
         """Download CVE data if needed."""
-        if self.main_zip_path.exists() and self.use_cache:
+        if self.cve_zip_path.exists() and self.use_cache:
             Logger.info("Using existing main zip file")
             return True
-        
         return self._download_main_zip()
     
     def _download_main_zip(self) -> bool:
@@ -90,7 +99,7 @@ class CVEDownloader:
             response = requests.get(config.cve_url)
             response.raise_for_status()
             
-            with open(self.main_zip_path, 'wb') as f:
+            with open(self.cve_zip_path, 'wb') as f:
                 f.write(response.content)
             Logger.success("CVE data downloaded successfully")
             return True

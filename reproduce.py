@@ -40,6 +40,10 @@ $ python reproduce.py [command] --help
 import os
 import sys
 import typer
+from src.commands.collect import collect
+from src.commands.download import download
+from src.commands.statistic import statistic
+from src.commands.clean import clean
 
 # Add src directory to Python path
 src_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'src')
@@ -60,6 +64,7 @@ app = typer.Typer(
 app.command()(collect)
 app.command()(download)
 app.command()(statistic)
+app.command()(clean)
 
 if __name__ == "__main__":
     app() 
