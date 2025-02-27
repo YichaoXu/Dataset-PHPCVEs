@@ -1,7 +1,6 @@
 certifi==2025.1.31
 charset-normalizer==3.4.1
 click==8.1.8
-docker==7.1.0
 idna==3.10
 markdown-it-py==3.0.0
 mdurl==0.1.2
@@ -12,3 +11,4 @@ shellingham==1.5.4
 typer==0.15.1
 typing_extensions==4.12.2
 urllib3==2.3.0
+cwe-tree==1.0.0
