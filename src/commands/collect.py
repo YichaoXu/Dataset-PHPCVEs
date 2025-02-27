@@ -2,13 +2,13 @@ import os
 import typer
 from pathlib import Path
 from typing import Optional
-from src.utils.logger import Logger
-from src.utils.github import GitHubAPI
-from src.core.processor import CVEProcessor
-from src.core.extractor import CVEExtractor
-from src.core.downloader import CVEDownloader
-from src.utils.file_utils import ensure_dir, copy_file
-from src.config import config
+from utils.logger import Logger
+from utils.github import GitHubAPI
+from core.processor import CVEProcessor
+from core.extractor import CVEExtractor
+from core.downloader import CVEDownloader
+from utils.file_utils import ensure_dir, copy_file
+from config import config
 
 def collect(
     output_dir: str = typer.Argument(..., help="📂 Output directory path (required)"),

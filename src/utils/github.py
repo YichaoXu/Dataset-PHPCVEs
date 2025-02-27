@@ -6,14 +6,56 @@ from config import config
 from utils.logger import Logger
 
 class GitHubAPI:
-    """GitHub API handler with rate limiting"""
-    def __init__(self, token: str):
+    """GitHub API client for retrieving repository information."""
+    
+    def __init__(self, token: Optional[str] = None):
+        self.token = token
+        self.base_url = "https://api.github.com"
         self.headers = {
-            "Accept": "application/vnd.github.v3+json",
-            "User-Agent": "PHP-CVE-Collector"
+            "Accept": "application/vnd.github.v3+json"
         }
         if token:
             self.headers["Authorization"] = f"token {token}"
+    
+    def get_previous_commit(self, repo_url: str, commit_hash: str) -> Optional[str]:
+        """Get the parent commit hash for a given commit."""
+        try:
+            # Extract owner and repo from URL
+            repo_path = repo_url.replace("https://github.com/", "")
+            owner, repo = repo_path.split("/")
+            
+            # Get commit details
+            url = f"{self.base_url}/repos/{owner}/{repo}/commits/{commit_hash}"
+            response = requests.get(url, headers=self.headers)
+            response.raise_for_status()
+            
+            data = response.json()
+            parents = data.get("parents", [])
+            
+            if parents:
+                return parents[0].get("sha")
+            
+            return None
+        except Exception as e:
+            Logger.warning(f"Failed to get previous commit: {str(e)}")
+            return None
+    
+    def get_repo_info(self, repo_url: str) -> dict:
+        """Get repository information."""
+        try:
+            # Extract owner and repo from URL
+            repo_path = repo_url.replace("https://github.com/", "")
+            owner, repo = repo_path.split("/")
+            
+            # Get repo details
+            url = f"{self.base_url}/repos/{owner}/{repo}"
+            response = requests.get(url, headers=self.headers)
+            response.raise_for_status()
+            
+            return response.json()
+        except Exception as e:
+            Logger.warning(f"Failed to get repo info: {str(e)}")
+            return {}
 
     def get_commit_details(self, owner: str, repo: str, commit_sha: str) -> Optional[Dict]:
         url = f"{config.github_api_url}/repos/{owner}/{repo}/commits/{commit_sha}"
