@@ -8,23 +8,34 @@ class ErrorHandler:
     """Centralized error handling for the application."""
     
     @staticmethod
-    def with_retry(
-        func: Callable[..., T], 
-        *args, 
-        max_retries: int = 3, 
-        retry_delay: int = 5,
-        error_msg: str = "Operation failed",
-        **kwargs
-    ) -> Optional[T]:
-        """Execute a function with retry logic."""
-        for attempt in range(max_retries):
+    def with_retry(func, *args, max_retries=3, retry_delay=5, error_msg=None):
+        """
+        Execute a function with retry logic.
+        
+        Args:
+            func: Function to execute
+            *args: Arguments to pass to the function
+            max_retries: Maximum number of retries
+            retry_delay: Delay between retries in seconds
+            error_msg: Custom error message prefix
+            
+        Returns:
+            Result of the function or None if all retries fail
+        """
+        for attempt in range(1, max_retries + 1):
             try:
-                return func(*args, **kwargs)
+                return func(*args)
             except Exception as e:
-                Logger.warning(f"{error_msg} (attempt {attempt+1}/{max_retries}): {str(e)}")
-                if attempt < max_retries - 1:
+                if error_msg:
+                    Logger.warning(f"{error_msg} (attempt {attempt}/{max_retries}): {str(e)}")
+                else:
+                    Logger.warning(f"Error (attempt {attempt}/{max_retries}): {str(e)}")
+                
+                if attempt < max_retries:
                     time.sleep(retry_delay)
-        return None
+                else:
+                    Logger.error(f"Failed after {max_retries} attempts")
+                    return None
     
     @staticmethod
     def try_multiple_encodings(file_path, encodings=None):

@@ -1,7 +1,8 @@
 import time
 import random
 import requests
-from typing import Dict, Optional
+import re
+from typing import Dict, Optional, Any
 from src.config import config
 from src.utils.logger import Logger
 from src.utils.error_handler import ErrorHandler
@@ -65,10 +66,53 @@ class GitHubAPI:
             Logger.warning(f"Failed to get repo info: {str(e)}")
             return {}
 
-    def get_commit_details(self, owner: str, repo: str, commit_sha: str) -> Optional[Dict]:
-        """Get details of a specific commit."""
+    def get_commit_details(self, owner: str, repo: str, commit_sha: str) -> Optional[Dict[str, Any]]:
+        """
+        Get details of a specific commit.
+        
+        Args:
+            owner: Repository owner
+            repo: Repository name
+            commit_sha: Commit SHA
+            
+        Returns:
+            Commit details or None if not found
+        """
+        # Validate inputs
+        if not owner or not repo or not commit_sha:
+            # Log to file only, don't print to console
+            Logger.debug(f"Invalid parameters for get_commit_details: owner={owner}, repo={repo}, commit_sha={commit_sha}")
+            return None
+        
+        # Normalize inputs
+        owner = owner.strip()
+        repo = repo.strip()
+        commit_sha = commit_sha.strip()
+        
+        # Validate commit SHA format
+        if not re.match(r'^[0-9a-f]{7,40}$', commit_sha, re.IGNORECASE):
+            # Log to file only, don't print to console
+            Logger.debug(f"Invalid commit SHA format: {commit_sha}")
+            return None
+        
         url = f"{self.base_url}/repos/{owner}/{repo}/commits/{commit_sha}"
-        return self._make_request(url)
+        
+        try:
+            # The _make_request method already returns the JSON data, not the Response object
+            response = self._make_request(url)
+            
+            # If response is None, the request failed
+            if response is None:
+                # Log to file only, don't print to console
+                Logger.debug(f"Commit not found: {owner}/{repo}/{commit_sha}")
+                return None
+            
+            # Return the response directly since it's already the JSON data
+            return response
+        except Exception as e:
+            # Log to file only, don't print to console
+            Logger.debug(f"Error getting commit details: {str(e)}")
+            return None
 
     def _handle_rate_limit(self, response: requests.Response) -> int:
         """Handle rate limiting and return wait time in seconds."""
@@ -119,10 +163,16 @@ class GitHubAPI:
                     delay = base_delay * (2 ** retry_attempts) + random.uniform(0, 1)
                     time.sleep(min(delay, 300))
                 else:
-                    Logger.error(f"API request failed for {repo_info}: {response.status_code}")
+                    # For 404 errors, just log to file, don't print to console
+                    if response.status_code == 404:
+                        Logger.debug(f"API request failed for {repo_info}: 404 Not Found")
+                    else:
+                        # For other errors, log with higher severity but still avoid console
+                        Logger.debug(f"API request failed for {repo_info}: {response.status_code}")
                     return None
             except Exception as e:
-                Logger.error(f"Request error for {repo_info}: {e}")
+                # Log to file only, don't print to console
+                Logger.debug(f"Request error for {repo_info}: {e}")
                 retry_attempts += 1
                 time.sleep(base_delay * (2 ** retry_attempts))
         return None

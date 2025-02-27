@@ -1,13 +1,15 @@
-from typing import Optional
-from rich.live import Live
-from rich.panel import Panel
-from rich.layout import Layout
+import os
+import time
+from typing import Optional, List
 from rich.console import Console
-from rich.progress import Progress, TextColumn, BarColumn, TimeRemainingColumn, TaskProgressColumn
+from rich.progress import Progress, TextColumn, BarColumn, TaskProgressColumn, TimeRemainingColumn
+from rich.layout import Layout
+from rich.panel import Panel
+from rich.text import Text
 from src.utils.logger import Logger
 
 class ProgressUI:
-    """UI component for displaying progress with status information."""
+    """Progress UI with logging capabilities."""
     
     def __init__(self, total: int, description: str = "Processing"):
         """
@@ -15,60 +17,41 @@ class ProgressUI:
         
         Args:
             total: Total number of items to process
-            description: Description of the progress bar
+            description: Description of the task
         """
-        self.total = total
-        self.description = description
-        self.current_item = "Starting..."
-        self.last_errors = []
-        self.log_buffer = []
-        
-        # Create layout
-        self.layout = Layout()
-        self.layout.split(
-            Layout(name="main"),
-            Layout(name="footer", size=4)
-        )
+        self.console = Console()
+        self.log_buffer: List[str] = []
         
         # Create progress bar
         self.progress = Progress(
             TextColumn("[bold blue]{task.description}"),
             BarColumn(),
             TaskProgressColumn(),
+            TextColumn("•"),
             TimeRemainingColumn(),
+            console=self.console
         )
-        self.task = self.progress.add_task(description, total=total)
         
-        # Set up layout components
-        self.layout["main"] = self.progress
-        self.layout["footer"] = self._get_status_panel()
+        # Create layout
+        self.layout = Layout()
         
-        # Create console and live display
-        self.console = Console()
-        self.live = Live(
-            self.layout, 
-            console=self.console, 
-            refresh_per_second=4, 
-            screen=True
+        # Add progress to layout - Fix: use split method instead of item assignment
+        self.layout.split(
+            self.progress
         )
-    
-    def _get_status_panel(self) -> Panel:
-        """Generate status panel with current item and recent errors."""
-        content = f"Current: {self.current_item}\n"
-        if self.last_errors:
-            content += "Recent issues:\n"
-            for err in self.last_errors[-3:]:  # Show last 3 errors
-                content += f"• {err}\n"
-        return Panel(content, title="Status", border_style="yellow")
+        
+        # Create task
+        self.task_id = self.progress.add_task(description, total=total)
+        self.current_item = None
     
     def __enter__(self):
-        """Start the live display."""
-        self.live.__enter__()
+        """Start the progress UI."""
+        self.progress.start()
         return self
     
     def __exit__(self, exc_type, exc_val, exc_tb):
-        """End the live display."""
-        self.live.__exit__(exc_type, exc_val, exc_tb)
+        """Stop the progress UI."""
+        self.progress.stop()
         
         # After processing is complete, display the buffered log messages
         if self.log_buffer:
@@ -79,60 +62,57 @@ class ProgressUI:
             if len(self.log_buffer) > 10:
                 Logger.info(f"... and {len(self.log_buffer) - 10} more issues (see log file for details)")
     
-    def update(self, 
-               advance: int = 1, 
-               current_item: Optional[str] = None, 
-               description: Optional[str] = None,
-               refresh: bool = True) -> None:
+    def update(self, advance: int = 0, current_item: Optional[str] = None, description: Optional[str] = None):
         """
-        Update the progress display.
+        Update the progress UI.
         
         Args:
             advance: Number of steps to advance
             current_item: Current item being processed
-            description: New description for the progress bar
-            refresh: Whether to refresh the display
+            description: New description for the task
         """
         if current_item:
             self.current_item = current_item
         
-        update_args = {"advance": advance}
+        update_args = {}
+        if advance > 0:
+            update_args["advance"] = advance
         if description:
             update_args["description"] = description
         
-        self.progress.update(self.task, **update_args)
-        self.layout["footer"] = self._get_status_panel()
+        if self.current_item and not description:
+            update_args["description"] = f"{self.progress.tasks[self.task_id].description.split(' - ')[0]} - {self.current_item}"
         
-        if refresh:
-            self.live.refresh()
+        self.progress.update(self.task_id, **update_args)
     
-    def log_error(self, error_msg: str, refresh: bool = True) -> None:
+    def log_error(self, message: str, show_in_progress: bool = False) -> None:
         """
         Log an error message.
         
         Args:
-            error_msg: Error message to log
-            refresh: Whether to refresh the display
+            message: Error message
+            show_in_progress: Whether to show the error in the progress bar
         """
-        self.log_buffer.append(error_msg)
-        self.last_errors.append(error_msg)
+        # Add to log buffer
+        self.log_buffer.append(message)
         
-        # Keep only the last few errors to avoid cluttering the display
-        if len(self.last_errors) > 5:
-            self.last_errors.pop(0)
-        
-        self.layout["footer"] = self._get_status_panel()
-        
-        if refresh:
-            self.live.refresh()
+        # Only show in progress bar if explicitly requested
+        if show_in_progress:
+            self.progress.print(f"❌ {message}")
     
-    def write_log_to_file(self, file_path: str) -> None:
+    def write_log_to_file(self, log_file: str):
         """
-        Write the log buffer to a file.
+        Write log buffer to file.
         
         Args:
-            file_path: Path to the log file
+            log_file: Path to log file
         """
-        with open(file_path, "w") as f:
-            for message in self.log_buffer:
-                f.write(f"{message}\n") 
+        if not self.log_buffer:
+            return
+        
+        try:
+            with open(log_file, 'w', encoding='utf-8') as f:
+                f.write("\n".join(self.log_buffer))
+            self.console.print(f"[yellow]Errors logged to: {log_file}[/yellow]")
+        except Exception as e:
+            self.console.print(f"[red]Failed to write log file: {str(e)}[/red]") 
