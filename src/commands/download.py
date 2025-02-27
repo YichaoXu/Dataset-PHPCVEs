@@ -10,14 +10,20 @@ from models.metadata import MetadataGenerator
 from commands.collect import collect
 
 def download(
-    output_dir: str = None,
-    dataset_path: str = None,
-    cwes: str = "",
-    project_types: str = "",
-    github_token: str = None,
-    enforce: bool = False
+    output_dir: str = typer.Argument(None, help="📂 Download output directory path"),
+    dataset_path: str = typer.Option(None, help="📊 Dataset CSV file path"),
+    cwes: str = typer.Option("", help="🎯 CWE ID list (comma-separated, empty for all)"),
+    project_types: str = typer.Option("", help="🏷️ Project types to include (comma-separated, empty for all)"),
+    github_token: str = typer.Option(None, "--token", help="🔑 GitHub API Token"),
+    enforce: bool = typer.Option(False, help="🔄 Force download even if directory exists")
 ):
-    """Download vulnerable PHP code (previous commit version)"""
+    """
+    Download vulnerable PHP code from GitHub repositories.
+    
+    This command downloads the vulnerable code versions (previous commits) from GitHub
+    repositories identified in the dataset. The code is organized by CWE type and CVE ID.
+    
+    """
     output_dir = Path(output_dir or os.path.dirname(os.path.abspath(__file__)))
     dataset_path = Path(dataset_path or output_dir / "dataset.csv")
 

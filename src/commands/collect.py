@@ -4,6 +4,7 @@ import shutil
 import requests
 import zipfile
 import csv
+import typer
 from pathlib import Path
 from typing import Optional
 from src.utils.logger import Logger
@@ -12,11 +13,17 @@ from src.core.processor import CVEProcessor
 from src.config import config
 
 def collect(
-    output_dir: str = None,
-    github_token: Optional[str] = None,
-    do_use_cache: bool = True,
+    output_dir: str = typer.Argument(None, help="📂 Output directory path"),
+    github_token: Optional[str] = typer.Option(None, "--token", help="🔑 GitHub API Token"),
+    do_use_cache: bool = typer.Option(True, "--no-cache", help="🔄 Disable using cached dataset"),
 ):
-    """Collect PHP-related CVE dataset with commit information"""
+    """
+    Collect PHP-related CVE dataset with commit information.
+    
+    This command downloads the latest CVE data, filters for PHP-related vulnerabilities,
+    extracts GitHub commit information, and saves the results to a CSV file.
+
+    """
     output_dir = Path(output_dir or os.path.dirname(os.path.abspath(__file__)))
     dataset_path: Path = output_dir / "dataset.csv"
     cache_path: Path = config.cache_dir / "dataset.csv"

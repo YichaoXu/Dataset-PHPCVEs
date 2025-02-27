@@ -9,11 +9,17 @@ from core.validator import DataValidator
 from commands.collect import collect
 
 def statistic(
-    output_dir: str = None,
-    dataset_path: str = None,
-    github_token: str = None
+    output_dir: str = typer.Argument(None, help="📂 Statistics output directory path"),
+    dataset_path: str = typer.Option(None, help="📊 Dataset CSV file path"),
+    github_token: str = typer.Option(None, "--token", help="🔑 GitHub API Token")
 ):
-    """Generate detailed CVE dataset statistics"""
+    """
+    Generate detailed statistics and analysis of the PHP CVE dataset.
+    
+    This command analyzes the dataset and generates various statistics including
+    CWE type distribution, project type distribution, yearly trends, and correlations
+    between CWEs and project types.
+    """
     output_dir = Path(output_dir or os.path.dirname(os.path.abspath(__file__)))
     stats_dir = output_dir / "statistics"
     dataset_path = Path(dataset_path or output_dir / "dataset.csv")
