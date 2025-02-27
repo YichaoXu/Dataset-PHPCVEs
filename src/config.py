@@ -1,12 +1,18 @@
+import os
 from pathlib import Path
+
+# Get project root directory
+root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 class Config:
     """Global configuration"""
     def __init__(self):
-        self.cache_dir = Path("caches")
-        self.cve_url = "https://github.com/CVEProject/cvelistV5/releases/download/cve_2025-02-14_1700Z/2025-02-14_all_CVEs_at_midnight.zip.zip"
+        self.cache_dir = Path(root_dir) / ".cache"
+        self.inter_dir = Path(root_dir) / ".inter"
+        self.cve_url = "https://github.com/CVEProject/cvelistV5/archive/refs/heads/main.zip"
         self.php_keywords = ["php", ".php", "zend", "laravel", "wordpress", "drupal", "joomla"]
         self.github_api_url = "https://api.github.com"
+        self.github_rate_limit = 60  # Requests per hour without token
         
         # Known projects mapping
         self.known_projects = {

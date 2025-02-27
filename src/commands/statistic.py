@@ -7,9 +7,10 @@ from collections import Counter, defaultdict
 from utils.logger import Logger
 from core.validator import DataValidator
 from commands.collect import collect
+from config import config
 
 def statistic(
-    output_dir: str = typer.Argument(None, help="📂 Statistics output directory path"),
+    output_dir: str = typer.Argument(..., help="📂 Statistics output directory path (required)"),
     dataset_path: str = typer.Option(None, help="📊 Dataset CSV file path"),
     github_token: str = typer.Option(None, "--token", help="🔑 GitHub API Token")
 ):
@@ -20,9 +21,22 @@ def statistic(
     CWE type distribution, project type distribution, yearly trends, and correlations
     between CWEs and project types.
     """
-    output_dir = Path(output_dir or os.path.dirname(os.path.abspath(__file__)))
+    # Set up output directory
+    output_dir = Path(output_dir)
+    os.makedirs(output_dir, exist_ok=True)
+    
+    # Ensure intermediate directory exists
+    os.makedirs(config.inter_dir, exist_ok=True)
+    
+    # Define statistics directory in output directory
     stats_dir = output_dir / "statistics"
-    dataset_path = Path(dataset_path or output_dir / "dataset.csv")
+    os.makedirs(stats_dir, exist_ok=True)
+    
+    # Use dataset path if provided, otherwise look in output directory
+    if dataset_path:
+        dataset_path = Path(dataset_path)
+    else:
+        dataset_path = output_dir / "dataset.csv"
 
     if not dataset_path.exists():
         Logger.warning("Dataset not found, collecting data first...")

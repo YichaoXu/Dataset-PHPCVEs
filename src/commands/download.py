@@ -8,9 +8,10 @@ from core.validator import DataValidator
 from core.downloader import CodeDownloader
 from models.metadata import MetadataGenerator
 from commands.collect import collect
+from config import config
 
 def download(
-    output_dir: str = typer.Argument(None, help="📂 Download output directory path"),
+    output_dir: str = typer.Argument(..., help="📂 Download output directory path (required)"),
     dataset_path: str = typer.Option(None, help="📊 Dataset CSV file path"),
     cwes: str = typer.Option("", help="🎯 CWE ID list (comma-separated, empty for all)"),
     project_types: str = typer.Option("", help="🏷️ Project types to include (comma-separated, empty for all)"),
@@ -24,8 +25,18 @@ def download(
     repositories identified in the dataset. The code is organized by CWE type and CVE ID.
     
     """
-    output_dir = Path(output_dir or os.path.dirname(os.path.abspath(__file__)))
-    dataset_path = Path(dataset_path or output_dir / "dataset.csv")
+    # Set up output directory
+    output_dir = Path(output_dir)
+    os.makedirs(output_dir, exist_ok=True)
+    
+    # Ensure intermediate directory exists
+    os.makedirs(config.inter_dir, exist_ok=True)
+    
+    # Use dataset path if provided, otherwise look in output directory
+    if dataset_path:
+        dataset_path = Path(dataset_path)
+    else:
+        dataset_path = output_dir / "dataset.csv"
 
     if not dataset_path.exists():
         Logger.warning("Dataset not found, collecting data first...")

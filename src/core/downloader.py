@@ -2,7 +2,9 @@ import os
 import shutil
 import requests
 import zipfile
+from pathlib import Path
 from utils.logger import Logger
+from src.config import config
 
 class CodeDownloader:
     """GitHub code downloader"""
@@ -63,4 +65,35 @@ class CodeDownloader:
 
         except Exception as e:
             Logger.error(f"Download error: {e}")
+            return False
+
+class CVEDownloader:
+    """Handles downloading of CVE data."""
+    
+    def __init__(self, inter_dir: Path, use_cache: bool = True):
+        self.inter_dir = inter_dir
+        self.use_cache = use_cache
+        self.main_zip_path = inter_dir / "cve_data.zip"
+    
+    def download_cve_data(self) -> bool:
+        """Download CVE data if needed."""
+        if self.main_zip_path.exists() and self.use_cache:
+            Logger.info("Using existing main zip file")
+            return True
+        
+        return self._download_main_zip()
+    
+    def _download_main_zip(self) -> bool:
+        """Download the main CVE data zip file."""
+        try:
+            Logger.info("Downloading CVE dataset...")
+            response = requests.get(config.cve_url)
+            response.raise_for_status()
+            
+            with open(self.main_zip_path, 'wb') as f:
+                f.write(response.content)
+            Logger.success("CVE data downloaded successfully")
+            return True
+        except requests.exceptions.RequestException as e:
+            Logger.error(f"Failed to download CVE data: {str(e)}")
             return False 

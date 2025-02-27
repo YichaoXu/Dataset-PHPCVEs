@@ -204,3 +204,7 @@ cython_debug/
 venv/
 **/.DS_Store
 CWE*/
+
+# New directory
+.inter/
+output/
