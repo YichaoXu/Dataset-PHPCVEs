@@ -8,6 +8,7 @@ from core.processor import CVEProcessor
 from core.extractor import CVEExtractor
 from core.downloader import CVEDownloader
 from utils.file_utils import ensure_dir, copy_file
+from utils.error_handler import ErrorHandler
 from config import config
 
 def collect(

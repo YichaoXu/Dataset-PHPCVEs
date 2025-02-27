@@ -4,6 +4,7 @@ import requests
 from typing import Dict, Optional
 from config import config
 from utils.logger import Logger
+from utils.error_handler import ErrorHandler
 
 class GitHubAPI:
     """GitHub API client for retrieving repository information."""
@@ -22,15 +23,21 @@ class GitHubAPI:
         try:
             # Extract owner and repo from URL
             repo_path = repo_url.replace("https://github.com/", "")
-            owner, repo = repo_path.split("/")
+            parts = repo_path.split('/')
+            if len(parts) < 2:
+                Logger.warning(f"Invalid repository URL format: {repo_url}")
+                return None
+                
+            owner, repo = parts[0], parts[1]
             
             # Get commit details
             url = f"{self.base_url}/repos/{owner}/{repo}/commits/{commit_hash}"
-            response = requests.get(url, headers=self.headers)
-            response.raise_for_status()
+            response = self._make_request(url)
             
-            data = response.json()
-            parents = data.get("parents", [])
+            if not response:
+                return None
+                
+            parents = response.get("parents", [])
             
             if parents:
                 return parents[0].get("sha")
@@ -45,24 +52,26 @@ class GitHubAPI:
         try:
             # Extract owner and repo from URL
             repo_path = repo_url.replace("https://github.com/", "")
-            owner, repo = repo_path.split("/")
+            parts = repo_path.split('/')
+            if len(parts) < 2:
+                return {}
+                
+            owner, repo = parts[0], parts[1]
             
             # Get repo details
             url = f"{self.base_url}/repos/{owner}/{repo}"
-            response = requests.get(url, headers=self.headers)
-            response.raise_for_status()
-            
-            return response.json()
+            return self._make_request(url) or {}
         except Exception as e:
             Logger.warning(f"Failed to get repo info: {str(e)}")
             return {}
 
     def get_commit_details(self, owner: str, repo: str, commit_sha: str) -> Optional[Dict]:
-        url = f"{config.github_api_url}/repos/{owner}/{repo}/commits/{commit_sha}"
+        """Get details of a specific commit."""
+        url = f"{self.base_url}/repos/{owner}/{repo}/commits/{commit_sha}"
         return self._make_request(url)
 
     def _handle_rate_limit(self, response: requests.Response) -> int:
-        """Handle rate limiting and return wait time in seconds"""
+        """Handle rate limiting and return wait time in seconds."""
         try:
             # Get reset time from response headers
             reset_time = response.headers.get('X-RateLimit-Reset')
@@ -84,6 +93,7 @@ class GitHubAPI:
             return 3600  # Default wait 1 hour on error
 
     def _make_request(self, url: str) -> Optional[Dict]:
+        """Make a request to the GitHub API with retries and error handling."""
         retry_attempts = 0
         max_retries = 5
         base_delay = 2
@@ -111,7 +121,16 @@ class GitHubAPI:
         return None
 
     def get_readme(self, owner: str, repo: str) -> Optional[str]:
-        """Get repository README content"""
+        """Get repository README content."""
+        return ErrorHandler.with_retry(
+            self._get_readme_internal,
+            owner,
+            repo,
+            error_msg=f"Failed to get README for {owner}/{repo}"
+        )
+    
+    def _get_readme_internal(self, owner: str, repo: str) -> Optional[str]:
+        """Internal method to get README content."""
         url = f"https://raw.githubusercontent.com/{owner}/{repo}/main/README.md"
         try:
             response = requests.get(url)
@@ -129,7 +148,7 @@ class GitHubAPI:
             return None
 
     def infer_project_type(self, owner: str, repo: str) -> str:
-        """Infer project type from repository name and README content"""
+        """Infer project type from repository name and README content."""
         # Check known projects first
         repo_lower = repo.lower()
         for known_name, project_type in config.known_projects.items():
