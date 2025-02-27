@@ -26,13 +26,14 @@ from src.models.cve import CVERecord
 class CVEProcessor:
     """Processes CVE data to extract PHP-related vulnerabilities."""
     
-    def __init__(self, github_api: GitHubAPI, cache_dir: Path, use_cache: bool = True, verify_previous_commit: bool = False):
+    def __init__(self, github_api: GitHubAPI, cache_dir: Path, inter_dir: Path, use_cache: bool = True, verify_previous_commit: bool = False):
         """
         Initialize the processor.
         
         Args:
             github_api: GitHub API client
-            cache_dir: Directory to store processed CVE data
+            cache_dir: Directory to store cached data (hardcoded information)
+            inter_dir: Directory to store intermediate processing files
             use_cache: Whether to use cached data
             verify_previous_commit: Whether to verify that previous commits contain PHP files
         """
@@ -41,8 +42,10 @@ class CVEProcessor:
         self.error_handler = ErrorHandler()
         self.use_cache = use_cache
         self.cache_dir = cache_dir
+        self.inter_dir = inter_dir
         self.verify_previous_commit = verify_previous_commit
         ensure_dir(self.cache_dir)
+        ensure_dir(self.inter_dir)
     
     def process_cve_files(self, cve_dir: Path) -> List[CVERecord]:
         """Process all CVE JSON files in the directory."""

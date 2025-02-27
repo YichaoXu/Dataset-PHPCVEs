@@ -1,97 +1,107 @@
 """
 Configuration module for PHP CVE Dataset Collection Tool.
 
-This module provides configuration settings for the tool, including
-PHP keywords, project types, and other settings.
+This module provides configuration settings for the application.
 """
 
-from typing import Dict, List, Any
-import os
 from pathlib import Path
 
-# Get project root directory
-root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+# Base directories - only essential paths
+BASE_DIR = Path(__file__).parent.parent
+CACHE_DIR = BASE_DIR / "cache"
+INTER_DIR = BASE_DIR / ".inter"
 
-class Config:
-    """Configuration settings for the PHP CVE Dataset Collection Tool."""
-    
-    def __init__(self):
-        """Initialize configuration with default values."""
-        # PHP-related keywords for filtering CVEs
-        self.php_keywords = [
-            "php", "wordpress", "drupal", "joomla", "laravel", "symfony", 
-            "codeigniter", "cakephp", "zend", "magento", "prestashop", 
-            "typo3", "phpbb", "mediawiki", "moodle", "nextcloud", "owncloud"
-        ]
-        
-        # Project types and their associated keywords for classification
-        self.project_types = {
-            'Web App': {
-                'web application': 3,
-                'webapp': 3,
-                'web app': 3,
-                'website': 2,
-                'web-based': 2,
-                'web framework': 2,
-                'cms': 2,
-                'content management system': 2,
-                'mvc': 1,
-                'routes': 1
-            },
-            'CLI App': {
-                'command line': 3,
-                'cli': 3,
-                'console': 2,
-                'terminal': 2,
-                'shell': 1,
-                'command': 1
-            },
-            'Library': {
-                'library': 3,
-                'package': 2,
-                'component': 2,
-                'sdk': 2,
-                'dependency': 1,
-                'composer.json': 3
-            },
-            'Framework Plugin': {
-                'plugin': 3,
-                'extension': 2,
-                'addon': 2,
-                'module': 2
-            },
-            'Framework Theme': {
-                'theme': 3,
-                'template': 2,
-                'skin': 2,
-                'style': 1,
-                'css': 1
-            },
-            'PHP-SRC': {
-                'php-src': 5,
-                'php source': 4,
-                'php interpreter': 4,
-                'zend engine': 4
-            }
-        }
-        
-        # Default paths
-        self.default_cache_dir = Path(".inter")
-        self.default_output_dir = Path("output")
-        
-        # API settings
-        self.github_api_base_url = "https://api.github.com"
-        self.nvd_api_base_url = "https://services.nvd.nist.gov/rest/json/cves/2.0"
-        
-        # Rate limiting
-        self.github_rate_limit_wait = True
-        self.api_retry_count = 3
-        self.api_retry_delay = 2  # seconds
-        
-        # Load environment variables
-        self.github_token = os.environ.get("GITHUB_TOKEN")
-        self.openai_api_key = os.environ.get("OPENAI_API_KEY")
-        self.deepseek_api_key = os.environ.get("DEEPSEEK_API_KEY")
+# PHP keywords for filtering CVEs
+php_keywords = [
+    "php", 
+    "wordpress", 
+    "drupal", 
+    "joomla", 
+    "magento", 
+    "laravel", 
+    "symfony", 
+    "codeigniter", 
+    "cakephp", 
+    "zend"
+]
+
+# Project type classification keywords and weights
+project_types = {
+    "Web App": {
+        "web application": 10,
+        "web app": 10,
+        "webapp": 8,
+        "cms": 8,
+        "content management": 8,
+        "ecommerce": 8,
+        "e-commerce": 8,
+        "online store": 8,
+        "blog": 5,
+        "website": 5
+    },
+    "Framework": {
+        "framework": 10,
+        "mvc": 8,
+        "model-view-controller": 8,
+        "application framework": 10,
+        "web framework": 10
+    },
+    "Framework Plugin": {
+        "plugin": 10,
+        "extension": 8,
+        "addon": 8,
+        "add-on": 8,
+        "module": 5,
+        "wordpress plugin": 10,
+        "drupal module": 10,
+        "joomla extension": 10
+    },
+    "Framework Theme": {
+        "theme": 10,
+        "template": 8,
+        "skin": 5,
+        "wordpress theme": 10,
+        "drupal theme": 10,
+        "joomla template": 10
+    },
+    "Library": {
+        "library": 10,
+        "package": 8,
+        "component": 5,
+        "helper": 5,
+        "utility": 5,
+        "composer": 8
+    },
+    "CLI App": {
+        "cli": 10,
+        "command line": 10,
+        "console": 8,
+        "terminal": 8,
+        "shell": 5
+    },
+    "PHP-SRC": {
+        "php-src": 15,
+        "php source": 15,
+        "php interpreter": 15,
+        "php language": 15,
+        "php core": 15,
+        "zend engine": 15
+    }
+}
+
+# API rate limiting settings
+github_rate_limit_wait = True
+api_retry_count = 3
+api_retry_delay = 2  # seconds
 
 # Create a singleton instance
-config = Config() 
+config = {
+    "php_keywords": php_keywords,
+    "project_types": project_types,
+    "BASE_DIR": BASE_DIR,
+    "CACHE_DIR": CACHE_DIR,
+    "INTER_DIR": INTER_DIR,
+    "github_rate_limit_wait": github_rate_limit_wait,
+    "api_retry_count": api_retry_count,
+    "api_retry_delay": api_retry_delay
+} 

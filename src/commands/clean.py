@@ -1,74 +1,82 @@
 """
 Clean command module for PHP CVE Dataset Collection Tool.
 
-This module provides functionality to clean up temporary files and directories.
+This module provides functionality to clean up temporary files and cached data.
 """
 
-import os
 import shutil
-from pathlib import Path
-from typing import List, Optional
+import time
 import typer
 from rich.console import Console
+from rich.prompt import Confirm
 
 from src.utils.logger import Logger
-from src.utils.ui import confirm_action
-from src.config import config
+from src.utils.file_utils import ensure_dir
+from src.config import CACHE_DIR, INTER_DIR
 
 console = Console()
 
 def clean(
-    cache: bool = typer.Option(False, help="Clean cache files"),
-    downloads: bool = typer.Option(False, help="Clean downloaded files"),
-    all: bool = typer.Option(False, help="Clean all files"),
-    force: bool = typer.Option(False, help="Force cleaning without confirmation")
+    cache: bool = typer.Option(False, help="Clean cached data"),
+    intermediate: bool = typer.Option(False, help="Clean intermediate files"),
+    all: bool = typer.Option(False, help="Clean all temporary files (cache and intermediate)"),
+    force: bool = typer.Option(False, help="Force cleaning without confirmation"),
+    verbose: bool = typer.Option(False, help="Enable verbose output")
 ):
     """
-    Clean up temporary files and directories.
+    Clean up temporary files and cached data.
     
-    This command removes temporary files and directories created by the tool,
-    such as cache files and downloaded code.
+    This command removes temporary files and cached data to free up disk space
+    and ensure a clean state for new data collection.
     """
+    # Enable verbose logging if requested
+    Logger.set_verbose(verbose)
+    
+    # Start timing
+    start_time = time.time()
+    
     # Determine what to clean
     clean_cache = cache or all
-    clean_downloads = downloads or all
+    clean_intermediate = intermediate or all
     
-    if not clean_cache and not clean_downloads:
-        Logger.warning("No cleaning options specified. Use --cache, --downloads, or --all.")
-        return
+    if not clean_cache and not clean_intermediate:
+        Logger.error("No cleaning options selected. Use --cache, --intermediate, or --all.")
+        raise typer.Exit(1)
     
-    # Get directories to clean
-    dirs_to_clean = []
-    
-    if clean_cache:
-        cache_dir = Path(".inter")
-        if cache_dir.exists():
-            dirs_to_clean.append(cache_dir)
-    
-    if clean_downloads:
-        download_dirs = [
-            Path("downloads"),
-            Path("output")
-        ]
-        dirs_to_clean.extend([d for d in download_dirs if d.exists()])
-    
-    if not dirs_to_clean:
-        Logger.info("No directories to clean.")
-        return
-    
-    # Confirm cleaning
+    # Ask for confirmation if not forced
     if not force:
-        dirs_str = "\n- ".join([""] + [str(d) for d in dirs_to_clean])
-        if not confirm_action(f"This will delete the following directories:{dirs_str}\nAre you sure?", default=False):
-            Logger.info("Cleaning cancelled.")
-            return
+        message = "This will delete "
+        if clean_cache and clean_intermediate:
+            message += "all cached data and intermediate files"
+        elif clean_cache:
+            message += "all cached data"
+        else:
+            message += "all intermediate files"
+        
+        if not Confirm.ask(f"{message}. Are you sure?", default=False):
+            Logger.info("Operation cancelled")
+            raise typer.Exit(0)
     
-    # Clean directories
-    for directory in dirs_to_clean:
+    # Clean cache directory
+    if clean_cache and CACHE_DIR.exists():
+        Logger.info(f"Cleaning cache directory: {CACHE_DIR}")
         try:
-            shutil.rmtree(directory)
-            Logger.success(f"Removed {directory}")
+            shutil.rmtree(CACHE_DIR)
+            ensure_dir(CACHE_DIR)
+            Logger.success("Cache directory cleaned")
         except Exception as e:
-            Logger.error(f"Failed to remove {directory}: {str(e)}")
+            Logger.error(f"Error cleaning cache directory: {str(e)}")
     
-    Logger.success("Cleaning completed.") 
+    # Clean intermediate directory
+    if clean_intermediate and INTER_DIR.exists():
+        Logger.info(f"Cleaning intermediate directory: {INTER_DIR}")
+        try:
+            shutil.rmtree(INTER_DIR)
+            ensure_dir(INTER_DIR)
+            Logger.success("Intermediate directory cleaned")
+        except Exception as e:
+            Logger.error(f"Error cleaning intermediate directory: {str(e)}")
+    
+    # Report timing
+    elapsed_time = time.time() - start_time
+    Logger.info(f"Cleaning completed in {elapsed_time:.2f} seconds") 

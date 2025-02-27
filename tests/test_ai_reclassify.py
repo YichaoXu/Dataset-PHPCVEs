@@ -2,7 +2,7 @@ import os
 import pytest
 from pathlib import Path
 from unittest.mock import patch, MagicMock
-from src.commands.ai_reclassify import ai_reclassify, call_gpt_api, download_readme
+from src.commands.reclassify import reclassify, call_gpt_api, download_readme
 
 # Sample CSV data
 SAMPLE_CSV = """cve_id,cwe_id,repository,current_commit,previous_commit,project_type,description
@@ -51,7 +51,7 @@ def test_ai_reclassify(mock_download, mock_api, setup_files, monkeypatch):
     mock_api.return_value = ({"Web App": 0.9}, True)
     
     # Run the command directly
-    ai_reclassify(
+    reclassify(
         csv_file=setup_files["csv_file"],
         api_key="fake-api-key",
         output_dir=setup_files["output_dir"],

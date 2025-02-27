@@ -51,7 +51,6 @@ $ python reproduce.py [command] --help
 import os
 import sys
 import typer
-from typing import Optional, List
 
 # Add src directory to Python path
 src_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'src')
@@ -62,8 +61,7 @@ from src.commands.collect import collect
 from src.commands.download import download
 from src.commands.statistic import statistic
 from src.commands.clean import clean
-from src.commands.ai_reclassify import ai_reclassify
-from src.commands.analyze import analyze
+from src.commands.reclassify import reclassify
 
 # Create Typer app
 app = typer.Typer(
@@ -75,10 +73,9 @@ app = typer.Typer(
 # Register commands
 app.command()(collect)
 app.command()(download)
-app.command()(analyze)
 app.command()(statistic)
+app.command()(reclassify)
 app.command()(clean)
-app.command(name="ai-reclassify")(ai_reclassify)
 
 if __name__ == "__main__":
     app() 

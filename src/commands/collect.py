@@ -5,7 +5,6 @@ This module provides functionality to collect PHP-related CVEs from various sour
 filter them, and extract GitHub commit information.
 """
 
-import os
 import time
 from pathlib import Path
 from typing import Optional
@@ -16,13 +15,16 @@ from src.core.processor import CVEProcessor
 from src.utils.github import GitHubAPI
 from src.utils.logger import Logger
 from src.utils.file_utils import ensure_dir
-from src.utils.ui import confirm_action
-from src.config import config
+from src.config import CACHE_DIR, INTER_DIR
 
 console = Console()
 
+# Command-specific directories
+COLLECT_INTER_DIR = INTER_DIR / "collect"
+DEFAULT_OUTPUT_DIR = Path("output/collect")
+
 def collect(
-    output_dir: Path = typer.Argument(..., help="Directory to store collected data"),
+    output_dir: Path = typer.Argument(DEFAULT_OUTPUT_DIR, help="Directory to store collected data"),
     token: Optional[str] = typer.Option(None, help="GitHub API token"),
     year: Optional[int] = typer.Option(None, help="Specific year to collect (default: all years)"),
     force: bool = typer.Option(False, help="Force reprocessing of cached data"),
@@ -45,17 +47,17 @@ def collect(
     # Create output directory
     ensure_dir(output_dir)
     
-    # Create cache directory
-    cache_dir = Path(".inter/collect")
-    ensure_dir(cache_dir)
+    # Create intermediate directory for processing data
+    ensure_dir(COLLECT_INTER_DIR)
     
     # Initialize GitHub API client
-    github_api = GitHubAPI(token=token or config.github_token)
+    github_api = GitHubAPI(token=token)
     
     # Initialize processor
     processor = CVEProcessor(
         github_api=github_api,
-        cache_dir=cache_dir,
+        cache_dir=CACHE_DIR,
+        inter_dir=COLLECT_INTER_DIR,
         use_cache=not force
     )
     
