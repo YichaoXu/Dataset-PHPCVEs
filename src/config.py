@@ -1,3 +1,11 @@
+"""
+Configuration module for PHP CVE Dataset Collection Tool.
+
+This module provides configuration settings for the tool, including
+PHP keywords, project types, and other settings.
+"""
+
+from typing import Dict, List, Any
 import os
 from pathlib import Path
 
@@ -5,37 +13,18 @@ from pathlib import Path
 root_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 class Config:
-    """Global configuration"""
+    """Configuration settings for the PHP CVE Dataset Collection Tool."""
+    
     def __init__(self):
-        # Only keep truly global configuration here
-        self.inter_dir = Path(root_dir) / ".inter"
-        self.cve_url = "https://github.com/CVEProject/cvelistV5/archive/refs/heads/main.zip"
-        self.php_keywords = ["php", ".php", "zend", "laravel", "wordpress", "drupal", "joomla"]
-        self.github_api_url = "https://api.github.com"
+        """Initialize configuration with default values."""
+        # PHP-related keywords for filtering CVEs
+        self.php_keywords = [
+            "php", "wordpress", "drupal", "joomla", "laravel", "symfony", 
+            "codeigniter", "cakephp", "zend", "magento", "prestashop", 
+            "typo3", "phpbb", "mediawiki", "moodle", "nextcloud", "owncloud"
+        ]
         
-        # Known projects mapping
-        self.known_projects = {
-            'wordpress': 'Web App',
-            'wordpress-plugin': 'Framework Plugin',
-            'wp-plugin': 'Framework Plugin',
-            'wordpress-theme': 'Framework Theme',
-            'wp-theme': 'Framework Theme',
-            'drupal': 'Web App',
-            'drupal-module': 'Framework Plugin',
-            'drupal-theme': 'Framework Theme',
-            'joomla': 'Web App',
-            'joomla-plugin': 'Framework Plugin',
-            'joomla-template': 'Framework Theme',
-            'php-src': 'PHP-SRC',
-            'laravel': 'Web App',
-            'symfony': 'Web App',
-            'composer': 'CLI App',
-            'magento': 'Web App',
-            'prestashop': 'Web App',
-            'moodle': 'Web App'
-        }
-        
-        # Project type keywords with weights
+        # Project types and their associated keywords for classification
         self.project_types = {
             'Web App': {
                 'web application': 3,
@@ -85,6 +74,24 @@ class Config:
                 'zend engine': 4
             }
         }
+        
+        # Default paths
+        self.default_cache_dir = Path(".inter")
+        self.default_output_dir = Path("output")
+        
+        # API settings
+        self.github_api_base_url = "https://api.github.com"
+        self.nvd_api_base_url = "https://services.nvd.nist.gov/rest/json/cves/2.0"
+        
+        # Rate limiting
+        self.github_rate_limit_wait = True
+        self.api_retry_count = 3
+        self.api_retry_delay = 2  # seconds
+        
+        # Load environment variables
+        self.github_token = os.environ.get("GITHUB_TOKEN")
+        self.openai_api_key = os.environ.get("OPENAI_API_KEY")
+        self.deepseek_api_key = os.environ.get("DEEPSEEK_API_KEY")
 
-# Create config instance
+# Create a singleton instance
 config = Config() 

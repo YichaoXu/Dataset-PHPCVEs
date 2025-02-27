@@ -1,158 +1,227 @@
+"""
+Statistic command module for PHP CVE Dataset Collection Tool.
+
+This module provides functionality to generate statistics and visualizations
+from the collected data.
+"""
+
 import os
-import csv
-import re
+import time
 from pathlib import Path
+from typing import Optional, List, Dict, Any
 import typer
-from collections import Counter, defaultdict
+from rich.console import Console
+
 from src.utils.logger import Logger
-from src.core.validator import DataValidator
-from src.commands.collect import collect
+from src.utils.file_utils import ensure_dir, read_csv_file, write_json_file
+from src.utils.ui import ProgressUI, print_table
 from src.config import config
 
+console = Console()
+
 def statistic(
-    output_dir: str = typer.Argument(..., help="📂 Statistics output directory path (required)"),
-    dataset_path: str = typer.Option(None, help="📊 Dataset CSV file path"),
-    github_token: str = typer.Option(None, "--token", help="🔑 GitHub API Token")
+    input_dir: Path = typer.Argument(..., help="Directory containing collected data"),
+    output_dir: Path = typer.Option(Path("statistics"), help="Directory to store statistics"),
+    generate_charts: bool = typer.Option(True, help="Generate charts"),
+    verbose: bool = typer.Option(False, help="Enable verbose output")
 ):
     """
-    Generate detailed statistics and analysis of the PHP CVE dataset.
+    Generate statistics and visualizations from the collected data.
     
-    This command analyzes the dataset and generates various statistics including
-    CWE type distribution, project type distribution, yearly trends, and correlations
-    between CWEs and project types.
+    This command analyzes the collected data to generate statistics and visualizations
+    about CWE types, project types, and their distributions over time.
     """
-    # Set up output directory
-    output_dir = Path(output_dir)
-    os.makedirs(output_dir, exist_ok=True)
+    # Start timing
+    start_time = time.time()
     
-    # Define command-specific cache directories
-    statistic_cache_dir = config.inter_dir / "statistic"
-    ensure_dir(statistic_cache_dir)
+    # Create output directory
+    ensure_dir(output_dir)
     
-    # Use dataset path if provided, otherwise look in output directory
-    if dataset_path:
-        dataset_path = Path(dataset_path)
-    else:
-        dataset_path = output_dir / "dataset.csv"
-
-    if not dataset_path.exists():
-        Logger.warning("Dataset not found, collecting data first...")
-        collect(str(output_dir), github_token=github_token)
-        dataset_path = output_dir / "dataset.csv"
-
-    if not DataValidator.validate_dataset(dataset_path):
-        raise typer.Exit(code=1)
-
-    try:
-        os.makedirs(statistic_cache_dir, exist_ok=True)
-        
-        stats = {
-            'total': 0,
-            'cwe_counts': Counter(),
-            'repo_counts': Counter(),
-            'cves_by_year': Counter(),
-            'project_type_counts': Counter(),
-            'cwe_by_project_type': defaultdict(Counter),
-            'project_type_by_year': defaultdict(Counter)
-        }
-        
-        cwe_details = defaultdict(list)
-        project_type_details = defaultdict(list)
-        
-        with open(dataset_path, 'r', encoding='utf-8') as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                # Strict year validation
-                year_match = re.match(r'CVE-(\d{4})-\d+', row['cve_id'])
-                year = year_match.group(1) if year_match else "UNKNOWN"
-                
-                # Validate year range
-                try:
-                    if year != "UNKNOWN":
-                        year_int = int(year)
-                        if not (1999 <= year_int <= 2025):
-                            year = "UNKNOWN"
-                except ValueError:
-                    year = "UNKNOWN"
-                
-                stats['total'] += 1
-                stats['cwe_counts'][row['cwe_type']] += 1
-                stats['repo_counts'][row['repository']] += 1
-                stats['cves_by_year'][year] += 1
-                stats['project_type_counts'][row['project_type']] += 1
-                stats['cwe_by_project_type'][row['project_type']][row['cwe_type']] += 1
-                stats['project_type_by_year'][year][row['project_type']] += 1
-                
-                cwe_details[row['cwe_type']].append(row['cve_id'])
-                project_type_details[row['project_type']].append({
-                    'cve_id': row['cve_id'],
-                    'cwe_type': row['cwe_type'],
-                    'repository': row['repository']
-                })
-
-        # Save summary
-        with open(statistic_cache_dir / "summary.txt", 'w', encoding='utf-8') as f:
-            f.write(f"Total CVEs: {stats['total']}\n")
-            f.write(f"Unique CWEs: {len(stats['cwe_counts'])}\n")
-            f.write(f"Unique Repositories: {len(stats['repo_counts'])}\n")
-            f.write(f"Project Types: {len(stats['project_type_counts'])}\n\n")
+    # Find input file
+    input_file = input_dir / "collected_data.csv"
+    if not input_file.exists():
+        Logger.error(f"Input file not found: {input_file}")
+        raise typer.Exit(1)
+    
+    # Read input file
+    Logger.info(f"Reading input file: {input_file}")
+    records = read_csv_file(input_file)
+    
+    if not records:
+        Logger.error("No records found in input file")
+        raise typer.Exit(1)
+    
+    Logger.info(f"Generating statistics for {len(records)} records")
+    
+    # Generate statistics
+    statistics = {
+        "total_records": len(records),
+        "cwe_counts": _count_cwe_types(records),
+        "project_type_counts": _count_project_types(records),
+        "yearly_counts": _count_by_year(records),
+        "top_repositories": _get_top_repositories(records, 10)
+    }
+    
+    # Save statistics
+    stats_file = output_dir / "statistics.json"
+    write_json_file(statistics, stats_file)
+    
+    # Generate charts
+    if generate_charts:
+        try:
+            import matplotlib.pyplot as plt
             
-            f.write("Top 10 CWEs:\n")
-            for cwe, count in stats['cwe_counts'].most_common(10):
-                f.write(f"{cwe}: {count} CVEs\n")
+            # Create charts directory
+            charts_dir = output_dir / "charts"
+            ensure_dir(charts_dir)
             
-            f.write("\nProject Type Distribution:\n")
-            for ptype, count in stats['project_type_counts'].most_common():
-                f.write(f"{ptype}: {count} CVEs ({count/stats['total']*100:.1f}%)\n")
+            # Generate CWE distribution chart
+            _generate_cwe_chart(statistics["cwe_counts"], charts_dir)
             
-            f.write("\nCVEs by Year:\n")
-            for year, count in sorted(stats['cves_by_year'].items()):
-                f.write(f"{year}: {count} CVEs\n")
-
-        # Save project type details
-        with open(statistic_cache_dir / "project_type_details.csv", 'w', newline='', encoding='utf-8') as f:
-            writer = csv.writer(f)
-            writer.writerow(['Project Type', 'Total CVEs', 'Unique CWEs', 'Most Common CWE', 'Repositories'])
-            for ptype, cves in project_type_details.items():
-                cwe_counter = Counter(cve['cwe_type'] for cve in cves)
-                most_common_cwe = cwe_counter.most_common(1)[0][0] if cwe_counter else "N/A"
-                unique_repos = len({cve['repository'] for cve in cves})
-                writer.writerow([
-                    ptype, 
-                    len(cves), 
-                    len(cwe_counter),
-                    most_common_cwe,
-                    unique_repos
-                ])
-
-        # Check before writing matrix
-        project_types = sorted(stats['project_type_counts'].keys())
-        if not project_types:
-            Logger.warning("No project types found, skipping matrix CSV")
-        else:
-            with open(statistic_cache_dir / "cwe_project_type_matrix.csv", 'w', newline='', encoding='utf-8') as f:
-                writer = csv.writer(f)
-                writer.writerow(['CWE'] + project_types)
-                
-                for cwe in sorted(stats['cwe_counts'].keys()):
-                    row = [cwe]
-                    for ptype in project_types:
-                        row.append(stats['cwe_by_project_type'][ptype][cwe])
-                    writer.writerow(row)
-
-        # Save project type trends
-        with open(statistic_cache_dir / "project_type_trends.csv", 'w', newline='', encoding='utf-8') as f:
-            writer = csv.writer(f)
-            writer.writerow(['Year'] + project_types)
+            # Generate project type distribution chart
+            _generate_project_type_chart(statistics["project_type_counts"], charts_dir)
             
-            for year in sorted(stats['cves_by_year'].keys()):
-                row = [year]
-                for ptype in project_types:
-                    row.append(stats['project_type_by_year'][year][ptype])
-                writer.writerow(row)
+            # Generate yearly distribution chart
+            _generate_yearly_chart(statistics["yearly_counts"], charts_dir)
+            
+            Logger.success(f"Charts generated in {charts_dir}")
+        except ImportError:
+            Logger.warning("Matplotlib not installed. Charts not generated.")
+    
+    # Display summary
+    _display_statistics_summary(statistics)
+    
+    # Report timing
+    elapsed_time = time.time() - start_time
+    Logger.info(f"Statistics generation completed in {elapsed_time:.2f} seconds")
+    Logger.success(f"Statistics saved to {stats_file}")
+    
+    return statistics
 
-        Logger.success(f"Statistics saved to: {statistic_cache_dir}")
+def _count_cwe_types(records: List[Dict[str, str]]) -> Dict[str, int]:
+    """Count CWE types."""
+    cwe_counts = {}
+    for record in records:
+        cwe_id = record.get("cwe_id", "Unknown")
+        if not cwe_id:
+            cwe_id = "Unknown"
+        cwe_counts[cwe_id] = cwe_counts.get(cwe_id, 0) + 1
+    
+    # Sort by count (descending)
+    return dict(sorted(cwe_counts.items(), key=lambda x: x[1], reverse=True))
 
-    except Exception as e:
-        Logger.error(f"Statistics generation failed: {e}")
-        raise typer.Exit(code=1) 
+def _count_project_types(records: List[Dict[str, str]]) -> Dict[str, int]:
+    """Count project types."""
+    project_type_counts = {}
+    for record in records:
+        project_type = record.get("project_type", "Unknown")
+        if not project_type:
+            project_type = "Unknown"
+        project_type_counts[project_type] = project_type_counts.get(project_type, 0) + 1
+    
+    # Sort by count (descending)
+    return dict(sorted(project_type_counts.items(), key=lambda x: x[1], reverse=True))
+
+def _count_by_year(records: List[Dict[str, str]]) -> Dict[str, int]:
+    """Count records by year."""
+    yearly_counts = {}
+    for record in records:
+        cve_id = record.get("cve_id", "")
+        if cve_id and len(cve_id.split("-")) >= 2:
+            year = cve_id.split("-")[1]
+            yearly_counts[year] = yearly_counts.get(year, 0) + 1
+    
+    # Sort by year (ascending)
+    return dict(sorted(yearly_counts.items()))
+
+def _get_top_repositories(records: List[Dict[str, str]], limit: int = 10) -> Dict[str, int]:
+    """Get top repositories by count."""
+    repo_counts = {}
+    for record in records:
+        repo = record.get("repository", "")
+        if repo:
+            repo_counts[repo] = repo_counts.get(repo, 0) + 1
+    
+    # Sort by count (descending) and take top N
+    return dict(sorted(repo_counts.items(), key=lambda x: x[1], reverse=True)[:limit])
+
+def _generate_cwe_chart(cwe_counts: Dict[str, int], output_dir: Path):
+    """Generate CWE distribution chart."""
+    import matplotlib.pyplot as plt
+    
+    # Take top 10 CWEs
+    top_cwes = list(cwe_counts.items())[:10]
+    
+    # Create figure
+    plt.figure(figsize=(12, 8))
+    plt.bar([cwe for cwe, _ in top_cwes], [count for _, count in top_cwes])
+    plt.title("Top 10 CWE Types")
+    plt.xlabel("CWE ID")
+    plt.ylabel("Count")
+    plt.xticks(rotation=45)
+    plt.tight_layout()
+    
+    # Save figure
+    plt.savefig(output_dir / "cwe_distribution.png")
+    plt.close()
+
+def _generate_project_type_chart(project_type_counts: Dict[str, int], output_dir: Path):
+    """Generate project type distribution chart."""
+    import matplotlib.pyplot as plt
+    
+    # Create figure
+    plt.figure(figsize=(12, 8))
+    plt.pie(
+        project_type_counts.values(),
+        labels=project_type_counts.keys(),
+        autopct='%1.1f%%',
+        startangle=90
+    )
+    plt.title("Project Type Distribution")
+    plt.axis('equal')
+    plt.tight_layout()
+    
+    # Save figure
+    plt.savefig(output_dir / "project_type_distribution.png")
+    plt.close()
+
+def _generate_yearly_chart(yearly_counts: Dict[str, int], output_dir: Path):
+    """Generate yearly distribution chart."""
+    import matplotlib.pyplot as plt
+    
+    # Create figure
+    plt.figure(figsize=(12, 8))
+    plt.plot(list(yearly_counts.keys()), list(yearly_counts.values()), marker='o')
+    plt.title("CVEs by Year")
+    plt.xlabel("Year")
+    plt.ylabel("Count")
+    plt.xticks(rotation=45)
+    plt.grid(True)
+    plt.tight_layout()
+    
+    # Save figure
+    plt.savefig(output_dir / "yearly_distribution.png")
+    plt.close()
+
+def _display_statistics_summary(statistics: Dict[str, Any]):
+    """Display statistics summary."""
+    console.print("\n[bold]Statistics Summary[/bold]")
+    console.print(f"Total records: {statistics['total_records']}")
+    
+    # Display CWE distribution
+    console.print("\n[bold]Top CWE Types:[/bold]")
+    cwe_rows = []
+    for cwe_id, count in list(statistics["cwe_counts"].items())[:10]:
+        percentage = (count / statistics["total_records"]) * 100
+        cwe_rows.append([cwe_id, count, f"{percentage:.1f}%"])
+    
+    print_table(["CWE ID", "Count", "Percentage"], cwe_rows)
+    
+    # Display project type distribution
+    console.print("\n[bold]Project Type Distribution:[/bold]")
+    project_rows = []
+    for project_type, count in statistics["project_type_counts"].items():
+        percentage = (count / statistics["total_records"]) * 100
+        project_rows.append([project_type, count, f"{percentage:.1f}%"])
+    
+    print_table(["Project Type", "Count", "Percentage"], project_rows) 

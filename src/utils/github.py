@@ -1,8 +1,15 @@
+"""
+GitHub API client for PHP CVE Dataset Collection Tool.
+
+This module provides functionality to interact with the GitHub API,
+retrieve repository information, and download code.
+"""
+
 import time
 import random
 import requests
 import re
-from typing import Dict, Optional, Any
+from typing import Dict, Optional, Any, List, Tuple
 from src.config import config
 from src.utils.logger import Logger
 from src.utils.error_handler import ErrorHandler
@@ -11,6 +18,12 @@ class GitHubAPI:
     """GitHub API client for retrieving repository information."""
     
     def __init__(self, token: Optional[str] = None):
+        """
+        Initialize the GitHub API client.
+        
+        Args:
+            token: GitHub API token
+        """
         self.token = token
         self.base_url = "https://api.github.com"
         self.headers = {
@@ -84,25 +97,18 @@ class GitHubAPI:
             Logger.debug(f"Invalid parameters for get_commit_details: owner={owner}, repo={repo}, commit_sha={commit_sha}")
             return None
         
-        # Normalize inputs
-        owner = owner.strip()
-        repo = repo.strip()
-        commit_sha = commit_sha.strip()
-        
         # Validate commit SHA format
         if not re.match(r'^[0-9a-f]{7,40}$', commit_sha, re.IGNORECASE):
             # Log to file only, don't print to console
             Logger.debug(f"Invalid commit SHA format: {commit_sha}")
             return None
         
+        # Make API request
         url = f"{self.base_url}/repos/{owner}/{repo}/commits/{commit_sha}"
         
         try:
-            # The _make_request method already returns the JSON data, not the Response object
             response = self._make_request(url)
-            
-            # If response is None, the request failed
-            if response is None:
+            if not response:
                 # Log to file only, don't print to console
                 Logger.debug(f"Commit not found: {owner}/{repo}/{commit_sha}")
                 return None

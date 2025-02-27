@@ -1,42 +1,107 @@
+"""
+Error handling utilities for PHP CVE Dataset Collection Tool.
+
+This module provides error handling functionality, including retry mechanisms
+and standardized error reporting.
+"""
+
 import time
-from typing import Callable, Any, Optional, TypeVar
+import traceback
+from typing import Callable, Any, Optional, TypeVar, List
+from functools import wraps
 from src.utils.logger import Logger
 
 T = TypeVar('T')
 
 class ErrorHandler:
-    """Centralized error handling for the application."""
+    """Error handling utilities for the application."""
     
     @staticmethod
-    def with_retry(func, *args, max_retries=3, retry_delay=5, error_msg=None):
+    def with_retry(
+        func: Callable[..., T], 
+        *args, 
+        max_retries: int = 3, 
+        retry_delay: int = 2,
+        backoff_factor: float = 1.5,
+        error_msg: str = "Operation failed",
+        **kwargs
+    ) -> Optional[T]:
         """
         Execute a function with retry logic.
         
         Args:
             func: Function to execute
-            *args: Arguments to pass to the function
-            max_retries: Maximum number of retries
-            retry_delay: Delay between retries in seconds
-            error_msg: Custom error message prefix
+            *args: Positional arguments for the function
+            max_retries: Maximum number of retry attempts
+            retry_delay: Initial delay between retries in seconds
+            backoff_factor: Factor to increase delay with each retry
+            error_msg: Error message prefix for logging
+            **kwargs: Keyword arguments for the function
             
         Returns:
-            Result of the function or None if all retries fail
+            Function result or None if all attempts fail
         """
-        for attempt in range(1, max_retries + 1):
+        attempt = 0
+        last_error = None
+        
+        while attempt < max_retries:
             try:
-                return func(*args)
+                return func(*args, **kwargs)
             except Exception as e:
-                if error_msg:
-                    Logger.warning(f"{error_msg} (attempt {attempt}/{max_retries}): {str(e)}")
-                else:
-                    Logger.warning(f"Error (attempt {attempt}/{max_retries}): {str(e)}")
+                attempt += 1
+                last_error = e
                 
                 if attempt < max_retries:
-                    time.sleep(retry_delay)
+                    delay = retry_delay * (backoff_factor ** (attempt - 1))
+                    Logger.warning(f"{error_msg}: {str(e)}. Retrying in {delay:.1f}s ({attempt}/{max_retries})")
+                    time.sleep(delay)
                 else:
-                    Logger.error(f"Failed after {max_retries} attempts")
-                    return None
+                    # Log the final error
+                    Logger.error(f"{error_msg}: {str(e)}. All {max_retries} attempts failed.")
+        
+        return None
     
+    @staticmethod
+    def log_exceptions(func: Callable) -> Callable:
+        """
+        Decorator to log exceptions from a function.
+        
+        Args:
+            func: Function to decorate
+            
+        Returns:
+            Decorated function
+        """
+        @wraps(func)
+        def wrapper(*args, **kwargs):
+            try:
+                return func(*args, **kwargs)
+            except Exception as e:
+                Logger.error(f"Error in {func.__name__}: {str(e)}")
+                Logger.debug(traceback.format_exc())
+                raise
+        return wrapper
+    
+    @staticmethod
+    def collect_errors(errors: List[Exception]) -> str:
+        """
+        Collect error messages into a single string.
+        
+        Args:
+            errors: List of exceptions
+            
+        Returns:
+            Combined error message
+        """
+        if not errors:
+            return "No errors"
+        
+        if len(errors) == 1:
+            return f"Error: {str(errors[0])}"
+        
+        error_messages = [f"- {str(e)}" for e in errors]
+        return f"{len(errors)} errors occurred:\n" + "\n".join(error_messages)
+
     @staticmethod
     def try_multiple_encodings(file_path, encodings=None):
         """Try to open a file with multiple encodings."""

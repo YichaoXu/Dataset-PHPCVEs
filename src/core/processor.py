@@ -1,8 +1,16 @@
+"""
+Core processor module for PHP CVE Dataset Collection Tool.
+
+This module provides functionality to process CVE data, filter for PHP-related
+vulnerabilities, and extract GitHub commit information.
+"""
+
 import re
 import json
 import time
 import csv
 import os
+import zipfile
 from pathlib import Path
 from collections import Counter
 from typing import Dict, Optional, List, Any
@@ -907,3 +915,282 @@ class CVEProcessor:
         
         # If we got here, there are valid GitHub commit URLs
         return "valid" 
+
+    def process_year(self, year: int, force: bool = False) -> List[Dict[str, Any]]:
+        """
+        Process CVEs for a specific year.
+        
+        Args:
+            year: Year to process
+            force: Force reprocessing of cached data
+            
+        Returns:
+            List of processed CVE records
+        """
+        year_cache = self.cache_dir / f"year_{year}.json"
+        
+        # Check cache
+        if not force and self.use_cache and year_cache.exists():
+            Logger.info(f"Using cached data for year {year}")
+            try:
+                with open(year_cache, 'r', encoding='utf-8') as f:
+                    return json.load(f)
+            except Exception as e:
+                Logger.warning(f"Failed to load cache for year {year}: {str(e)}")
+        
+        # Download and extract CVE data
+        cve_data = self._download_cve_data(year)
+        if not cve_data:
+            Logger.warning(f"No CVE data found for year {year}")
+            return []
+        
+        # Filter for PHP-related vulnerabilities
+        php_cves = self._filter_php_cves(cve_data)
+        if not php_cves:
+            Logger.warning(f"No PHP-related CVEs found for year {year}")
+            return []
+        
+        # Process each CVE
+        records = []
+        with ProgressUI(len(php_cves), f"Processing CVEs for {year}") as progress:
+            for i, cve_data in enumerate(php_cves):
+                cve_id = cve_data.get('id', f"Unknown-{i}")
+                progress.update(0, cve_id)
+                
+                try:
+                    # Extract basic CVE information
+                    record = self._extract_cve_info(cve_data)
+                    
+                    # Extract GitHub commit information
+                    if self._extract_github_info(record, cve_data):
+                        # Verify that the commit contains PHP files
+                        if self._verify_php_files(record):
+                            # Get previous commit
+                            self._get_previous_commit(record)
+                            
+                            # Classify project type based on README
+                            self._classify_project_type(record)
+                            
+                            # Add to records
+                            records.append(record)
+                            progress.log(f"Processed {cve_id}: {record.get('description', '')[:50]}...")
+                        else:
+                            progress.log_warning(f"Skipped {cve_id}: No PHP files found in commit")
+                    else:
+                        progress.log_warning(f"Skipped {cve_id}: No GitHub commit information found")
+                except Exception as e:
+                    progress.log_error(f"Error processing {cve_id}: {str(e)}")
+                
+                progress.update(1, cve_id)
+        
+        # Save to cache
+        if self.use_cache:
+            try:
+                with open(year_cache, 'w', encoding='utf-8') as f:
+                    json.dump(records, f, indent=2)
+            except Exception as e:
+                Logger.warning(f"Failed to save cache for year {year}: {str(e)}")
+        
+        return records
+
+    def _download_cve_data(self, year: int) -> List[Dict[str, Any]]:
+        """
+        Download and extract CVE data for a specific year.
+        
+        Args:
+            year: Year to download
+            
+        Returns:
+            List of CVE data dictionaries
+        """
+        # Create cache directories
+        cve_dir = self.cache_dir / "cves"
+        ensure_dir(cve_dir)
+        
+        # Download CVE data
+        cve_zip = cve_dir / f"cve_{year}.zip"
+        if not cve_zip.exists():
+            Logger.info(f"Downloading CVE data for year {year}")
+            # Download from NVD or CVE Project
+            # ...
+        
+        # Extract CVE data
+        cve_extract_dir = cve_dir / f"extract_{year}"
+        ensure_dir(cve_extract_dir)
+        
+        # Extract first level (zip file)
+        with zipfile.ZipFile(cve_zip, 'r') as zip_ref:
+            zip_ref.extractall(cve_extract_dir)
+        
+        # Find and extract second level (if needed)
+        for nested_zip in cve_extract_dir.glob("**/*.zip"):
+            nested_extract_dir = nested_zip.parent / nested_zip.stem
+            ensure_dir(nested_extract_dir)
+            with zipfile.ZipFile(nested_zip, 'r') as zip_ref:
+                zip_ref.extractall(nested_extract_dir)
+        
+        # Find and parse CVE JSON files
+        cve_data = []
+        for json_file in cve_extract_dir.glob(f"**/*{year}*.json"):
+            try:
+                with open(json_file, 'r', encoding='utf-8') as f:
+                    data = json.load(f)
+                    cve_data.append(data)
+            except Exception as e:
+                Logger.warning(f"Failed to parse {json_file}: {str(e)}")
+        
+        return cve_data
+
+    def _filter_php_cves(self, cve_data: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+        """
+        Filter CVEs for PHP-related vulnerabilities.
+        
+        Args:
+            cve_data: List of CVE data dictionaries
+            
+        Returns:
+            List of PHP-related CVE data dictionaries
+        """
+        php_cves = []
+        
+        for data in cve_data:
+            # Check if CVE contains PHP-related keywords
+            description = data.get('description', '').lower()
+            if any(keyword in description for keyword in self.php_keywords):
+                # Check if CVE has a CWE ID
+                if 'cwe' in data and data['cwe']:
+                    php_cves.append(data)
+        
+        return php_cves
+
+    def _verify_php_files(self, record: Dict[str, Any]) -> bool:
+        """
+        Verify that the commit contains PHP files.
+        
+        Args:
+            record: CVE record
+            
+        Returns:
+            True if the commit contains PHP files, False otherwise
+        """
+        repo_url = record.get('repository')
+        commit_sha = record.get('current_commit')
+        
+        if not repo_url or not commit_sha:
+            return False
+        
+        # Extract owner and repo from URL
+        repo_path = repo_url.replace("https://github.com/", "")
+        parts = repo_path.split('/')
+        if len(parts) < 2:
+            return False
+        
+        owner, repo = parts[0], parts[1]
+        
+        # Get commit details
+        commit_details = self.github_api.get_commit_details(owner, repo, commit_sha)
+        if not commit_details:
+            return False
+        
+        # Check if any files have .php extension
+        files = commit_details.get('files', [])
+        for file in files:
+            filename = file.get('filename', '')
+            if filename.endswith('.php'):
+                return True
+        
+        return False
+
+    def _get_previous_commit(self, record: Dict[str, Any]) -> bool:
+        """
+        Get the previous commit for a CVE.
+        
+        Args:
+            record: CVE record
+            
+        Returns:
+            True if successful, False otherwise
+        """
+        repo_url = record.get('repository')
+        commit_sha = record.get('current_commit')
+        
+        if not repo_url or not commit_sha:
+            return False
+        
+        # Extract owner and repo from URL
+        repo_path = repo_url.replace("https://github.com/", "")
+        parts = repo_path.split('/')
+        if len(parts) < 2:
+            return False
+        
+        owner, repo = parts[0], parts[1]
+        
+        # Get commit details
+        commit_details = self.github_api.get_commit_details(owner, repo, commit_sha)
+        if not commit_details:
+            return False
+        
+        # Get previous commit from parents
+        parents = commit_details.get('parents', [])
+        if parents:
+            record['previous_commit'] = parents[0].get('sha')
+            return True
+        
+        return False
+
+    def _classify_project_type(self, record: Dict[str, Any]) -> bool:
+        """
+        Classify project type based on README content.
+        
+        Args:
+            record: CVE record
+            
+        Returns:
+            True if successful, False otherwise
+        """
+        repo_url = record.get('repository')
+        
+        if not repo_url:
+            return False
+        
+        # Extract owner and repo from URL
+        repo_path = repo_url.replace("https://github.com/", "")
+        parts = repo_path.split('/')
+        if len(parts) < 2:
+            return False
+        
+        owner, repo = parts[0], parts[1]
+        
+        # Get README content
+        readme = self.github_api.get_readme(owner, repo)
+        if not readme:
+            record['project_type'] = "Unknown"
+            return False
+        
+        # Classify based on keywords and weights
+        readme_lower = readme.lower()
+        type_scores = {ptype: 0 for ptype in config.project_types.keys()}
+        
+        # Calculate weighted scores
+        for ptype, keywords in config.project_types.items():
+            for keyword, weight in keywords.items():
+                count = readme_lower.count(keyword)
+                type_scores[ptype] += count * weight
+        
+        # Get the type with highest score
+        max_score = max(type_scores.values())
+        if max_score == 0:
+            record['project_type'] = "Unknown"
+            return False
+        
+        # If multiple types have the same score, prefer more specific types
+        candidates = [t for t, s in type_scores.items() if s == max_score]
+        priority = ['PHP-SRC', 'Framework Plugin', 'Framework Theme', 'Web App', 'CLI App', 'Library']
+        
+        for p in priority:
+            if p in candidates:
+                record['project_type'] = p
+                return True
+        
+        record['project_type'] = candidates[0]
+        return True 
