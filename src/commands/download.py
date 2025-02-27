@@ -15,12 +15,12 @@ from src.utils.logger import Logger
 from src.utils.file_utils import ensure_dir, read_csv_file
 from src.utils.github import GitHubAPI
 from src.utils.ui import ProgressUI
-from src.config import INTER_DIR, CACHE_DIR
+from src.config import config
 
 console = Console()
 
 # Command-specific directories
-DOWNLOAD_INTER_DIR = INTER_DIR / "download"
+DOWNLOAD_INTER_DIR = config.inter_dir / "download"
 DEFAULT_OUTPUT_DIR = Path("downloads")
 
 def download(

@@ -5,64 +5,40 @@ This module provides UI components for displaying progress and status informatio
 """
 
 import os
-import time
-from typing import Optional, List, Any
+from typing import Optional, List
 from rich.console import Console
-from rich.progress import Progress, TextColumn, BarColumn, TaskProgressColumn, TimeRemainingColumn
-from rich.layout import Layout
-from rich.panel import Panel
-from rich.text import Text
+from rich.progress import Progress, TextColumn, BarColumn, TaskProgressColumn
+from rich.table import Table
 from src.utils.logger import Logger
 
 console = Console()
 
 class ProgressUI:
-    """Progress bar UI component."""
+    """Progress UI for displaying task progress with integrated logging."""
     
-    def __init__(self, total: int, description: str = "Processing"):
-        """
-        Initialize progress UI.
-        
-        Args:
-            total: Total number of items to process
-            description: Description of the task
-        """
-        self.total = total
+    def __init__(self, total_steps, description="Processing"):
+        """Initialize the progress UI."""
+        self.total_steps = total_steps
         self.description = description
         self.progress = None
         self.task_id = None
-        self.console = Console()
         self.log_buffer: List[str] = []
-        
-        # Create layout
-        self.layout = Layout()
-        
-        # Add progress to layout - Fix: use split method instead of item assignment
-        self.layout.split(
-            self.progress
-        )
-        
-        # Create task
-        self.task_id = self.progress.add_task(description, total=total)
-        self.current_item = None
     
-    def __enter__(self) -> 'ProgressUI':
-        """Enter context manager."""
+    def __enter__(self):
+        """Start the progress UI."""
         self.progress = Progress(
             TextColumn("[bold blue]{task.description}"),
             BarColumn(),
             TaskProgressColumn(),
-            TextColumn("•"),
-            TimeRemainingColumn()
+            console=console
         )
         self.progress.start()
-        self.task_id = self.progress.add_task(self.description, total=self.total)
+        self.task_id = self.progress.add_task(self.description, total=self.total_steps)
         return self
     
     def __exit__(self, exc_type, exc_val, exc_tb):
-        """Exit context manager."""
-        if self.progress:
-            self.progress.stop()
+        """Stop the progress UI."""
+        self.progress.stop()
         
         # After processing is complete, display the buffered log messages
         if self.log_buffer:
@@ -73,52 +49,45 @@ class ProgressUI:
             if len(self.log_buffer) > 10:
                 Logger.info(f"... and {len(self.log_buffer) - 10} more issues (see log file for details)")
     
-    def update(self, advance: int = 1, current_item: Optional[str] = None):
-        """
-        Update progress.
-        
-        Args:
-            advance: Number of steps to advance
-            current_item: Current item being processed (for display)
-        """
-        if self.progress and self.task_id is not None:
-            description = self.description
-            if current_item:
-                description = f"{self.description}: {current_item}"
-            
-            self.progress.update(self.task_id, advance=advance, description=description)
+    def update(self, advance, description=None):
+        """Update the progress."""
+        if description:
+            self.progress.update(self.task_id, description=description, advance=advance)
+        else:
+            self.progress.update(self.task_id, advance=advance)
     
-    def log_error(self, message: str, show_in_progress: bool = False) -> None:
-        """
-        Log an error message.
-        
-        Args:
-            message: Error message
-            show_in_progress: Whether to show the error in the progress bar
-        """
-        # Add to log buffer
+    def log(self, message):
+        """Log an info message in the progress context."""
+        # Add to buffer (optional)
         self.log_buffer.append(message)
-        
-        # Only show in progress bar if explicitly requested
-        if show_in_progress:
-            self.progress.print(f"❌ {message}")
+        # Use Logger for actual logging
+        Logger.info(message, console=self.progress.console)
+    
+    def log_success(self, message):
+        """Log a success message in the progress context."""
+        Logger.success(message, console=self.progress.console)
+    
+    def log_warning(self, message):
+        """Log a warning message in the progress context."""
+        self.log_buffer.append(message)
+        Logger.warning(message, console=self.progress.console)
+    
+    def log_error(self, message):
+        """Log an error message in the progress context."""
+        self.log_buffer.append(message)
+        Logger.error(message, console=self.progress.console)
     
     def write_log_to_file(self, log_file: str):
-        """
-        Write log buffer to file.
-        
-        Args:
-            log_file: Path to log file
-        """
+        """Write log buffer to file."""
         if not self.log_buffer:
             return
         
         try:
             with open(log_file, 'w', encoding='utf-8') as f:
                 f.write("\n".join(self.log_buffer))
-            self.console.print(f"[yellow]Errors logged to: {log_file}[/yellow]")
+            Logger.info(f"Errors logged to: {log_file}")
         except Exception as e:
-            self.console.print(f"[red]Failed to write log file: {str(e)}[/red]")
+            Logger.error(f"Failed to write log file: {str(e)}")
 
 def confirm_action(message: str, default: bool = False) -> bool:
     """
@@ -148,8 +117,6 @@ def print_table(headers: list, rows: list, title: Optional[str] = None):
         rows: Table rows
         title: Optional table title
     """
-    from rich.table import Table
-    
     table = Table(title=title)
     
     # Add headers

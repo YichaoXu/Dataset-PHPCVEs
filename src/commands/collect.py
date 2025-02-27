@@ -15,40 +15,36 @@ from src.core.processor import CVEProcessor
 from src.utils.github import GitHubAPI
 from src.utils.logger import Logger
 from src.utils.file_utils import ensure_dir
-from src.config import CACHE_DIR, INTER_DIR
+from src.config import config
 
 console = Console()
-
-# Command-specific directories
-COLLECT_INTER_DIR = INTER_DIR / "collect"
-DEFAULT_OUTPUT_DIR = Path("output/collect")
-
 def collect(
-    output_dir: Path = typer.Argument(DEFAULT_OUTPUT_DIR, help="Directory to store collected data"),
+    output_dir: Path = typer.Argument(Path("output"), help="Directory to store collected data"),
     token: Optional[str] = typer.Option(None, help="GitHub API token"),
     year: Optional[int] = typer.Option(None, help="Specific year to collect (default: all years)"),
     force: bool = typer.Option(False, help="Force reprocessing of cached data"),
     verbose: bool = typer.Option(False, help="Enable verbose output")
 ):
     """
-    This command is part of a PHP CVE Dataset Collection Tool that helps gather and process vulnerability data. It takes an output directory path and optional parameters like a GitHub token, specific year, force flag, and verbose mode. 
-    The command downloads CVE (Common Vulnerabilities and Exposures) data from various sources, specifically focusing on PHP-related security issues. 
-    It processes this data by first downloading and extracting CVE information, then applies filters to identify PHP vulnerabilities. 
-    For each vulnerability, it extracts associated GitHub commit information to understand the code changes that fixed the issue. 
-    The tool also analyzes project README files to classify the type of PHP project affected. All this collected and processed data is then saved in both CSV and JSON formats, organized by year in the specified output directory. 
-    The command uses caching to improve performance on subsequent runs, unless forced to reprocess with the force flag.
+    Collect PHP-related CVEs from various sources.
+    
+    This command downloads CVE data, filters for PHP-related vulnerabilities, and extracts
+    GitHub commit information to create a structured dataset.
     """
     # Enable verbose logging if requested
     Logger.set_verbose(verbose)
     
     # Start timing
     start_time = time.time()
+
+    # Command-specific directories
+    inter_collect_dir = config.inter_dir / "collect"
     
     # Create output directory
     ensure_dir(output_dir)
     
     # Create intermediate directory for processing data
-    ensure_dir(COLLECT_INTER_DIR)
+    ensure_dir(inter_collect_dir)
     
     # Initialize GitHub API client
     github_api = GitHubAPI(token=token)
@@ -56,8 +52,8 @@ def collect(
     # Initialize processor
     processor = CVEProcessor(
         github_api=github_api,
-        cache_dir=CACHE_DIR,
-        inter_dir=COLLECT_INTER_DIR,
+        cache_dir=config.cache_dir,
+        inter_dir=inter_collect_dir,
         use_cache=not force
     )
     

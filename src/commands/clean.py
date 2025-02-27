@@ -12,7 +12,7 @@ from rich.prompt import Confirm
 
 from src.utils.logger import Logger
 from src.utils.file_utils import ensure_dir
-from src.config import CACHE_DIR, INTER_DIR
+from src.config import config
 
 console = Console()
 
@@ -58,21 +58,21 @@ def clean(
             raise typer.Exit(0)
     
     # Clean cache directory
-    if clean_cache and CACHE_DIR.exists():
-        Logger.info(f"Cleaning cache directory: {CACHE_DIR}")
+    if clean_cache and config.cache_dir.exists():
+        Logger.info(f"Cleaning cache directory: {config.cache_dir}")
         try:
-            shutil.rmtree(CACHE_DIR)
-            ensure_dir(CACHE_DIR)
+            shutil.rmtree(config.cache_dir)
+            ensure_dir(config.cache_dir)
             Logger.success("Cache directory cleaned")
         except Exception as e:
             Logger.error(f"Error cleaning cache directory: {str(e)}")
     
     # Clean intermediate directory
-    if clean_intermediate and INTER_DIR.exists():
-        Logger.info(f"Cleaning intermediate directory: {INTER_DIR}")
+    if clean_intermediate and config.inter_dir.exists():
+        Logger.info(f"Cleaning intermediate directory: {config.inter_dir}")
         try:
-            shutil.rmtree(INTER_DIR)
-            ensure_dir(INTER_DIR)
+            shutil.rmtree(config.inter_dir)
+            ensure_dir(config.inter_dir)
             Logger.success("Intermediate directory cleaned")
         except Exception as e:
             Logger.error(f"Error cleaning intermediate directory: {str(e)}")

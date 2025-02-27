@@ -38,6 +38,45 @@ console = Console()
 class Logger:
     """Static logger class for application-wide logging."""
     
+    verbose = False
+    default_console = Console()
+    
+    @classmethod
+    def set_verbose(cls, verbose):
+        """Set verbose logging mode."""
+        cls.verbose = verbose
+    
+    @classmethod
+    def info(cls, message, console=None):
+        """Log an info message."""
+        console = console or cls.default_console
+        console.print(f"[cyan]INFO:[/cyan] {message}")
+    
+    @classmethod
+    def success(cls, message, console=None):
+        """Log a success message."""
+        console = console or cls.default_console
+        console.print(f"[green]SUCCESS:[/green] {message}")
+    
+    @classmethod
+    def warning(cls, message, console=None):
+        """Log a warning message."""
+        console = console or cls.default_console
+        console.print(f"[yellow]WARNING:[/yellow] {message}")
+    
+    @classmethod
+    def error(cls, message, console=None):
+        """Log an error message."""
+        console = console or cls.default_console
+        console.print(f"[red]ERROR:[/red] {message}")
+    
+    @classmethod
+    def debug(cls, message, console=None):
+        """Log a debug message (only in verbose mode)."""
+        if cls.verbose:
+            console = console or cls.default_console
+            console.print(f"[blue]DEBUG:[/blue] {message}")
+
     @staticmethod
     def debug(message: str):
         """

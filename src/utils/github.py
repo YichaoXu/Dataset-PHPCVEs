@@ -6,16 +6,18 @@ retrieve repository information, and download code.
 """
 
 import time
-import random
 import requests
 import re
-from typing import Dict, Optional, Any, List, Tuple
+import os
+from typing import Dict, Optional, Any
 from src.config import config
 from src.utils.logger import Logger
 from src.utils.error_handler import ErrorHandler
 
 class GitHubAPI:
     """GitHub API client for retrieving repository information."""
+    
+    BASE_URL = "https://api.github.com"
     
     def __init__(self, token: Optional[str] = None):
         """
@@ -24,13 +26,14 @@ class GitHubAPI:
         Args:
             token: GitHub API token
         """
-        self.token = token
-        self.base_url = "https://api.github.com"
+        self.token = token or os.environ.get("GITHUB_TOKEN", "")
         self.headers = {
             "Accept": "application/vnd.github.v3+json"
         }
-        if token:
-            self.headers["Authorization"] = f"token {token}"
+        if self.token:
+            self.headers["Authorization"] = f"token {self.token}"
+        else:
+            Logger.warning("No GitHub token provided. API rate limits will be severely restricted.")
     
     def get_previous_commit(self, repo_url: str, commit_hash: str) -> Optional[str]:
         """Get the parent commit hash for a given commit."""
@@ -45,8 +48,8 @@ class GitHubAPI:
             owner, repo = parts[0], parts[1]
             
             # Get commit details
-            url = f"{self.base_url}/repos/{owner}/{repo}/commits/{commit_hash}"
-            response = self._make_request(url)
+            url = f"{self.BASE_URL}/repos/{owner}/{repo}/commits/{commit_hash}"
+            response = self.get(url)
             
             if not response:
                 return None
@@ -73,8 +76,8 @@ class GitHubAPI:
             owner, repo = parts[0], parts[1]
             
             # Get repo details
-            url = f"{self.base_url}/repos/{owner}/{repo}"
-            return self._make_request(url) or {}
+            url = f"{self.BASE_URL}/repos/{owner}/{repo}"
+            return self.get(url) or {}
         except Exception as e:
             Logger.warning(f"Failed to get repo info: {str(e)}")
             return {}
@@ -104,10 +107,10 @@ class GitHubAPI:
             return None
         
         # Make API request
-        url = f"{self.base_url}/repos/{owner}/{repo}/commits/{commit_sha}"
+        url = f"{self.BASE_URL}/repos/{owner}/{repo}/commits/{commit_sha}"
         
         try:
-            response = self._make_request(url)
+            response = self.get(url)
             if not response:
                 # Log to file only, don't print to console
                 Logger.debug(f"Commit not found: {owner}/{repo}/{commit_sha}")
@@ -142,45 +145,40 @@ class GitHubAPI:
             Logger.error(f"Error handling rate limit: {e}")
             return 3600  # Default wait 1 hour on error
 
-    def _make_request(self, url: str) -> Optional[Dict]:
-        """Make a request to the GitHub API with retries and error handling."""
-        retry_attempts = 0
-        max_retries = 5
-        base_delay = 2
+    def get(self, endpoint: str, params: Optional[Dict[str, Any]] = None) -> Optional[Dict[str, Any]]:
+        """Make a GET request to the GitHub API."""
+        url = f"{self.BASE_URL}/{endpoint}"
         
-        # Extract repo info from URL for better error messages
-        repo_info = "unknown"
-        if "/repos/" in url:
-            parts = url.split("/repos/")[1].split("/")
-            if len(parts) >= 2:
-                repo_info = f"{parts[0]}/{parts[1]}"
-        
-        while retry_attempts < max_retries:
+        for attempt in range(config.api_retry_count + 1):
             try:
-                response = requests.get(url, headers=self.headers)
+                response = requests.get(url, headers=self.headers, params=params)
+                
                 if response.status_code == 200:
                     return response.json()
-                elif response.status_code in {403, 429}:
-                    wait_time = self._handle_rate_limit(response)
-                    time.sleep(wait_time)
-                    continue
-                elif response.status_code in {500, 502, 503, 504}:
-                    retry_attempts += 1
-                    delay = base_delay * (2 ** retry_attempts) + random.uniform(0, 1)
-                    time.sleep(min(delay, 300))
-                else:
-                    # For 404 errors, just log to file, don't print to console
-                    if response.status_code == 404:
-                        Logger.debug(f"API request failed for {repo_info}: 404 Not Found")
-                    else:
-                        # For other errors, log with higher severity but still avoid console
-                        Logger.debug(f"API request failed for {repo_info}: {response.status_code}")
-                    return None
+                
+                if response.status_code == 403 and config.github_rate_limit_wait:
+                    # Rate limited, get reset time and wait
+                    reset_time = int(response.headers.get("X-RateLimit-Reset", 0))
+                    wait_time = max(0, reset_time - time.time()) + 1
+                    
+                    if wait_time > 0 and wait_time < 3600:  # Don't wait more than an hour
+                        Logger.warning(f"Rate limited. Waiting {wait_time:.0f} seconds...")
+                        time.sleep(wait_time)
+                        continue
+                
+                Logger.error(f"GitHub API error: {response.status_code} - {response.text}")
+                return None
+                
             except Exception as e:
-                # Log to file only, don't print to console
-                Logger.debug(f"Request error for {repo_info}: {e}")
-                retry_attempts += 1
-                time.sleep(base_delay * (2 ** retry_attempts))
+                Logger.error(f"Error making request to GitHub API: {str(e)}")
+                
+                if attempt < config.api_retry_count:
+                    wait_time = config.api_retry_delay * (attempt + 1)
+                    Logger.info(f"Retrying in {wait_time} seconds...")
+                    time.sleep(wait_time)
+                else:
+                    return None
+        
         return None
 
     def get_readme(self, owner: str, repo: str) -> Optional[str]:

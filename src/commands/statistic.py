@@ -15,7 +15,7 @@ from rich.console import Console
 from src.utils.logger import Logger
 from src.utils.file_utils import ensure_dir, read_csv_file, write_json_file
 from src.utils.ui import ProgressUI
-from src.config import INTER_DIR
+from src.config import config
 
 try:
     import matplotlib.pyplot as plt
@@ -28,7 +28,7 @@ except ImportError:
 console = Console()
 
 # Command-specific directories
-STATISTIC_INTER_DIR = INTER_DIR / "statistic"
+STATISTIC_INTER_DIR = config.inter_dir / "statistic"
 DEFAULT_OUTPUT_DIR = Path("output/statistics")
 
 def statistic(
