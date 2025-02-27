@@ -24,7 +24,6 @@ ENV/
 .DS_Store
 
 # Project specific intermediate files
-dataset.csv
 cve_data.zip
 cves/
 .cache/
