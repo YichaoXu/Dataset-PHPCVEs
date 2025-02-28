@@ -6,6 +6,7 @@ import json
 import time
 from pathlib import Path
 from typing import List, Dict, Any
+from rich.progress import Progress, SpinnerColumn, TimeElapsedColumn, TextColumn, BarColumn, TaskProgressColumn
 
 from ..config import Config
 from ..logger import logger
@@ -62,16 +63,11 @@ def _save_php_cves_cache(php_cves: List[Path], cache_file: Path) -> None:
             'count': len(php_cves),
             'paths': [str(path) for path in php_cves]
         }
-        
         # 确保父目录存在
         cache_file.parent.mkdir(parents=True, exist_ok=True)
-        
         # 保存为JSON
         with open(cache_file, 'w', encoding='utf-8') as f:
-            json.dump(cache_data, f, indent=2)
-            
-        logger.info(f"Saved {len(php_cves)} PHP CVEs to cache: {cache_file}")
-                        
+            json.dump(cache_data, f, indent=2)                        
     except Exception as e:
         logger.error(f"Failed to save PHP CVEs cache: {str(e)}")
 
@@ -107,8 +103,6 @@ def _load_php_cves_cache(cache_file: Path, max_age: int = 86400) -> List[Path]:
         if len(php_cves) != cache_data['count']:
             logger.warning("Cache count mismatch")
             return []
-            
-        logger.info(f"Loaded {len(php_cves)} PHP CVEs from cache: {cache_file}")
         return php_cves
         
     except Exception as e:
@@ -127,49 +121,66 @@ def find_php_cves(cve_dir: Path) -> List[Path]:
     """
     # 检查缓存
     cache_file = Config.DS_INTER_PATH / 'php_cves.json'
-    if cache_file.exists():
-        logger.info("Found existing PHP CVEs cache")
-        cached_cves = _load_php_cves_cache(cache_file)
-        if cached_cves:  # 如果成功加载缓存
-            return cached_cves
+    cached_cves = _load_php_cves_cache(cache_file) if cache_file.exists() else None
+    if cached_cves: 
+        logger.operation('cache', "Found existing PHP CVEs cache", path=str(cache_file))
+        return cached_cves
             
     logger.info(f"Searching for PHP CVEs in: {cve_dir}")
-    total_files = 0
     php_cves = []
     
     try:
-        # 递归遍历所有json文件
-        for json_file in cve_dir.rglob('*.json'):
-            total_files += 1
+        # 获取所有json文件列表
+        json_files = list(cve_dir.rglob('*.json'))
+        total_files = len(json_files)
+        
+        # 创建进度条
+        with Progress(
+            SpinnerColumn(),
+            TextColumn("[progress.description]{task.description}"),
+            BarColumn(),
+            TaskProgressColumn(),
+            TextColumn("•"),
+            TimeElapsedColumn(),
+        ) as progress:
+            # 创建主任务
+            scan_task = progress.add_task(
+                f"[cyan]Scanning CVE files... (0/{total_files})", 
+                total=total_files
+            )
+            php_task = progress.add_task(
+                "[green]Found PHP CVEs: 0", 
+                total=None
+            )
             
-            if total_files % 1000 == 0:
-                logger.info(f"Processed {total_files} files, found {len(php_cves)} PHP CVEs")
-            
-            try:
-                # 读取并解析JSON文件
-                with open(json_file, 'r', encoding='utf-8') as f:
-                    cve_data = json.load(f)
-                
-                # 检查是否是PHP相关的CVE
-                if _is_php_cve(cve_data):
-                    logger.debug(f"Found PHP CVE: {json_file.name}")
-                    php_cves.append(json_file)
+            # 处理文件
+            for json_file in json_files:
+                try:
+                    # 读取并解析JSON文件
+                    with open(json_file, 'r', encoding='utf-8') as f:
+                        cve_data = json.load(f)
                     
-            except json.JSONDecodeError as e:
-                logger.warning(f"Invalid JSON file {json_file}: {str(e)}")
-                continue
-            except Exception as e:
-                logger.warning(f"Error processing {json_file}: {str(e)}")
-                continue
-                
+                    # 检查是否是PHP相关的CVE
+                    if _is_php_cve(cve_data):
+                        php_cves.append(json_file)
+                        progress.update(php_task, description=f"[green]Found PHP CVEs: {len(php_cves)}")
+                        
+                except json.JSONDecodeError as e:
+                    logger.warning(f"Invalid JSON file {json_file}: {str(e)}")
+                    continue
+                except Exception as e:
+                    logger.warning(f"Error processing {json_file}: {str(e)}")
+                    continue
+                finally:
+                    completed = progress.tasks[scan_task].completed + 1
+                    progress.update(scan_task, 
+                                  advance=1, 
+                                  description=f"[cyan]Scanning CVE files... ({completed}/{total_files})")
+                    
     except Exception as e:
         logger.error(f"Error scanning directory {cve_dir}: {str(e)}")
         
     finally:
-        logger.info(f"Scan complete: found {len(php_cves)} PHP CVEs in {total_files} total files")
-        
         # 保存缓存
-        if php_cves:
-            _save_php_cves_cache(php_cves, cache_file)
-            
+        if php_cves: _save_php_cves_cache(php_cves, cache_file)
         return php_cves 

@@ -1,3 +1,0 @@
-"""
-Project classification module
-"""

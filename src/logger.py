@@ -64,6 +64,16 @@ class Logger:
         'clean': '🧹'
     }
     
+    # Map custom levels to standard logging levels
+    LEVEL_MAP = {
+        'info': 'info',
+        'success': 'info',  # Map success to info level
+        'warning': 'warning',
+        'error': 'error',
+        'debug': 'debug',
+        'step': 'info'
+    }
+    
     def __init__(self, name: str, verbose: bool = False):
         """
         Initialize logger with name and verbosity setting.
@@ -90,8 +100,11 @@ class Logger:
             path: Optional path to highlight
             extra_info: Additional key-value pairs to log
         """
+        # Map custom level to standard level
+        std_level = self.LEVEL_MAP.get(level, 'info')
+        
         # File logging
-        log_func = getattr(self._logger, level)
+        log_func = getattr(self._logger, std_level)
         log_func(message)
         
         # Console output
@@ -141,10 +154,6 @@ class Logger:
     def start_process(self, message: str):
         """Log process start."""
         self._log('info', f"=== {message} ===", style='highlight', emoji=self.EMOJI['start'])
-        
-    def end_process(self, message: str):
-        """Log process end."""
-        self._log('info', f"=== {message} ===", style='highlight', emoji=self.EMOJI['end'])
         
     def operation(self, op_type: str, message: str, path: Optional[str] = None, **extra):
         """
