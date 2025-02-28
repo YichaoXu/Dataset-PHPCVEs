@@ -7,11 +7,9 @@ A command-line tool for collecting, downloading, and analyzing PHP-related CVEs
 
 __version__ = "1.0.0"
 
-from .config import config
-from .commands.collect import collect
-from .commands.download import download
-from .commands.statistic import statistic
-from .commands.reclassify import reclassify
-from .commands.clean import clean
+from src.config import Config
+from src.logger import logger
+from src.collect import collect_cves
 
-__all__ = ['config', 'collect', 'download', 'statistic', 'reclassify', 'clean'] 
+
+__all__ = ['Config', 'logger', 'collect_cves'] 

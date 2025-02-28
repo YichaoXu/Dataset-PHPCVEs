@@ -12,3 +12,5 @@ typer>=0.7.0
 typing_extensions==4.12.2
 urllib3==2.3.0
 cwe-tree==1.0.0
+# Repository classification
+repo_classifier=0.1.0

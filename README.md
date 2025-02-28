@@ -78,3 +78,13 @@ Dataset-PHPCVEs/
 - Rich (for progress display)
 - Typer (for CLI)
 - Requests (for API calls)
+
+## Dependencies
+
+This project now uses the `repo_classifier` library for classifying GitHub repositories. To install all dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+The `repo_classifier` library is used to classify PHP repositories into different project types (Framework, Library, Web App, etc.) based on their content and structure.

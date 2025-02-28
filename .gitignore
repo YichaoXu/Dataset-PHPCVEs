@@ -26,7 +26,6 @@ ENV/
 # Project specific intermediate files
 cve_data.zip
 cves/
-.cache/
 statistics/
 
 # Downloaded repositories
