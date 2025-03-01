@@ -1,90 +1,60 @@
-# Dataset-PHPCVEs
+# Dataset PHPCVEs
 
-A tool for collecting PHP-related CVE data with GitHub commit information.
+## 1. Overview
 
-## Features
+This dataset comprises a collection of GitHub repository source codes for PHP web applications, specifically focusing on the five most prevalent taint-style vulnerabilities as identified in [CVEListV5@2025-02-14_1700Z](https://github.com/CVEProject/cvelistV5).
 
-- Downloads and extracts CVE data from the official CVE Project repository
-- Filters for PHP-related vulnerabilities
-- Extracts GitHub repository and commit information
-- Determines project type (Web App, Framework Plugin, Library, etc.)
-- Saves the dataset to a CSV file
+### 1.1 Filtering Criteria
 
-## Installation
+| Step | Criteria | Description |
+|------|----------|-------------|
+| 1 | CVE Content | Record in **CVEListV5** contains **PHP-related keywords** |
+| 2 | Reference Check | The **refers** section includes a **GitHub patch link** |
+| 3 | File Validation | The **GitHub patch** contains at least one **PHP file** (`.php`) |
+| 4 | Project Type | Repository is classified as `Web App` by [repo-classifier](https://github.com/YichaoXu/repo_classifier/tree/main) |
 
-```bash
-git clone https://github.com/yourusername/Dataset-PHPCVEs.git
-cd Dataset-PHPCVEs
-pip install -r requirements.txt
-```
+### 1.2 Dataset Composition
 
-## Usage
+| CWE Type | Description | Count | Percentage |
+|----------|-------------|-------|------------|
+| CWE-79   | Cross-site Scripting (XSS) | 190 | 60.9% |
+| CWE-89   | SQL Injection | 83 | 26.6% |
+| CWE-434  | Unrestricted File Upload | 15 | 4.8% |
+| CWE-94   | Code Injection | 14 | 4.5% |
+| CWE-77   | Command Injection | 10 | 3.2% |
 
-### Collect CVE Data
+## 2. Download
 
-```bash
-python reproduce.py collect ./output --token YOUR_GITHUB_TOKEN
-```
+### OPTION-1 Download released zip files for the dataset
+You can find the downloadable zip files under the [release page](https://github.com/YichaoXu/Dataset-PHPCVEs/releases)
 
-Options:
-- `--token`: GitHub API token (optional, but recommended to avoid rate limits)
-- `--no-cache`: Disable using cached dataset
+### OPTION-2 Download dataset by a Python Script
 
-### Download Code
-
-```bash
-python reproduce.py download ./output/dataset.csv ./code
-```
-
-### Generate Statistics
-
-```bash
-python reproduce.py statistic ./output/dataset.csv
-```
-
-### Clean Cache
-
-```bash
-python reproduce.py clean [cache_type]
-```
-
-Options:
-- `cache_type`: Type of cache to clean (default: "all")
-  - `all`: Clean all cache files
-  - `collect`: Clean all collect command cache
-  - `download`: Clean all download command cache
-  - `statistic`: Clean all statistic command cache
-  - `cve`: Clean only raw CVE data
-  - `processed`: Clean only processed CVE cache
-
-## Project Structure
-
-```
-Dataset-PHPCVEs/
-├── reproduce.py                # Main entry point
-├── src/
-│   ├── commands/               # CLI commands
-│   ├── core/                   # Core business logic
-│   ├── models/                 # Data models
-│   ├── utils/                  # Utility functions
-│   └── config.py               # Configuration
-├── .inter/                     # Intermediate files
-└── output/                     # Output directory
-```
-
-## Requirements
-
-- Python 3.8+
-- Rich (for progress display)
-- Typer (for CLI)
-- Requests (for API calls)
-
-## Dependencies
-
-This project now uses the `repo_classifier` library for classifying GitHub repositories. To install all dependencies:
-
+1. Install dependencies:
 ```bash
 pip install -r requirements.txt
 ```
 
-The `repo_classifier` library is used to classify PHP repositories into different project types (Framework, Library, Web App, etc.) based on their content and structure.
+2. Download dataset:
+```bash
+python reproduce.py download \
+    .cache/collected.csv \
+    ./output \
+    --project-types "Web App" \
+    --cwe-types "79,89,434,94,77" \
+```
+
+Parameters:
+- `collected.csv`: Input file containing CVE data
+- `./output`: Output directory for downloaded repositories
+- `--project-types`: Filter by project type (e.g., "Web App")
+- `--cwe-types`: Filter by CWE types
+The dataset will be downloaded and organized as `output_dir/CWE-ID/CVE-ID/`.
+
+### Important Notes
+- If a repository is renamed or removed after this date, the dataset may differ.
+- For consistency, we recommend using zip format of the dataset provided in the release page.
+- Please also consider to cite our paper, if you used this dataset in your work
+
+## Contact
+For questions or issues, please contact the project maintainer.

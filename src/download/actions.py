@@ -43,11 +43,11 @@ def download_repositories(
     try:
         # Create output directory if it doesn't exist
         output_dir.mkdir(parents=True, exist_ok=True)
-        logger.operation('start', "Starting repository download process")
         
         # Read and filter CSV entries
         filtered_entries = []
-        logger.operation('extract', "Reading and filtering CSV entries")
+        console = Console()
+        console.print("[cyan]Reading and filtering CSV entries...[/cyan]")
         
         with open(csv_file, 'r', encoding='utf-8') as f:
             reader = csv.DictReader(f)
@@ -77,13 +77,20 @@ def download_repositories(
             logger.warning("No entries match the specified filters")
             return False
         
-        logger.operation('info', f"Found {len(filtered_entries)} matching entries", extra_info={
-            'filters': {
-                'year_range': f"{year_range[0] or 'start'} - {year_range[1] or 'end'}" if year_range else None,
-                'project_types': project_types,
-                'cwe_types': cwe_types
-            }
-        })
+        # Format filter conditions for display
+        filter_info = []
+        if year_range and (year_range[0] or year_range[1]):
+            year_str = f"{year_range[0] or 'start'} - {year_range[1] or 'present'}"
+            filter_info.append(f"Years: {year_str}")
+        if project_types:
+            filter_info.append(f"Project Types: {', '.join(project_types)}")
+        if cwe_types:
+            filter_info.append(f"CWE Types: {', '.join(cwe_types)}")
+            
+        # Display found entries with filter information using console
+        console.print(f"[green]Found {len(filtered_entries)} matching entries[/green]" + 
+                    (f" with filters:\n" + "\n".join(f"[yellow]•[/yellow] {info}" for info in filter_info) if filter_info else ""))
+        console.print()
         
         # Process filtered entries with progress bar
         success_count = 0
@@ -91,16 +98,17 @@ def download_repositories(
         
         # Create progress bar
         progress = Progress(
-            TextColumn("[progress.description]{task.description}"),
             BarColumn(),
             TaskProgressColumn(),
             TimeRemainingColumn(),
+            TextColumn("•"),
+            TextColumn("[progress.description]{task.description}"),
         )
         
         with progress:
             # Add main task
             task = progress.add_task(
-                "[cyan]Downloading repositories...",
+                "",  # Empty initial description
                 total=len(filtered_entries)
             )
             
@@ -114,7 +122,9 @@ def download_repositories(
                 main_cwe = cwe_ids[0].strip().upper() if cwe_ids else "Unknown"
                 if not main_cwe.startswith('CWE-'):
                     main_cwe = f"CWE-{main_cwe.lstrip('CWE')}"
-                progress.update(task, description=f"[cyan]Processing {main_cwe}/{cve_id}")
+                # Extract repository name from full path
+                repo_name = repo.split('/')[-1] if repo else "unknown"
+                progress.update(task, description=f"[cyan]{main_cwe}/{cve_id}({repo_name})")
                 
                 try:
                     # Create archive URL
