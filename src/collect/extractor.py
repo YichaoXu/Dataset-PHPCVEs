@@ -716,8 +716,8 @@ def process_cve_files(cve_files: List[Path], output_file: Path, github_token: Op
                         if debug:
                             logger.error(f"\nError processing {file_path.name}: {e}")
                 
-                # 先更新进度条状态为完成
-                progress.update(batch_task, status=f"[green]Completed")
+                # 确保进度达到100%
+                progress.update(batch_task, completed=len(batch_files), status=f"[green]Completed")
                 
                 # 添加换行，然后输出批次统计
                 batch_start = i + 1

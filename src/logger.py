@@ -7,9 +7,11 @@ output formats.
 
 import os
 import logging
+import sys
 from datetime import datetime
 from typing import Optional
 from rich.console import Console
+from rich.live import Live
 from .config import Config
 
 # Configure logging
@@ -31,8 +33,15 @@ file_formatter = logging.Formatter(
 )
 file_handler.setFormatter(file_formatter)
 
+# Create console handler that writes to stderr
+console_handler = logging.StreamHandler(sys.stderr)
+console_handler.setLevel(logging.INFO)
+console_formatter = logging.Formatter('%(message)s')
+console_handler.setFormatter(console_formatter)
+
 # Add handlers to logger
 logger.addHandler(file_handler)
+logger.addHandler(console_handler)
 
 class Logger:
     """Enhanced logger with rich console output and file logging."""
@@ -86,7 +95,7 @@ class Logger:
         """
         self.name = name
         self.verbose = verbose
-        self.console = Console()
+        self.console = Console(stderr=True)  # Use stderr for console output
         self._logger = logging.getLogger(name)
         self._logger.setLevel(logging.DEBUG)  # Ensure logger level is DEBUG
         
@@ -138,6 +147,7 @@ class Logger:
                 emoji = self.EMOJI.get(key.lower(), '📌')
                 console_msg += f"\n   {emoji} [bold {style}]{key}:[/] {value}"
                 
+        # Print to stderr to avoid interfering with progress bars
         self.console.print(f"[{style}]{console_msg}[/]")
         
     def debug(self, message: str, **kwargs):
