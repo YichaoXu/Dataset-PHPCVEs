@@ -759,28 +759,6 @@ def process_cve_files(cve_files: List[Path], output_file: Path, github_token: Op
             logger.info(f"  Total Files Processed: {total_processed}")
             logger.info(f"  Successfully Processed: {total_success} ({total_success/total_processed*100:.1f}%)")
             logger.info(f"  Total Skipped: {total_skipped} ({total_skipped/total_processed*100:.1f}%)")
-            
-            logger.info(f"\nDetailed Skip Reasons:")
-            logger.info(f"  1. No GitHub Information: {total_stats['no_github_info']}")
-            logger.info(f"     - Percentage: {total_stats['no_github_info']/total_processed*100:.1f}%")
-            logger.info(f"     - These entries lack valid GitHub commit URLs or repository information")
-            
-            logger.info(f"\n  2. No PHP Files: {total_stats['no_php_files']}")
-            logger.info(f"     - Percentage: {total_stats['no_php_files']/total_processed*100:.1f}%")
-            logger.info(f"     - Commits found but contained no PHP-related files")
-            
-            logger.info(f"\n  3. Invalid Repository: {total_stats['invalid_repo']}")
-            logger.info(f"     - Percentage: {total_stats['invalid_repo']/total_processed*100:.1f}%")
-            logger.info(f"     - Repository names could not be normalized to owner/repo format")
-            
-            logger.info(f"\n  4. API Errors: {total_stats['api_error']}")
-            logger.info(f"     - Percentage: {total_stats['api_error']/total_processed*100:.1f}%")
-            logger.info(f"     - Failed to retrieve commit information from GitHub API")
-            
-            logger.info(f"\n  5. Other Errors: {total_stats['other_errors']}")
-            logger.info(f"     - Percentage: {total_stats['other_errors']/total_processed*100:.1f}%")
-            logger.info(f"     - Miscellaneous errors during processing")
-            
             logger.info(f"\nOutput Information:")
             logger.info(f"  - CSV file: {output_file}")
             logger.info(f"  - Total successful entries written: {total_success}")
