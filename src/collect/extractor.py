@@ -22,54 +22,35 @@ _HEADERS = {
     'User-Agent': 'Dataset-PHPCVEs'
 }
 _GITHUB_CACHE_DIR = Config.DS_INTER_PATH / 'github_responses'
-_AICG_CACHE_DIR = Config.DS_INTER_PATH / 'aicg_responses'
 _AI_CLASS_CACHE_DIR = Config.DS_INTER_PATH / 'ai_classifications'  # 新增AI分类缓存目录
 _GITHUB_CACHE_DIR.mkdir(parents=True, exist_ok=True)
-_AICG_CACHE_DIR.mkdir(parents=True, exist_ok=True)
 _AI_CLASS_CACHE_DIR.mkdir(parents=True, exist_ok=True)  # 创建AI分类缓存目录
 
 # ====== 缓存功能 ======
 
-def _get_cache_path(url: str, cache_type: str = 'github') -> Path:
-    """
-    获取缓存文件路径
-    
-    Args:
-        url: 请求URL
-        cache_type: 缓存类型 ('github' 或 'aicg')
-        
-    Returns:
-        Path: 缓存文件路径
-    """
-    url_hash = hashlib.md5(url.encode()).hexdigest()
-    cache_dir = _GITHUB_CACHE_DIR if cache_type == 'github' else _AICG_CACHE_DIR
-    return cache_dir / f"{url_hash}.json"
-
-def _load_cache(url: str, cache_type: str = 'github') -> Optional[Dict]:
+def _load_cache(url: str) -> Optional[Dict]:
     """
     从缓存加载响应数据
     
     Args:
-        url: 请求URL
-        cache_type: 缓存类型 ('github' 或 'aicg')
-        
+        url: 请求URL        
     Returns:
         Optional[Dict]: 缓存的响应数据
     """
-    cache_file = _get_cache_path(url, cache_type)
+    url_hash = hashlib.md5(url.encode()).hexdigest()
+    cache_file = _GITHUB_CACHE_DIR / f"{url_hash}.json"
     if not cache_file.exists():
         return None
         
     try:
         with open(cache_file, 'r', encoding='utf-8') as f:
             cache_data = json.load(f)
-            # GitHub API缓存7天，AICG API缓存30天
-            cache_days = 7 if cache_type == 'github' else 30
+            cache_days = 7 
             if time.time() - cache_data['timestamp'] < cache_days * 24 * 3600:
-                logger.debug(f"Cache hit for {url} ({cache_type})")
+                logger.debug(f"Cache hit for {url}")
                 return cache_data['data']
     except Exception as e:
-        logger.debug(f"Error loading cache for {url} ({cache_type}): {e}")
+        logger.debug(f"Error loading cache for {url}: {e}")
     return None
 
 def _save_cache(url: str, data: Dict, cache_type: str = 'github') -> None:
@@ -82,7 +63,8 @@ def _save_cache(url: str, data: Dict, cache_type: str = 'github') -> None:
         cache_type: 缓存类型 ('github' 或 'aicg')
     """
     try:
-        cache_file = _get_cache_path(url, cache_type)
+        url_hash = hashlib.md5(url.encode()).hexdigest()
+        cache_file = _GITHUB_CACHE_DIR / f"{url_hash}.json"
         cache_data = {
             'timestamp': time.time(),
             'url': url,
@@ -129,7 +111,6 @@ def _make_request(url: str, token: Optional[str] = None, progress: Optional[Prog
     cached_data = _load_cache(url)
     if cached_data is not None:
         return cached_data
-        
     # 重试设置
     retry_attempts = 0
     max_retries = 5
@@ -147,6 +128,13 @@ def _make_request(url: str, token: Optional[str] = None, progress: Optional[Prog
         try:
             request = urllib.request.Request(url, headers=headers)
             with urllib.request.urlopen(request) as response:
+                # 记录API配额使用情况
+                remaining = response.headers.get('X-RateLimit-Remaining', '0')
+                limit = response.headers.get('X-RateLimit-Limit', '60')
+                reset_time = response.headers.get('X-RateLimit-Reset', '0')
+                reset_datetime = time.strftime('%Y-%m-%d %H:%M:%S', time.localtime(int(reset_time)))
+                logger.info(f"GitHub API Rate Limit: {remaining}/{limit}, Reset at: {reset_datetime}")
+                
                 data = json.loads(response.read().decode('utf-8'))
                 _save_cache(url, data)
                 return data
@@ -278,7 +266,6 @@ def _determine_project_type(repo: str, aicg_api: Optional[Dict] = None) -> str:
         logger.debug(f"Classification results for {repo}: {results}")
         logger.debug(f"Selected type: {project_type} with confidence: {confidence:.2f}")
         return project_type
-    
     try:
         # 获取仓库信息
         repo_info = get_repo_info(repo)
@@ -308,13 +295,11 @@ def _determine_project_type(repo: str, aicg_api: Optional[Dict] = None) -> str:
         
         # 组合项目描述
         project_desc = f"Repository: {repo_url}; \nDescription: {description}\nReadme: {readme_content}"
-        
         # 使用AI分类器
         if aicg_api:
             # 生成缓存文件名
             cache_key = hashlib.md5(f"{repo}:{aicg_api['model_name']}:{project_desc}".encode()).hexdigest()
             cache_file = _AI_CLASS_CACHE_DIR / f"{cache_key}.json"
-            
             # 检查缓存
             if cache_file.exists():
                 try:
@@ -326,11 +311,9 @@ def _determine_project_type(repo: str, aicg_api: Optional[Dict] = None) -> str:
                             return cache_data['project_type']
                 except Exception as e:
                     logger.debug(f"Error loading AI classification cache for {repo}: {e}")
-            
             # 调用AI分类
             api_url, model_name, api_key = aicg_api['api_url'], aicg_api['model_name'], aicg_api['api_key']
             results = classify_description_ai(project_desc, "php", api_url, model_name, api_key)
-            exit(results)
             if results:
                 project_type = get_highest_probability_type(results)
                 if project_type:
@@ -350,7 +333,6 @@ def _determine_project_type(repo: str, aicg_api: Optional[Dict] = None) -> str:
                     except Exception as e:
                         logger.debug(f"Error saving AI classification cache for {repo}: {e}")
                     return project_type
-        
         # 使用启发式分类
         results = classify_description_heuristic(project_desc, "php")
         if results:
@@ -603,6 +585,10 @@ def process_cve_files(cve_files: List[Path], output_file: Path, github_token: Op
             logger.info(f"GitHub token provided: {bool(github_token)}")
             logger.info(f"AICG API config: {aicg_config}")
             
+        # 按CVE ID排序文件
+        logger.info("Sorting CVE files by CVE ID...")
+        cve_files.sort(key=lambda x: x.stem)
+        
         # 准备CSV输出
         fieldnames = ['cve_id', 'cwe_ids', 'github_repo', 'cur_commit', 'pre_commit', 'project_type']
         

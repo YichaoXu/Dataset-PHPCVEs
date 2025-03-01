@@ -18,16 +18,18 @@ os.makedirs(log_dir, exist_ok=True)
 
 # Create logger
 logger = logging.getLogger("php_cve_tool")
-logger.setLevel(logging.DEBUG)
+logger.setLevel(logging.DEBUG)  # Set root logger to DEBUG level
 
-# Create file handler
+# Create file handler for all logs
 log_file = log_dir / f"app_{datetime.now().strftime('%Y%m%d_%H%M%S')}.log"
 file_handler = logging.FileHandler(log_file)
 file_handler.setLevel(logging.DEBUG)
 
-# Create formatter
-formatter = logging.Formatter('%(asctime)s - %(levelname)s - %(message)s')
-file_handler.setFormatter(formatter)
+# Create formatter with more detailed format for file logs
+file_formatter = logging.Formatter(
+    '%(asctime)s - %(levelname)s - %(name)s - %(funcName)s:%(lineno)d - %(message)s'
+)
+file_handler.setFormatter(file_formatter)
 
 # Add handlers to logger
 logger.addHandler(file_handler)
@@ -80,12 +82,13 @@ class Logger:
         
         Args:
             name: Logger name
-            verbose: Enable verbose logging
+            verbose: Enable verbose console output
         """
         self.name = name
         self.verbose = verbose
         self.console = Console()
         self._logger = logging.getLogger(name)
+        self._logger.setLevel(logging.DEBUG)  # Ensure logger level is DEBUG
         
     def _log(self, level: str, message: str, style: str = None, emoji: str = None,
              path: Optional[str] = None, extra_info: Optional[dict] = None):
@@ -103,15 +106,26 @@ class Logger:
         # Map custom level to standard level
         std_level = self.LEVEL_MAP.get(level, 'info')
         
-        # File logging
-        log_func = getattr(self._logger, std_level)
-        log_func(message)
+        # Prepare complete log message for file
+        full_message = message
+        if path:
+            full_message += f" (Path: {path})"
+        if extra_info:
+            full_message += f" (Extra: {extra_info})"
         
-        # Console output
+        # Always log to file regardless of verbose setting
+        log_func = getattr(self._logger, std_level)
+        log_func(full_message)
+        
+        # Console output depends on verbose setting for debug messages
+        if level == 'debug' and not self.verbose:
+            return
+            
+        # Console output formatting
         style = style or self.STYLES.get(level, 'white')
         emoji = emoji or self.EMOJI.get(level, '')
         
-        # Format message
+        # Format message for console
         console_msg = f"{emoji} {message}"
         
         # Add path if provided
@@ -127,9 +141,8 @@ class Logger:
         self.console.print(f"[{style}]{console_msg}[/]")
         
     def debug(self, message: str, **kwargs):
-        """Log debug message (only in verbose mode)."""
-        if self.verbose:
-            self._log('debug', message, **kwargs)
+        """Log debug message (always to file, to console only in verbose mode)."""
+        self._log('debug', message, **kwargs)
             
     def info(self, message: str, **kwargs):
         """Log info message."""
