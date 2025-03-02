@@ -201,6 +201,7 @@ cython_debug/
 venv/
 **/.DS_Store
 CWE*/
+CVEs/
 
 # Cache directories
 .inter/

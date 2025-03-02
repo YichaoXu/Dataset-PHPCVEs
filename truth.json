@@ -1,1518 +1,2186 @@
 [
   {
-    "name": "CWE-434/CVE-2019-1010062/pluck-cms_pluck_cad5f6",
+    "name": "CWE-434/CVE-2019-1010062",
+    "github_repo": "pluck-cms/pluck",
+    "commit_hex": "cad5f633d7a7b5ba7e1bab773f4dbb506ca36c08",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-434/CVE-2020-11011/Alanaktion_phproject_10dba6",
+    "name": "CWE-434/CVE-2023-23607",
+    "github_repo": "erohtar/Dasherr",
+    "commit_hex": "e1e13b352abf61d840b886d5cac3df2dbf2687d7",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-434/CVE-2020-15277/baserproject_basercms_d14f50",
+    "name": "CWE-434/CVE-2023-6850",
+    "github_repo": "kalcaddle/KodExplorer",
+    "commit_hex": "dfb3597ca4aabf662a0e5f860d4f420fb4e390a4",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-434/CVE-2020-26255/getkirby_kirby_6112f1",
+    "name": "CWE-434/CVE-2020-26255",
+    "github_repo": "getkirby/kirby",
+    "commit_hex": "6112f1cb8ebf9c36e8a9f97ae08acc910ddbc792",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-434/CVE-2023-23607/erohtar_Dasherr_e1e13b",
+    "name": "CWE-434/CVE-2024-40645",
+    "github_repo": "FOGProject/fogproject",
+    "commit_hex": "2413bc034753c32799785e9bf08164ccd0a2759f",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-434/CVE-2023-3852/OpenRapid_rapidcms_e0ce52",
+    "name": "CWE-434/CVE-2024-29859",
+    "github_repo": "MISP/MISP",
+    "commit_hex": "14f8a7120efa98808aa839416e0aa5b0f1e3cf50",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-434/CVE-2023-4220/chamilo_chamilo-lms_385a75",
+    "name": "CWE-434/CVE-2023-4220",
+    "github_repo": "chamilo/chamilo-lms",
+    "commit_hex": "385a755ae85abee9868b116d98ec64f58a2c00be",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-434/CVE-2023-4223/chamilo_chamilo-lms_ed7291",
+    "name": "CWE-434/CVE-2024-38529",
+    "github_repo": "Admidio/admidio",
+    "commit_hex": "045a23a1c52dd25ae05a1d16147d2b121f97080a",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-434/CVE-2023-4224/chamilo_chamilo-lms_46247d",
+    "name": "CWE-434/CVE-2023-3852",
+    "github_repo": "OpenRapid/rapidcms",
+    "commit_hex": "e0ce52452522bbccf72f3c772bb0afe3fc2969d7",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-434/CVE-2023-4225/chamilo_chamilo-lms_46247d",
+    "name": "CWE-434/CVE-2025-21624",
+    "github_repo": "MacWarrior/clipbucket-v5",
+    "commit_hex": "75d663f010cd8569eb9e278f030838174fb30188",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-434/CVE-2023-4226/chamilo_chamilo-lms_46247d",
+    "name": "CWE-434/CVE-2023-5227",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "baa93e0a7b7f00fb99b378cbeccfac79b02aa890",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-434/CVE-2023-47129/statamic_cms_36d8a5",
-    "vulnerabilities": [null]
-  },
-  {
-    "name": "CWE-434/CVE-2023-47621/duncanmcclean_guest-entries_323004",
-    "vulnerabilities": [null]
-  },
-  {
-    "name": "CWE-434/CVE-2023-5227/thorsten_phpmyfaq_baa93e",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-434/CVE-2024-28105/thorsten_phpMyFAQ_c94b3d",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-434/CVE-2024-38529/Admidio_admidio_045a23",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-434/CVE-2024-38530/gunet_openeclass_6b1a32",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-434/CVE-2024-40645/FOGProject_fogproject_2413bc",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-434/CVE-2025-21624/MacWarrior_clipbucket-v5_75d663",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-77/CVE-2020-36642/trampgeek_jobe_955fa7",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-77/CVE-2021-41116/composer_composer_1a994e",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-77/CVE-2023-0789/thorsten_phpmyfaq_f34d84",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-77/CVE-2023-28854/paijp_nophp_dc26ab",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-77/CVE-2024-29895/Cacti_cacti_837403",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-77/CVE-2024-35241/composer_composer_fc57b9",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-77/CVE-2024-35242/composer_composer_fa3b95",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-77/CVE-2024-39914/FOGProject_fogproject_f97b01",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-78/CVE-2021-32682/Studio-42_elFinder_60d1d7",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-78/CVE-2023-3368/chamilo_chamilo-lms_0ced3e",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-78/CVE-2023-4221/chamilo_chamilo-lms_6f3262",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-78/CVE-2023-4222/chamilo_chamilo-lms_6f3262",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-78/CVE-2025-22605/coollabsio_coolify_f9411b",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-79/CVE-2009-10001/jianlinwei_cool-php-captcha_c4e850",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-79/CVE-2009-10004/Turante_sandbox-theme_573671",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-79/CVE-2010-10002/simplesamlphp_simplesamlphp-module-openid_1b9ea1",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-79/CVE-2010-10004/simplesamlphp_simplesamlphp-module-infocard_429c8d",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-79/CVE-2010-10008/simplesamlphp_simplesamlphp-module-openidprovider_d4bbc9",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-79/CVE-2010-10010/StarsAlliance_PsychoStats_fa1705",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-79/CVE-2012-10002/ahmyi_rivettracker_54e816",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-79/CVE-2012-10003/ahmyi_rivettracker_444679",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-79/CVE-2012-10004/backdrop-contrib_basiccart_9d90ca",
-    "vulnerabilities": [null]
-  },
-  {
-    "name": "CWE-79/CVE-2012-10005/manikandan170890_php-form-builder-class_7e818a",
+    "name": "CWE-434/CVE-2020-15277",
+    "github_repo": "baserproject/basercms",
+    "commit_hex": "d14f506385f21d67d5ff3462f204d4c2321b7c54",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2014-125027/yunasc_tbdev_0399b5",
+    "name": "CWE-434/CVE-2020-11011",
+    "github_repo": "Alanaktion/phproject",
+    "commit_hex": "10dba6d56a4183e2b20b4f881e389bf47cf5d46a",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2014-125031/kirill2485_TekNet_6f7b74",
+    "name": "CWE-434/CVE-2024-28105",
+    "github_repo": "thorsten/phpMyFAQ",
+    "commit_hex": "c94b3deadd87789389e1fad162bc3dd595c0e15a",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2014-125034/stiiv_contactapp_f9e516",
+    "name": "CWE-434/CVE-2024-25410",
+    "github_repo": "flusity/flusity-CMS",
+    "commit_hex": "d659b5e62257ef421a3e328f597abd1c41630a6a",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2015-10006/admont28_ingnovarq_f7eb27",
+    "name": "CWE-79/CVE-2025-23034",
+    "github_repo": "LabRedesCefetRJ/WeGIA",
+    "commit_hex": "782080f7c68abc8ab870bcd19ec909ef0bea0e7b",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2015-10019/foxoverflow_MySimplifiedSQL_4915f7",
-    "vulnerabilities": [null]
-  },
-  {
-    "name": "CWE-79/CVE-2015-10032/StevenElberger_HealthMateWeb_770c02",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-79/CVE-2015-10058/wikisource_ws-cat-browser_6cc12c",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-79/CVE-2015-10073/tinymighty_wiki-seo_b8a947",
-    "vulnerabilities": [null]
-  },
-  {
-    "name": "CWE-79/CVE-2015-10074/OpenSeaMap_onlinechart_ca9e79",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-79/CVE-2015-10075/georgestephanis_Custom-Content-Width_1f0cf1",
-    "vulnerabilities": [null]
-  },
-  {
-    "name": "CWE-79/CVE-2016-15022/mosbth_cimage_f0ab94",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-79/CVE-2016-15029/Ydalb_mapicoin_e1f4f1",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-79/CVE-2016-15032/mback2k_mhhttpbl_99f850",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-79/CVE-2016-2138/ikoniaris_kippo-graph_988641",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-79/CVE-2016-2139/ikoniaris_kippo-graph_988641",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-79/CVE-2016-9128/revive-adserver_revive-adserver_3aaebc",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-79/CVE-2016-9130/revive-adserver_revive-adserver_38223a",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-79/CVE-2016-9457/revive-adserver_revive-adserver_5a48f3",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-79/CVE-2016-9470/revive-adserver_revive-adserver_71812b",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-79/CVE-2017-20158/vova07_yii2-fileapi-widget_a392ab",
-    "vulnerabilities": [null]
-  },
-  {
-    "name": "CWE-79/CVE-2017-20175/DaSchTour_matomo-mediawiki-extension_ceadbc",
+    "name": "CWE-79/CVE-2023-32066",
+    "github_repo": "anuko/timetracker",
+    "commit_hex": "ec4d03d4c6fa87fc08c316e414ee3ef3c510db0c",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2017-20176/ciubotaru_share-on-diaspora_9e8651",
+    "name": "CWE-79/CVE-2021-4312",
+    "github_repo": "Th3-822/rapidleech",
+    "commit_hex": "e771690542fd648ae85efa35e0dd034a7d9fae0f",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2017-20185/fuzzymannerz_swmp_34752b",
+    "name": "CWE-79/CVE-2022-36107",
+    "github_repo": "TYPO3/typo3",
+    "commit_hex": "56af2bd3a432156c30af9be71c9d6f7ef3a6159a",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2018-25065/wikimedia_mediawiki-extensions-I18nTags_a90495",
-    "vulnerabilities": [null]
-  },
-  {
-    "name": "CWE-79/CVE-2018-25073/Newcomer1989_TSN-Ranksystem_b2f8fc",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-79/CVE-2018-25080/serbanghita_Mobile-Detect_4da80e",
+    "name": "CWE-79/CVE-2025-23033",
+    "github_repo": "LabRedesCefetRJ/WeGIA",
+    "commit_hex": "f35910cb8b9205a6f038ef1e8b3413ea8eee850b",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2018-25086/sea75300_fanpresscm3_05a3ef",
+    "name": "CWE-79/CVE-2016-2138",
+    "github_repo": "ikoniaris/kippo-graph",
+    "commit_hex": "988641f10ca5280bc4abc294186405dbe3b8fa8d",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2019-16780/WordPress_wordpress-develop_b19754",
+    "name": "CWE-79/CVE-2021-29625",
+    "github_repo": "vrana/adminer",
+    "commit_hex": "60ad16117868103cb053881ecf14303236b6bcbc",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2019-25086/IET-OU_open-media-player_6ea652",
+    "name": "CWE-79/CVE-2023-1760",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "671f95b0e708fc6255c02086323a2bd8e366d92d",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2019-25092/Nakiami_mellivora_66df66",
+    "name": "CWE-79/CVE-2022-23475",
+    "github_repo": "lirantal/daloradius",
+    "commit_hex": "eb3dd136262b3a3959dc4f9f6796698fad978f67",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2019-25105/lgommans_dro.pm_31ecf0",
+    "name": "CWE-79/CVE-2023-1756",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "bbc5d4aa4a4375c14e34dd9fcad2042066fe476d",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2019-25156/dstar2018_agency-code-repo_8f2b61",
+    "name": "CWE-79/CVE-2023-0677",
+    "github_repo": "phpipam/phpipam",
+    "commit_hex": "3df854dab3cd94ce09717435ea50165c463bafb1",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2020-15155/baserproject_basercms_1a2fb0",
+    "name": "CWE-79/CVE-2022-36108",
+    "github_repo": "TYPO3/typo3",
+    "commit_hex": "bd58d2ff2eeef89e63ef754a2389597d22622a39",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2020-15159/baserproject_basercms_2dcaa2",
+    "name": "CWE-79/CVE-2016-2139",
+    "github_repo": "ikoniaris/kippo-graph",
+    "commit_hex": "988641f10ca5280bc4abc294186405dbe3b8fa8d",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2020-15177/glpi-project_glpi_6ca9a0",
+    "name": "CWE-79/CVE-2025-23032",
+    "github_repo": "LabRedesCefetRJ/WeGIA",
+    "commit_hex": "8a37021417d9c55e61392b3cc52baa3c73102bab",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2020-15249/octobercms_library_098969",
+    "name": "CWE-79/CVE-2025-23035",
+    "github_repo": "LabRedesCefetRJ/WeGIA",
+    "commit_hex": "09affa8ae0dc5f385907137302f7e3d4636147b0",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2020-25706/Cacti_cacti_99d3bf",
+    "name": "CWE-79/CVE-2023-0676",
+    "github_repo": "phpipam/phpipam",
+    "commit_hex": "b6c303645fd2d9df54d639302f1f09896550c9ea",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2020-36637/Chris92de_AdminServ_9a4508",
+    "name": "CWE-79/CVE-2023-5793",
+    "github_repo": "flusity/flusity-CMS",
+    "commit_hex": "b06ddaa335da661067f8860b4db572a85c12beac",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2020-36638/Chris92de_AdminServ_7bc4f9",
+    "name": "CWE-79/CVE-2023-1757",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "fecc803ab9c3e82718c4bcea7fe919d7a22ec024",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2020-36653/GENI-NSF_geni-portal_51b12a",
+    "name": "CWE-79/CVE-2023-1761",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "ae6c1d8c3eab05d6e2227c7a9998707f4f891514",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2020-36654/GENI-NSF_geni-portal_c2356c",
+    "name": "CWE-79/CVE-2022-4957",
+    "github_repo": "librespeed/speedtest",
+    "commit_hex": "4234f5fad38be8955a2f88998e5453864c005246",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2020-36828/codersclub_DiscuzX_a7450c",
+    "name": "CWE-79/CVE-2023-1759",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "a2642195e9fcb9a6f151bfaa4ff20bf1b905da2e",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2021-21258/glpi-project_glpi_df91ea",
+    "name": "CWE-79/CVE-2023-49086",
+    "github_repo": "Cacti/cacti",
+    "commit_hex": "c0ba9af41482ab2e1330f8e4b4fbc08e466ea106",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2021-22871/revive-adserver_revive-adserver_2980cc",
+    "name": "CWE-79/CVE-2024-28662",
+    "github_repo": "Piwigo/Piwigo",
+    "commit_hex": "7fc04d7d6d04312237e0902f0613d6c8f783c0d8",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2021-22872/revive-adserver_revive-adserver_62a2a0",
+    "name": "CWE-79/CVE-2023-1879",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "7c7699dce20fc114c10c5f502b2b479a9a5a7280",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2021-22874/revive-adserver_revive-adserver_1a05c5",
+    "name": "CWE-79/CVE-2022-4822",
+    "github_repo": "flatpressblog/flatpress",
+    "commit_hex": "2e7cac5c035d37bc3ea1321266026009e966109b",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2021-22875/revive-adserver_revive-adserver_e2a67c",
+    "name": "CWE-79/CVE-2023-1884",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "d773df925cb74e874527458beed1f66f966ec491",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2021-22889/revive-adserver_revive-adserver_071f22",
+    "name": "CWE-79/CVE-2024-51496",
+    "github_repo": "librenms/librenms",
+    "commit_hex": "5b2e94ebd6cacaa764a738b9214eaf94730fafd0",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2021-25955/Dolibarr_dolibarr_0d7fcc",
+    "name": "CWE-79/CVE-2023-34447",
+    "github_repo": "Combodo/iTop",
+    "commit_hex": "b99ff5e84ad9305228ceba76e04b93804f9166de",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2021-29625/vrana_adminer_60ad16",
+    "name": "CWE-79/CVE-2023-1212",
+    "github_repo": "phpipam/phpipam",
+    "commit_hex": "4f1fb98dbbaeb976b48417c85ec55a9d074a1591",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2021-32644/ampache_ampache_dcc8fa",
+    "name": "CWE-79/CVE-2015-10074",
+    "github_repo": "OpenSeaMap/online_chart",
+    "commit_hex": "ca9e794b844b97041dcdf2e1de82f074f9af6aa9",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2021-41139/anuko_timetracker_71796c",
+    "name": "CWE-79/CVE-2012-10002",
+    "github_repo": "ahmyi/rivettracker",
+    "commit_hex": "54e8160cc38360da65234744d771ec4c4b9a029b",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2021-41162/Combodo_iTop_20f441",
+    "name": "CWE-79/CVE-2016-9457",
+    "github_repo": "revive-adserver/revive-adserver",
+    "commit_hex": "5a48f3e4884918def0331f45e793f56f45ed574c",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2021-41236/oroinc_platform_d9d021",
+    "name": "CWE-79/CVE-2022-24746",
+    "github_repo": "shopware/platform",
+    "commit_hex": "47b4b094c13f62db860be2f431138bb45c0bd0b6",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2021-4282/FreePBX_voicemail_2cff65",
+    "name": "CWE-79/CVE-2024-51497",
+    "github_repo": "librenms/librenms",
+    "commit_hex": "8f9b5e592d0081711456c360003b0ef3e01b39da",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2021-4283/FreePBX_voicemail_2cff65",
+    "name": "CWE-79/CVE-2023-1882",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "56295b54062a284020fccce12a5044f9fa7d2770",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2021-4293/gnuboard_youngcart5_607a8b",
+    "name": "CWE-79/CVE-2024-25976",
+    "github_repo": "HAWK-Digital-Environments/HAWKI",
+    "commit_hex": "f352dc38bdf931d75abc02ec4b08193e92fb712f",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2021-4302/slackero_phpwcms_4db6ac",
+    "name": "CWE-79/CVE-2023-1885",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "ee509f26bd21fd94c90877216d16fd196c492ebf",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2021-4303/shannah_xataface_dfa953",
+    "name": "CWE-79/CVE-2014-125027",
+    "github_repo": "yunasc/tbdev",
+    "commit_hex": "0399b5703a198fa3756726bf059cd0b976535813",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2021-4310/01-Scripts_01-Artikelsystem_c081ea",
+    "name": "CWE-79/CVE-2024-9007",
+    "github_repo": "jeanmarc77/123solar",
+    "commit_hex": "80cb17d6db72b442adc07cae30376cea476c821d",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2021-4312/Th3-822_rapidleech_e77169",
+    "name": "CWE-79/CVE-2023-1878",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "400d9cd988d3287515c56b2ad6343026966f1a89",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2021-43808/laravel_framework_2d72d1",
+    "name": "CWE-79/CVE-2021-25955",
+    "github_repo": "Dolibarr/dolibarr",
+    "commit_hex": "0d7fccc7b30b00b241f85d5b1e28fdbbf19042e3",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2021-43810/Admidio_admidio_d6c562",
+    "name": "CWE-79/CVE-2023-0794",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "697a570fa732506056625f487c5ab4a0d80cf825",
+    "project_type": "Web App",
     "vulnerabilities": []
-  },
-  {
-    "name": "CWE-79/CVE-2021-4431/msyk_FMDataAPI_0965e5",
-    "vulnerabilities": [null]
-  },
-  {
-    "name": "CWE-79/CVE-2022-1226/phpipam_phpipam_63af25",
-    "vulnerabilities": []
-  },
-  {
-    "name": "CWE-79/CVE-2022-21648/nette_latte_a69d0b",
-    "vulnerabilities": [null]
   },
   {
-    "name": "CWE-79/CVE-2022-21715/codeigniter4_CodeIgniter4_99e079",
+    "name": "CWE-79/CVE-2012-10003",
+    "github_repo": "ahmyi/rivettracker",
+    "commit_hex": "4446795db3efc8eb54729ba9a3fc7337a8292213",
+    "project_type": "Web App",
     "vulnerabilities": []
-  },
-  {
-    "name": "CWE-79/CVE-2022-23638/darylldoyle_svg-sanitizer_307b42",
-    "vulnerabilities": [null]
   },
   {
-    "name": "CWE-79/CVE-2022-24708/anuko_timetracker_bb7d08",
+    "name": "CWE-79/CVE-2023-34446",
+    "github_repo": "Combodo/iTop",
+    "commit_hex": "17d22219d23c700fd829a49f41b2e1dd7c211245",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2022-24746/shopware_platform_47b4b0",
+    "name": "CWE-79/CVE-2021-4293",
+    "github_repo": "gnuboard/youngcart5",
+    "commit_hex": "607a8b613e40c38d536a66ffff13bad548feb089",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2022-31109/laminas_laminas-diactoros_d1bc56",
+    "name": "CWE-79/CVE-2019-16780",
+    "github_repo": "WordPress/wordpress-develop",
+    "commit_hex": "b1975463dd995da19bb40d3fa0786498717e3c53",
+    "project_type": "Web App",
     "vulnerabilities": []
-  },
-  {
-    "name": "CWE-79/CVE-2022-36020/TYPO3_html-sanitizer_aac22d",
-    "vulnerabilities": [null]
   },
   {
-    "name": "CWE-79/CVE-2022-3608/thorsten_phpmyfaq_ac3d7e",
+    "name": "CWE-79/CVE-2023-0787",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "77b42b9d0be3990ee7389207a71528b304b03039",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2022-36107/TYPO3_typo3_56af2b",
+    "name": "CWE-79/CVE-2025-22614",
+    "github_repo": "LabRedesCefetRJ/WeGIA",
+    "commit_hex": "0d81074c6fc0470373ecc85738f47b83357a0a7e",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2022-36108/TYPO3_typo3_bd58d2",
+    "name": "CWE-79/CVE-2023-0310",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "fb88fe5e6052b352425508b94a60ebd1a1ca6792",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2022-3765/thorsten_phpmyfaq_ec1e48",
+    "name": "CWE-79/CVE-2025-22613",
+    "github_repo": "LabRedesCefetRJ/WeGIA",
+    "commit_hex": "cdb8e8466f35f60d32e3b1bd78f01387b3776ca4",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2022-3766/thorsten_phpmyfaq_372428",
+    "name": "CWE-79/CVE-2022-0402",
+    "github_repo": "RensTillmann/super-forms",
+    "commit_hex": "bc4a7623490d879c8ba21857b349c242d10b6ffb",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2022-40704/phoronix-test-suite_phoronix-test-suite_216025",
+    "name": "CWE-79/CVE-2020-36653",
+    "github_repo": "GENI-NSF/geni-portal",
+    "commit_hex": "51b12a1777b2bb2cf1365f6aa5b48e38128ed99b",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2022-4407/thorsten_phpmyfaq_e2ea33",
+    "name": "CWE-79/CVE-2020-36654",
+    "github_repo": "GENI-NSF/geni-portal",
+    "commit_hex": "c2356cc41260551073bfaa3a94d1ab074f554938",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2022-4408/thorsten_phpmyfaq_c16cc2",
+    "name": "CWE-79/CVE-2022-3845",
+    "github_repo": "phpipam/phpipam",
+    "commit_hex": "5852574fe3bd9695638c55790127c7c2a7bcd858",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2022-4820/flatpressblog_flatpress_91857e",
+    "name": "CWE-79/CVE-2014-125034",
+    "github_repo": "stiiv/contact_app",
+    "commit_hex": "f9e5169aad52bd1d681abc74428786140dca7efe",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2022-4821/flatpressblog_flatpress_d3f329",
+    "name": "CWE-79/CVE-2015-10032",
+    "github_repo": "StevenElberger/HealthMateWeb",
+    "commit_hex": "770c02a493f70263b29e96b56ba355db23e35e7a",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2022-4822/flatpressblog_flatpress_2e7cac",
+    "name": "CWE-79/CVE-2016-15029",
+    "github_repo": "Ydalb/mapicoin",
+    "commit_hex": "e1f4f1734ccc9e6613e5cc7a30f479b06b2dd693",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2022-4876/kaltura_mwEmbed_0afca9",
+    "name": "CWE-79/CVE-2024-25737",
+    "github_repo": "vufind-org/vufind",
+    "commit_hex": "f9ab536df921d3f66644efc9f86bb72c51f5cdf9",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2022-4892/andrzuk_MyCMS_37bfb4",
+    "name": "CWE-79/CVE-2020-36638",
+    "github_repo": "Chris92de/AdminServ",
+    "commit_hex": "7bc4f9aba3525aed1b0300cb7ba86f67718c147d",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2022-4957/librespeed_speedtest_4234f5",
+    "name": "CWE-79/CVE-2024-47523",
+    "github_repo": "librenms/librenms",
+    "commit_hex": "7620d220e48563938d869da7689b8ac3f7721490",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-0306/thorsten_phpmyfaq_cd65a9",
+    "name": "CWE-79/CVE-2023-5863",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "d0d66bb4d34ab1cbfc24f5e8e2b6f0b244e45600",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-0308/thorsten_phpmyfaq_53099a",
+    "name": "CWE-79/CVE-2023-5864",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "8b14f8c1f097480d2013a0f78fb198e008d9bf5a",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-0309/thorsten_phpmyfaq_65d419",
+    "name": "CWE-79/CVE-2024-47524",
+    "github_repo": "librenms/librenms",
+    "commit_hex": "ce89f5b4101ca85f9721adfff970bc309fcb4660",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-0310/thorsten_phpmyfaq_fb88fe",
+    "name": "CWE-79/CVE-2023-5631",
+    "github_repo": "roundcube/roundcubemail",
+    "commit_hex": "d08d1678847c93315d3f0883725deb0c37c2f7df",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-0312/thorsten_phpmyfaq_fe6e9f",
+    "name": "CWE-79/CVE-2024-30618",
+    "github_repo": "chamilo/chamilo-lms",
+    "commit_hex": "7a0e10cccc92eadae9403925f995b0a8d2d1305e",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-0313/thorsten_phpmyfaq_863f6c",
+    "name": "CWE-79/CVE-2019-25105",
+    "github_repo": "lgommans/dro.pm",
+    "commit_hex": "31ecf08e90bd6c1cd765da5495610dc447bfeef9",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-0314/thorsten_phpmyfaq_1123c0",
+    "name": "CWE-79/CVE-2015-10058",
+    "github_repo": "wikisource/ws-cat-browser",
+    "commit_hex": "6cc12cb28dff336e2abc72c598eea510a1c68fd0",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-0327/saemorris_TheRadSystem_45d588",
+    "name": "CWE-79/CVE-2024-50352",
+    "github_repo": "librenms/librenms",
+    "commit_hex": "f4bc891c31f8705633630ea6e75a9c92a267cf6f",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-0676/phpipam_phpipam_b6c303",
+    "name": "CWE-79/CVE-2023-0327",
+    "github_repo": "saemorris/TheRadSystem",
+    "commit_hex": "45d5889368105d0042106cbe9aaac818cbdc29cc",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-0677/phpipam_phpipam_3df854",
+    "name": "CWE-79/CVE-2024-50355",
+    "github_repo": "librenms/librenms",
+    "commit_hex": "30e522c29bbb1f9b72951025e7049a26c7e1d76e",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-0786/thorsten_phpmyfaq_47480b",
+    "name": "CWE-79/CVE-2023-0786",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "47480b3d2b7e05c6c59934b2743039f32832a8d3",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-0787/thorsten_phpmyfaq_77b42b",
+    "name": "CWE-79/CVE-2025-22615",
+    "github_repo": "LabRedesCefetRJ/WeGIA",
+    "commit_hex": "420b88e7aceed53c42e9eff7d21beee8465f93b8",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-0791/thorsten_phpmyfaq_d89645",
+    "name": "CWE-79/CVE-2024-47525",
+    "github_repo": "librenms/librenms",
+    "commit_hex": "0643bb5574dc09e62a5a7ac3affbbd6ece5c5005",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-0794/thorsten_phpmyfaq_697a57",
+    "name": "CWE-79/CVE-2020-36637",
+    "github_repo": "Chris92de/AdminServ",
+    "commit_hex": "9a45087814295de6fb3a3fe38f96293665234da1",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-1212/phpipam_phpipam_4f1fb9",
+    "name": "CWE-79/CVE-2023-6889",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "97d90ebbe11ebc6081bf49a2ba4b60f227cd1b43",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-1754/thorsten_phpmyfaq_0dc8e5",
+    "name": "CWE-79/CVE-2010-10010",
+    "github_repo": "StarsAlliance/PsychoStats",
+    "commit_hex": "fa17054b742815a6f80f791b02b0256aec8fbe6c",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-1755/thorsten_phpmyfaq_49db61",
+    "name": "CWE-79/CVE-2019-25156",
+    "github_repo": "dstar2018/agency-code-repo",
+    "commit_hex": "8f2b612763510f008790264b5157c13b14dc66a7",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-1756/thorsten_phpmyfaq_bbc5d4",
+    "name": "CWE-79/CVE-2022-24708",
+    "github_repo": "anuko/timetracker",
+    "commit_hex": "bb7d08fa61a40369e8eeb07e476ec0a674e2f092",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-1757/thorsten_phpmyfaq_fecc80",
+    "name": "CWE-79/CVE-2016-9130",
+    "github_repo": "revive-adserver/revive-adserver",
+    "commit_hex": "38223a841190bebd7a137c7bed84fbbcb2b0c2a5",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-1759/thorsten_phpmyfaq_a26421",
+    "name": "CWE-79/CVE-2020-15159",
+    "github_repo": "baserproject/basercms",
+    "commit_hex": "2dcaa28d6765d62a3c860cb92320c790894631bd",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-1760/thorsten_phpmyfaq_671f95",
+    "name": "CWE-79/CVE-2023-5317",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "4095717cf6dfaae3150b6ab5e04b70a5e7083c9b",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-1761/thorsten_phpmyfaq_ae6c1d",
+    "name": "CWE-79/CVE-2023-2752",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "6ed70ee19dfa56425bd6cb1f2a373ae0131ed184",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-1875/thorsten_phpmyfaq_f612a7",
+    "name": "CWE-79/CVE-2024-32890",
+    "github_repo": "librespeed/speedtest",
+    "commit_hex": "8be8aba5ed57742ac32414022147cf1c8bd94651",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-1878/thorsten_phpmyfaq_400d9c",
+    "name": "CWE-79/CVE-2023-5917",
+    "github_repo": "phpbb/phpbb",
+    "commit_hex": "8fe3a97a1a77b9e8adabc12cfe411830cca761d0",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-1879/thorsten_phpmyfaq_7c7699",
+    "name": "CWE-79/CVE-2023-5319",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "abf52487422ce47195c8a80bd904a7af39f60297",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-1880/thorsten_phpmyfaq_e01882",
+    "name": "CWE-79/CVE-2021-21258",
+    "github_repo": "glpi-project/glpi",
+    "commit_hex": "df91eab60045ae0d88257b70444fcefdfaf9432d",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-1882/thorsten_phpmyfaq_56295b",
+    "name": "CWE-79/CVE-2024-56112",
+    "github_repo": "usmannasir/cyberpanel",
+    "commit_hex": "e73890f8741d209c275c74703d940990de30bf99",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-1884/thorsten_phpmyfaq_d773df",
+    "name": "CWE-79/CVE-2024-49758",
+    "github_repo": "librenms/librenms",
+    "commit_hex": "25988a937cbaebd2ba4c0517510206c404dfb359",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-1885/thorsten_phpmyfaq_ee509f",
+    "name": "CWE-79/CVE-2023-2998",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "937913948cab382a38f681e0bd29c152e2f383cd",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-2427/thorsten_phpmyfaq_0a4980",
+    "name": "CWE-79/CVE-2024-28106",
+    "github_repo": "thorsten/phpMyFAQ",
+    "commit_hex": "3ad85b6216ada27f7eadbd91cdfdff153ee7199f",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-2428/thorsten_phpmyfaq_b8f11a",
+    "name": "CWE-79/CVE-2024-27524",
+    "github_repo": "chamilo/chamilo-lms",
+    "commit_hex": "a63e03ef961e7bf2dab56f4ede6f87edef40ba0c",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-24814/TYPO3_typo3_db06e6",
+    "name": "CWE-79/CVE-2023-2753",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "a583317c861363c6ba7675b235df2abc0c7d01c2",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-2550/thorsten_phpmyfaq_fd2cda",
+    "name": "CWE-79/CVE-2023-5320",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "66f15882273daa071fc4b8b4fa4dbb8d00b62f84",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-2752/thorsten_phpmyfaq_6ed70e",
+    "name": "CWE-79/CVE-2020-25730",
+    "github_repo": "ZoneMinder/zoneminder",
+    "commit_hex": "147238027c3791ba4a519aa06ed251c61e7b408b",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-2753/thorsten_phpmyfaq_a58331",
+    "name": "CWE-79/CVE-2023-5316",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "95ed9b20557ed930d4eed1f3a6db713416f31131",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-28447/smarty-php_smarty_5512d6",
+    "name": "CWE-79/CVE-2022-4514",
+    "github_repo": "OpencachingDeutschland/oc-server3",
+    "commit_hex": "9532e2f685e46d7c5c4b38ccdfcb75dd505a6b68",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-2998/thorsten_phpmyfaq_937913",
+    "name": "CWE-79/CVE-2020-25706",
+    "github_repo": "Cacti/cacti",
+    "commit_hex": "99d3bf86b863e381a5e82f764b0639ee11bd6311",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-2999/thorsten_phpmyfaq_6e8801",
+    "name": "CWE-79/CVE-2024-53255",
+    "github_repo": "BoidCMS/BoidCMS",
+    "commit_hex": "3faf83542874cf967bfbf4090d202956d2a8c1bb",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-34446/Combodo_iTop_17d222",
+    "name": "CWE-79/CVE-2023-2550",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "fd2cda1f8aabbefcdd6d8caa35a6ba636f3f4161",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-34447/Combodo_iTop_b99ff5",
+    "name": "CWE-79/CVE-2022-3963",
+    "github_repo": "gnuboard/gnuboard5",
+    "commit_hex": "34774f0fc3af1903bf78a96181fd94499a51f809",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-3469/thorsten_phpmyfaq_5d4cd2",
+    "name": "CWE-79/CVE-2024-27525",
+    "github_repo": "chamilo/chamilo-lms",
+    "commit_hex": "78d9462b1fc1704aa5037b3569a96218a3490515",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-36828/statamic_cms_f806b6",
-    "vulnerabilities": [null]
-  },
-  {
-    "name": "CWE-79/CVE-2023-37269/wintercms_storm_edf208",
+    "name": "CWE-79/CVE-2023-7076",
+    "github_repo": "otsoft/myaac",
+    "commit_hex": "7b43c972ddc948326fae5ca34ef91b8b16515cea",
+    "project_type": "Web App",
     "vulnerabilities": []
-  },
-  {
-    "name": "CWE-79/CVE-2023-38500/TYPO3_html-sanitizer_476383",
-    "vulnerabilities": [null]
   },
   {
-    "name": "CWE-79/CVE-2023-39518/fobybus_social-media-skeleton_ac3aa8",
+    "name": "CWE-79/CVE-2024-6526",
+    "github_repo": "kirilkirkov/Ecommerce-CodeIgniter-Bootstrap",
+    "commit_hex": "1998845073cf433bc6c250b0354461fbd84d0e03",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-4007/thorsten_phpmyfaq_e16daf",
+    "name": "CWE-79/CVE-2022-3765",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "ec1e48ce63709cd0a948b500e42f69b597b1231a",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-46734/symfony_symfony_d4a701",
+    "name": "CWE-79/CVE-2024-49759",
+    "github_repo": "librenms/librenms",
+    "commit_hex": "84e276493b8db4bfb0bc5dcbfdb7f745f8a2b531",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-46735/symfony_symfony_5bff8c",
+    "name": "CWE-79/CVE-2023-2999",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "6e8801a3081d8bcf65000261b36a1b13b84f5781",
+    "project_type": "Web App",
     "vulnerabilities": []
-  },
-  {
-    "name": "CWE-79/CVE-2023-47125/TYPO3_html-sanitizer_67876f",
-    "vulnerabilities": [null]
   },
   {
-    "name": "CWE-79/CVE-2023-48295/librenms_librenms_3768e5",
+    "name": "CWE-79/CVE-2017-20185",
+    "github_repo": "fuzzymannerz/swmp",
+    "commit_hex": "34752b3b26fe9c292a2515d3bf45cb7b84234642",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-49086/Cacti_cacti_c0ba9a",
+    "name": "CWE-79/CVE-2016-9128",
+    "github_repo": "revive-adserver/revive-adserver",
+    "commit_hex": "3aaebcc765797d2c684e031f2836e0a69d6b7bc2",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-5316/thorsten_phpmyfaq_95ed9b",
+    "name": "CWE-79/CVE-2021-41139",
+    "github_repo": "anuko/timetracker",
+    "commit_hex": "71796c69b7128ce6d49c6772ccfa8c0c14ff4ba0",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-5317/thorsten_phpmyfaq_409571",
+    "name": "CWE-79/CVE-2020-15177",
+    "github_repo": "glpi-project/glpi",
+    "commit_hex": "6ca9a0e77299a755c356d758344a23278df67f65",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-5319/thorsten_phpmyfaq_abf524",
+    "name": "CWE-79/CVE-2023-1755",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "49db615c300ae0f87795f20570f6f5bdccb1d2f2",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-5320/thorsten_phpmyfaq_66f158",
+    "name": "CWE-79/CVE-2025-24018",
+    "github_repo": "YesWiki/yeswiki",
+    "commit_hex": "8355e20b900e032f188e1dba5d50313237fa2322",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-5631/roundcube_roundcubemail_d08d16",
+    "name": "CWE-79/CVE-2019-25092",
+    "github_repo": "Nakiami/mellivora",
+    "commit_hex": "66df66cbba1c7d8e9884fc9abfd6990db289be58",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-5793/flusity_flusity-CMS_b06dda",
+    "name": "CWE-79/CVE-2025-23030",
+    "github_repo": "LabRedesCefetRJ/WeGIA",
+    "commit_hex": "f1233c30f00398f7a02fd9dd9cd46fb35098f2a4",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-5810/flusity_flusity-CMS_81252b",
+    "name": "CWE-79/CVE-2025-23037",
+    "github_repo": "LabRedesCefetRJ/WeGIA",
+    "commit_hex": "e6bfae095258e1200192f15bea68a933e9f310b9",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-5811/flusity_flusity-CMS_81252b",
+    "name": "CWE-79/CVE-2024-32479",
+    "github_repo": "librenms/librenms",
+    "commit_hex": "49f82692629d3be7077cbe16736b282748885b10",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-5835/hu60t_hu60wap6_fca7cd",
+    "name": "CWE-79/CVE-2022-1226",
+    "github_repo": "phpipam/phpipam",
+    "commit_hex": "63af25f7d171bb0a9610b90bca2068d5e3e9d760",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-5863/thorsten_phpmyfaq_d0d66b",
+    "name": "CWE-79/CVE-2022-4559",
+    "github_repo": "inex/IXP-Manager",
+    "commit_hex": "bc8ba65fa227e5ef14eb4140080be9f13cb3b765",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-5864/thorsten_phpmyfaq_8b14f8",
+    "name": "CWE-79/CVE-2023-1754",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "0dc8e527c375007cd4b8dbf61f7167393a6f6e91",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-5867/thorsten_phpmyfaq_4dc881",
+    "name": "CWE-79/CVE-2022-3975",
+    "github_repo": "nukeviet/nukeviet",
+    "commit_hex": "f5d5bd1854d131dcedc45fba0f38c775b7c0e423",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-5917/phpbb_phpbb_8fe3a9",
+    "name": "CWE-79/CVE-2023-3469",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "5d4cd24aeb1c7c8c37f87205a8743cb904ac34b1",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-6889/thorsten_phpmyfaq_97d90e",
+    "name": "CWE-79/CVE-2024-27300",
+    "github_repo": "thorsten/phpMyFAQ",
+    "commit_hex": "7dc4b9864cf12a3be7cb07c983ee5c7e7f562180",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-6890/thorsten_phpmyfaq_43311c",
+    "name": "CWE-79/CVE-2025-23038",
+    "github_repo": "LabRedesCefetRJ/WeGIA",
+    "commit_hex": "ef1f9f4e9e7bea2f49b01f850c7fac48525faba9",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2023-7076/otsoft_myaac_7b43c9",
+    "name": "CWE-79/CVE-2022-4755",
+    "github_repo": "flatpressblog/flatpress",
+    "commit_hex": "e53acdeef36b96bc1b923ed5ab11296dae7b0dd8",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-25976/HAWK-Digital-Environments_HAWKI_f352dc",
+    "name": "CWE-79/CVE-2025-24017",
+    "github_repo": "YesWiki/yeswiki",
+    "commit_hex": "8355e20b900e032f188e1dba5d50313237fa2322",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-27300/thorsten_phpMyFAQ_7dc4b9",
+    "name": "CWE-79/CVE-2025-23036",
+    "github_repo": "LabRedesCefetRJ/WeGIA",
+    "commit_hex": "35d374736cec39082ed297bb3cd55fa6286050ad",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-28106/thorsten_phpMyFAQ_3ad85b",
+    "name": "CWE-79/CVE-2025-23031",
+    "github_repo": "LabRedesCefetRJ/WeGIA",
+    "commit_hex": "8eb446f132ceba002559da2fd8745386096d494e",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-30268/Cacti_cacti_018f8c",
+    "name": "CWE-79/CVE-2021-41162",
+    "github_repo": "Combodo/iTop",
+    "commit_hex": "20f44190620e946d6864daf89b6971269c7e426c",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-31443/Cacti_cacti_0d85e7",
+    "name": "CWE-79/CVE-2020-36828",
+    "github_repo": "codersclub/DiscuzX",
+    "commit_hex": "a7450c7b93918e64005feae58627dce01288a7a1",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-32479/librenms_librenms_49f826",
+    "name": "CWE-79/CVE-2023-0308",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "53099a9bcc928f5f6f7cce111c04b79a72a04142",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-32877/yiisoft_yii2_628d40",
+    "name": "CWE-79/CVE-2023-5810",
+    "github_repo": "flusity/flusity-CMS",
+    "commit_hex": "81252bc764e1de2422e79e36194bba1289e7a0a5",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-32890/librespeed_speedtest_8be8ab",
+    "name": "CWE-79/CVE-2023-0791",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "d8964568d69488de02f0a0a58acc822eeb5c3cb1",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-32981/silverstripe_silverstripe-framework_c13ec3",
+    "name": "CWE-79/CVE-2024-34067",
+    "github_repo": "pterodactyl/panel",
+    "commit_hex": "b1fa3927c17b7c34c3b12aa6e8825a3de1a81d04",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-34067/pterodactyl_panel_b1fa39",
+    "name": "CWE-79/CVE-2022-3608",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "ac3d7e019700feaaeb12ae38490594a0d4817487",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-34081/mantisbt_mantisbt_809a4e",
+    "name": "CWE-79/CVE-2023-0306",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "cd65a963c2e9af920ae1762df13fff860aaabdfe",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-36123/StarCitizenTools_mediawiki-skins-Citizen_c11fbf",
-    "vulnerabilities": [null]
-  },
-  {
-    "name": "CWE-79/CVE-2024-45046/PHPOffice_PhpSpreadsheet_e63e8a",
+    "name": "CWE-79/CVE-2018-25086",
+    "github_repo": "sea75300/fanpresscm3",
+    "commit_hex": "05a3ef40935f47a5ef6cb3a3a1f551cda7d29240",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-45057/portabilis_i-educar_7cd2ed",
+    "name": "CWE-79/CVE-2022-4821",
+    "github_repo": "flatpressblog/flatpress",
+    "commit_hex": "d3f329496536dc99f9707f2f295d571d65a496f5",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-45803/wireui_wireui_2df327",
+    "name": "CWE-79/CVE-2024-45057",
+    "github_repo": "portabilis/i-educar",
+    "commit_hex": "7cd2edf52cbc695f4e4c55f1844d372a2aa146c5",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-47069/oveleon_contao-cookiebar_cff5f4",
+    "name": "CWE-79/CVE-2023-43770",
+    "github_repo": "roundcube/roundcubemail",
+    "commit_hex": "ac169c87084458be3f623d3db89b138139b0998f",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-47184/ampache_ampache_dd300e",
+    "name": "CWE-79/CVE-2024-51495",
+    "github_repo": "librenms/librenms",
+    "commit_hex": "c03d9dd2323f13ef826f7a228693478d36367134",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-47186/filamentphp_filament_2f77c6",
+    "name": "CWE-79/CVE-2023-1880",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "e018823f8e3bca103c11e5a98b0dd469e41ed417",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-47523/librenms_librenms_7620d2",
+    "name": "CWE-79/CVE-2023-6890",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "43311c33a838f6fc9574135b8b79c09dff0efbd1",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-47524/librenms_librenms_ce89f5",
+    "name": "CWE-79/CVE-2023-0309",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "65d419ca04111ee2612ae81cdd59753654cfe18a",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-47525/librenms_librenms_0643bb",
+    "name": "CWE-79/CVE-2023-5811",
+    "github_repo": "flusity/flusity-CMS",
+    "commit_hex": "81252bc764e1de2422e79e36194bba1289e7a0a5",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-47526/librenms_librenms_6af12d",
+    "name": "CWE-79/CVE-2024-25344",
+    "github_repo": "itflow-org/itflow",
+    "commit_hex": "c1d0a2368d4c991785fa331d2e9bd66dec2f5cfa",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-47527/librenms_librenms_f259ed",
+    "name": "CWE-79/CVE-2024-51494",
+    "github_repo": "librenms/librenms",
+    "commit_hex": "f1e4e5f27f89422f9423efddf55dbf43ca4412f6",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-47528/librenms_librenms_36b38a",
+    "name": "CWE-79/CVE-2023-1875",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "f612a72494080e04947da7028340fee4493fe8a5",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-47617/sulu_sulu_bdb983",
+    "name": "CWE-79/CVE-2023-24814",
+    "github_repo": "TYPO3/typo3",
+    "commit_hex": "db06e6869486fd770fb41c5e0405fcc2add636c6",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-47618/sulu_sulu_3485e1",
+    "name": "CWE-79/CVE-2022-4820",
+    "github_repo": "flatpressblog/flatpress",
+    "commit_hex": "91857ec8008c4aa9bc02477d58cc3762645e6048",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-49754/librenms_librenms_237f4d",
+    "name": "CWE-79/CVE-2023-5867",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "4dc881a86275f97ea4e7852d8453fdb3fe1ee5df",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-49759/librenms_librenms_84e276",
+    "name": "CWE-79/CVE-2023-2428",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "b8f11a0406fa2897a314205f0c282fb740ec0d05",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-49764/librenms_librenms_62bde7",
+    "name": "CWE-79/CVE-2024-47527",
+    "github_repo": "librenms/librenms",
+    "commit_hex": "f259edc19b9f0ccca484c60b1ba70a0bfff97ef5",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-50350/librenms_librenms_f1e4e5",
+    "name": "CWE-79/CVE-2022-4407",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "e2ea332a2b5e798f2c39203b2489a2dabe831751",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-50351/librenms_librenms_82a744",
+    "name": "CWE-79/CVE-2023-0313",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "863f6cd017fc8a791fcb389a493a6e8b2232e9d6",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-50352/librenms_librenms_f4bc89",
+    "name": "CWE-79/CVE-2023-0314",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "1123c0872314fa68d7d0d8136939f62270fb4b7b",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-50355/librenms_librenms_30e522",
+    "name": "CWE-79/CVE-2025-22617",
+    "github_repo": "LabRedesCefetRJ/WeGIA",
+    "commit_hex": "5a1cd3ff5d3f7607d2b17861a7b0879d303c7146",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-51494/librenms_librenms_f1e4e5",
+    "name": "CWE-79/CVE-2024-34081",
+    "github_repo": "mantisbt/mantisbt",
+    "commit_hex": "809a4e1d8ac67aaf74eb5caf3a65317dff122715",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-51495/librenms_librenms_c03d9d",
+    "name": "CWE-79/CVE-2024-50350",
+    "github_repo": "librenms/librenms",
+    "commit_hex": "f1e4e5f27f89422f9423efddf55dbf43ca4412f6",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-51496/librenms_librenms_5b2e94",
+    "name": "CWE-79/CVE-2023-39518",
+    "github_repo": "fobybus/social-media-skeleton",
+    "commit_hex": "ac3aa87e56ac3619384644b631f086c0196d5c19",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-51497/librenms_librenms_8f9b5e",
+    "name": "CWE-79/CVE-2025-22619",
+    "github_repo": "LabRedesCefetRJ/WeGIA",
+    "commit_hex": "f3b1cd90e33b790b6b2049c69d22c6d50fe965a1",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-52526/librenms_librenms_af15ea",
+    "name": "CWE-79/CVE-2024-47526",
+    "github_repo": "librenms/librenms",
+    "commit_hex": "6af12dbc45073ab99ad6ba17babfd949c9de2855",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-53255/BoidCMS_BoidCMS_3faf83",
+    "name": "CWE-79/CVE-2015-10006",
+    "github_repo": "admont28/ingnovarq",
+    "commit_hex": "f7eb27b88eb93321dcb1d096773b56b14ce8aa20",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-53277/silverstripe_silverstripe-framework_09b505",
+    "name": "CWE-79/CVE-2014-125031",
+    "github_repo": "kirill2485/TekNet",
+    "commit_hex": "6f7b74593851920ba13946ff1101d94f4dbc6ac7",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-56361/tltneon_lgsl_0ff555",
+    "name": "CWE-79/CVE-2023-2427",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "0a4980d870bac92df945f6d022726c4e3ed584ab",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-56365/PHPOffice_PhpSpreadsheet_687d87",
+    "name": "CWE-79/CVE-2024-47528",
+    "github_repo": "librenms/librenms",
+    "commit_hex": "36b38a50cc10d4ed16caab92bdc18ed6abac9685",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-56366/PHPOffice_PhpSpreadsheet_687d87",
+    "name": "CWE-79/CVE-2025-22618",
+    "github_repo": "LabRedesCefetRJ/WeGIA",
+    "commit_hex": "44a531a6b7ef760c4a26659e9ad0337a3f1661d6",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-56408/PHPOffice_PhpSpreadsheet_687d87",
+    "name": "CWE-79/CVE-2022-4408",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "c16cc2bbe2687f75aa1204b804483091fae43cba",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-56409/PHPOffice_PhpSpreadsheet_687d87",
+    "name": "CWE-79/CVE-2021-4271",
+    "github_repo": "panicsteve/w2wiki",
+    "commit_hex": "232996527d0d2160f6305de4780ad81272608fb7",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-56410/PHPOffice_PhpSpreadsheet_700a80",
+    "name": "CWE-79/CVE-2024-50351",
+    "github_repo": "librenms/librenms",
+    "commit_hex": "82a744bfe29017b8b58b5752ab9e1b335bedf0a0",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-56411/PHPOffice_PhpSpreadsheet_700a80",
+    "name": "CWE-79/CVE-2022-4892",
+    "github_repo": "andrzuk/MyCMS",
+    "commit_hex": "37bfb4e6c78d4cc8bfa652e73eb14d99f43f667a",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-56412/PHPOffice_PhpSpreadsheet_700a80",
+    "name": "CWE-79/CVE-2025-22616",
+    "github_repo": "LabRedesCefetRJ/WeGIA",
+    "commit_hex": "d358e6807ef13bf59d1676bcfea7a5e0ceab73e0",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-56517/tltneon_lgsl_a2755d",
+    "name": "CWE-79/CVE-2023-0312",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "fe6e9f02ef1b26a03134b9becda12687ee5f3214",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-9007/jeanmarc77_123solar_80cb17",
+    "name": "CWE-79/CVE-2024-41676",
+    "github_repo": "OpenMage/magento-lts",
+    "commit_hex": "eba4aa8f01f22b99cfb0d36552495d757c8da270",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2024-9101/leenooks_phpLDAPadmin_1b55c8",
+    "name": "CWE-79/CVE-2023-5835",
+    "github_repo": "hu60t/hu60wap6",
+    "commit_hex": "fca7cd04362f098017c5a89e2d15ba43bc3b95cd",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2025-22131/PHPOffice_PhpSpreadsheet_51b1d1",
+    "name": "CWE-79/CVE-2024-9101",
+    "github_repo": "leenooks/phpLDAPadmin",
+    "commit_hex": "1b55c84f06a490d9fe1a564bf1730b3a9d63c835",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2025-22132/nilsonLazarin_WeGIA_f2cdf7",
+    "name": "CWE-79/CVE-2024-49764",
+    "github_repo": "librenms/librenms",
+    "commit_hex": "62bde75971143d3e2975258f0ab160450faec9b7",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2025-22613/LabRedesCefetRJ_WeGIA_cdb8e8",
+    "name": "CWE-79/CVE-2025-22132",
+    "github_repo": "nilsonLazarin/WeGIA",
+    "commit_hex": "f2cdf788d655e9643dc8d1474ea1b90fc91e69a3",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2025-22614/LabRedesCefetRJ_WeGIA_0d8107",
+    "name": "CWE-79/CVE-2023-48295",
+    "github_repo": "librenms/librenms",
+    "commit_hex": "3768e59448d241f5ec1bfc9d017bf0178346367b",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2025-22615/LabRedesCefetRJ_WeGIA_420b88",
+    "name": "CWE-79/CVE-2023-4007",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "e16daf99c28b47a205f74004681f3e2e6a842723",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2025-22616/LabRedesCefetRJ_WeGIA_d358e6",
+    "name": "CWE-79/CVE-2022-3968",
+    "github_repo": "emlog/emlog",
+    "commit_hex": "0fdd68cf053823763903760fde25f1341fc4a4ea",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2025-22617/LabRedesCefetRJ_WeGIA_5a1cd3",
+    "name": "CWE-79/CVE-2022-3766",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "372428d02a08e90b3a253ba5c506cda84581a5af",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2025-22618/LabRedesCefetRJ_WeGIA_44a531",
+    "name": "CWE-79/CVE-2019-25086",
+    "github_repo": "IET-OU/open-media-player",
+    "commit_hex": "6ea6528081308d157f635f9c4ac3a10aa58c0270",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2025-22619/LabRedesCefetRJ_WeGIA_f3b1cd",
+    "name": "CWE-79/CVE-2021-32644",
+    "github_repo": "ampache/ampache",
+    "commit_hex": "dcc8fad681f5bccd66f4fa7ed072f1bf700ba96e",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2025-23030/LabRedesCefetRJ_WeGIA_f1233c",
+    "name": "CWE-79/CVE-2021-4302",
+    "github_repo": "slackero/phpwcms",
+    "commit_hex": "4db6ac2ead2ee1494336ddb35544b2a83ec5e788",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2025-23031/LabRedesCefetRJ_WeGIA_8eb446",
+    "name": "CWE-79/CVE-2024-31443",
+    "github_repo": "Cacti/cacti",
+    "commit_hex": "0d85e774a1679d40f9d2d8509ece0e8f0e692623",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2025-23032/LabRedesCefetRJ_WeGIA_8a3702",
+    "name": "CWE-79/CVE-2024-49754",
+    "github_repo": "librenms/librenms",
+    "commit_hex": "237f4d2e818170171dfad6efad36a275cd2ba8d0",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2025-23033/LabRedesCefetRJ_WeGIA_f35910",
+    "name": "CWE-79/CVE-2021-43810",
+    "github_repo": "Admidio/admidio",
+    "commit_hex": "d6c5627ac25977f47a532e3723b7e4f16322a917",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2025-23034/LabRedesCefetRJ_WeGIA_782080",
+    "name": "CWE-79/CVE-2020-15155",
+    "github_repo": "baserproject/basercms",
+    "commit_hex": "1a2fb075c28b83c5051ca8f3ace979d8893fed03",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2025-23035/LabRedesCefetRJ_WeGIA_09affa",
+    "name": "CWE-79/CVE-2018-1000870",
+    "github_repo": "phpipam/phpipam",
+    "commit_hex": "ee5ef63fb5774f12ed580a8b3e6e05d3e61dfcdc",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2025-23036/LabRedesCefetRJ_WeGIA_35d374",
+    "name": "CWE-79/CVE-2024-52526",
+    "github_repo": "librenms/librenms",
+    "commit_hex": "af15eabbb1752985d36f337cecf137a947e170f6",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2025-23037/LabRedesCefetRJ_WeGIA_e6bfae",
+    "name": "CWE-77/CVE-2023-0789",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "f34d84dfe551ecdd675916e45cc0606e04a0734e",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2025-23038/LabRedesCefetRJ_WeGIA_ef1f9f",
+    "name": "CWE-77/CVE-2021-41144",
+    "github_repo": "OpenMage/magento-lts",
+    "commit_hex": "58e72cf939ecab61462e433eb755dedbc5be0767",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2025-23210/PHPOffice_PhpSpreadsheet_ed6627",
+    "name": "CWE-77/CVE-2021-41143",
+    "github_repo": "OpenMage/magento-lts",
+    "commit_hex": "06c45940ba3256cdfc9feea12a3c0ca56d23acf8",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2025-24017/YesWiki_yeswiki_8355e2",
+    "name": "CWE-77/CVE-2023-32073",
+    "github_repo": "WWBN/AVideo",
+    "commit_hex": "89507b853fc5a458f1668ede75250b34a62736e7",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2025-24018/YesWiki_yeswiki_8355e2",
+    "name": "CWE-77/CVE-2024-29895",
+    "github_repo": "Cacti/cacti",
+    "commit_hex": "83740347e3716ede983da08b4c611464ced8c353",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-79/CVE-2025-25287/lakejason0_mediawiki-skins-Lakeus_82ad2c",
-    "vulnerabilities": [null]
-  },
-  {
-    "name": "CWE-89/CVE-2007-10001/web-cyradm_web-cyradm_610d7b",
+    "name": "CWE-77/CVE-2021-39217",
+    "github_repo": "OpenMage/magento-lts",
+    "commit_hex": "d16fc6c5a1e66c6f0d9f82020f11702a7ddd78e4",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2007-10002/web-cyradm_web-cyradm_3e8f07",
+    "name": "CWE-77/CVE-2020-36642",
+    "github_repo": "trampgeek/jobe",
+    "commit_hex": "955fa79bb7a3c6ed63bce3846c175517c5208584",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2008-10003/iGamingModules_flashgames_a4ae2e",
+    "name": "CWE-77/CVE-2024-39914",
+    "github_repo": "FOGProject/fogproject",
+    "commit_hex": "f97b01d4359458cc65035134792003b15966d27e",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2010-10007/lierdakil_click-reminder_293192",
+    "name": "CWE-77/CVE-2023-6848",
+    "github_repo": "kalcaddle/kodbox",
+    "commit_hex": "8961706710030668ce34b35b2f0d4ef5b518d62a",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2011-10002/rotelok_weblabyrinth_bc8992",
+    "name": "CWE-77/CVE-2021-41231",
+    "github_repo": "OpenMage/magento-lts",
+    "commit_hex": "45330ff50439984e806992fa22c3f96c4d660f91",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2013-10015/fanzila_WebFinance_6b0a80",
+    "name": "CWE-94/CVE-2024-36622",
+    "github_repo": "raspap/raspap-webgui",
+    "commit_hex": "e92835f89de8410e5d46efbd1c7a7dc6c1477345",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2013-10016/fanzila_WebFinance_6cfeb2",
+    "name": "CWE-94/CVE-2023-6851",
+    "github_repo": "kalcaddle/KodExplorer",
+    "commit_hex": "dfb3597ca4aabf662a0e5f860d4f420fb4e390a4",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2013-10017/fanzila_WebFinance_7e86e1",
+    "name": "CWE-94/CVE-2024-9006",
+    "github_repo": "jeanmarc77/123solar",
+    "commit_hex": "94bf9ab7ad0ccb7fbdc02f172f37f0e2ea08d48f",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2013-10018/fanzila_WebFinance_bfccab",
+    "name": "CWE-94/CVE-2022-43279",
+    "github_repo": "LimeSurvey/LimeSurvey",
+    "commit_hex": "22a547c3f9af7c72f9600edeff1a2c2260c0ac22",
+    "project_type": "Web App",
     "vulnerabilities": []
-  },
-  {
-    "name": "CWE-89/CVE-2014-125029/ttskch_PaginationServiceProvider_f1616a",
-    "vulnerabilities": [null]
   },
   {
-    "name": "CWE-89/CVE-2014-125032/porpeeranut_go-with-me_d91c64",
+    "name": "CWE-94/CVE-2023-0792",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "00c04093c671607ee06cdfd670070809460f9547",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2014-125040/stevejagodzinski_DevNewsAggregator_49ac5b",
+    "name": "CWE-94/CVE-2023-0788",
+    "github_repo": "thorsten/phpmyfaq",
+    "commit_hex": "40515c74815ace394ab23c6c19cbb33fd49059cb",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2014-125045/Miesvanderlippe_meol1_73e4c8",
+    "name": "CWE-94/CVE-2023-34251",
+    "github_repo": "getgrav/grav",
+    "commit_hex": "259e775db84b690dc43f0fa981dbdfc822c9d8bc",
+    "project_type": "Web App",
     "vulnerabilities": []
-  },
-  {
-    "name": "CWE-89/CVE-2014-125051/himiklab_yii2-jqgrid-widget_55460d",
-    "vulnerabilities": [null]
   },
   {
-    "name": "CWE-89/CVE-2014-125053/Piwigo_Piwigo-Guest-Book_2dfd04",
+    "name": "CWE-94/CVE-2015-10009",
+    "github_repo": "nonfiction/nterchange_backend",
+    "commit_hex": "510127dbca17d5d113c0e66620fb0d655a44bb2c",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2014-125062/ananich_bitstorm_f0a662",
+    "name": "CWE-94/CVE-2022-24734",
+    "github_repo": "mybb/mybb",
+    "commit_hex": "89ba6fd39fca4ede328f69deca9aba7b57f2c5d1",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2014-125076/NoxxieNl_Criminals_0feeea",
+    "name": "CWE-94/CVE-2023-22731",
+    "github_repo": "shopware/platform",
+    "commit_hex": "2b800890cdbcc62bce796bcff28b33a986de7c52",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2014-125077/pointhi_searxstats_49f159",
+    "name": "CWE-94/CVE-2024-31822",
+    "github_repo": "kirilkirkov/Ecommerce-CodeIgniter-Bootstrap",
+    "commit_hex": "cfff7c1acb65e21606ef4dfb28daabf19b35a7e7",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2015-10018/DBRisinajumi_d2files_b5101d",
+    "name": "CWE-94/CVE-2024-56145",
+    "github_repo": "craftcms/cms",
+    "commit_hex": "2c917722aea4dab9c758f938467eb710c117bf3a",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2015-10031/purpleparrots_491-Project_e53baf",
+    "name": "CWE-94/CVE-2024-31823",
+    "github_repo": "kirilkirkov/Ecommerce-CodeIgniter-Bootstrap",
+    "commit_hex": "cfff7c1acb65e21606ef4dfb28daabf19b35a7e7",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2015-10041/Dovgalyuk_AIBattle-disabled-_5e5124",
+    "name": "CWE-94/CVE-2025-22133",
+    "github_repo": "nilsonLazarin/WeGIA",
+    "commit_hex": "21176917cd63e0bf7c55676a0b090a954b718753",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2015-10042/Dovgalyuk_AIBattle-disabled-_09c36d",
+    "name": "CWE-89/CVE-2013-10018",
+    "github_repo": "fanzila/WebFinance",
+    "commit_hex": "bfccab378a6608d216df2835840da243fa63cfe2",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2015-10045/tutrantta_projecttodolist_8b688a",
+    "name": "CWE-89/CVE-2024-32480",
+    "github_repo": "librenms/librenms",
+    "commit_hex": "36dc9d3c052f32cd1534c63be461c60cdc16ebde",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2015-10050/brandonfire_miRNADatabasebyPHPMySql_7838db",
+    "name": "CWE-89/CVE-2013-10016",
+    "github_repo": "fanzila/WebFinance",
+    "commit_hex": "6cfeb2f6b35c1b3a7320add07cd0493e4f752af3",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2015-10051/bony2023_Discussion-Board_bbfb29",
+    "name": "CWE-89/CVE-2018-1000869",
+    "github_repo": "phpipam/phpipam",
+    "commit_hex": "4554be402196037ed8c34d375fc65f37ba161ae2",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2015-10063/saemorris_TheRadSystem_45d588",
+    "name": "CWE-89/CVE-2022-31181",
+    "github_repo": "PrestaShop/PrestaShop",
+    "commit_hex": "dc8dc1faef7185ad30fc8dcb0653524d9bfb7c82",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2015-10064/VictorFerraresi_pokemon-database-php_372740",
+    "name": "CWE-89/CVE-2022-35946",
+    "github_repo": "glpi-project/glpi",
+    "commit_hex": "5f5c60280b0577392d722662461638b961f27422",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2015-10066/tynx_wuersch_039d04",
+    "name": "CWE-89/CVE-2013-10017",
+    "github_repo": "fanzila/WebFinance",
+    "commit_hex": "7e86e1c29555ac0b5bea3a64901be90fca225b3a",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2015-10070/copperwall_twiddit_0c8b77",
+    "name": "CWE-89/CVE-2024-24572",
+    "github_repo": "WillyXJ/facileManager",
+    "commit_hex": "5613baa626b3bf0ce81601c3745031922f9b6ce3",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2015-10077/webbuilders-group_silverstripe-kapost-bridge_d02049",
-    "vulnerabilities": [null]
-  },
-  {
-    "name": "CWE-89/CVE-2015-10084/irontec_klear-library_f7b292",
+    "name": "CWE-89/CVE-2023-45826",
+    "github_repo": "Leantime/leantime",
+    "commit_hex": "fa5fa3c1b77fce33be702bc1f41084c9f68d1b7e",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2015-10086/OpenCycleCompass_server-php_edda78",
+    "name": "CWE-89/CVE-2020-5292",
+    "github_repo": "Leantime/leantime",
+    "commit_hex": "bf333918c8a6e77b3e21782c3cf659393ca1dbab",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2015-10097/grinnellplans_grinnellplans-php_4512e3",
+    "name": "CWE-89/CVE-2022-21666",
+    "github_repo": "Aaron-Junker/USOC",
+    "commit_hex": "1be52f38162dc0a5dec386cab26cbf454371f833",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2015-10106/mback2k_mhhttpbl_7ad9f0",
+    "name": "CWE-89/CVE-2021-4261",
+    "github_repo": "platzhersh/pacman-canvas",
+    "commit_hex": "9e5fbfc7bfd79d94f0e3a1fd7e65e8e656f49f8a",
+    "project_type": "Web App",
     "vulnerabilities": []
-  },
-  {
-    "name": "CWE-89/CVE-2016-15013/ForumHulp_searchresults_3ed315",
-    "vulnerabilities": [null]
-  },
-  {
-    "name": "CWE-89/CVE-2016-15016/mrtnmtth_joomlamodeinsatzstats_4cc081",
-    "vulnerabilities": [null]
-  },
-  {
-    "name": "CWE-89/CVE-2016-15020/liftkit_database_5082c0",
-    "vulnerabilities": [null]
   },
   {
-    "name": "CWE-89/CVE-2016-15031/ipoelnet_php-login_c3b62d",
+    "name": "CWE-89/CVE-2022-21661",
+    "github_repo": "WordPress/wordpress-develop",
+    "commit_hex": "dcaa0934c06d58a4c9425bfdc37fa03d15395b76",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2016-15034/dynacase-labs_dynacase-webdesk_837ce0",
+    "name": "CWE-89/CVE-2018-25071",
+    "github_repo": "roxlukas/lmeve",
+    "commit_hex": "f225174a9be6990826755f2d7541c513a95100cb",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2017-20163/RedSnapper_NView_f3fe36",
+    "name": "CWE-89/CVE-2015-10042",
+    "github_repo": "Dovgalyuk/AIBattle-disabled-",
+    "commit_hex": "09c36d88d65efb9448a30f5305e2bf7081a74406",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2017-20168/jfm-so_piWallet_c8adf5",
+    "name": "CWE-89/CVE-2022-4871",
+    "github_repo": "ummmmm/nflpick-em.com",
+    "commit_hex": "1612e24b22b7696d97e43d114e5a095f54fec4db",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2017-20169/GGGGGGGG_ToN-MasterServer_a2ed9d",
+    "name": "CWE-89/CVE-2016-15034",
+    "github_repo": "dynacase-labs/dynacase-webdesk",
+    "commit_hex": "837ce01567ce772ecf98b2760afa1939835025b7",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2017-20170/ollpu_parontalli_422be9",
+    "name": "CWE-89/CVE-2014-125045",
+    "github_repo": "Miesvanderlippe/meol1",
+    "commit_hex": "73e4c81b6bea332a5d4ce5880af4033ea09e62b2",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2017-20173/AlexRed_contentmap_280fff",
+    "name": "CWE-89/CVE-2024-54145",
+    "github_repo": "Cacti/cacti",
+    "commit_hex": "096a4035c0cf3df505e20237256cc43ede740272",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2017-20195/LUNAD3v_areaload_1a1103",
+    "name": "CWE-89/CVE-2015-10086",
+    "github_repo": "OpenCycleCompass/server-php",
+    "commit_hex": "edda78b0282583e0ad9db4cfc862588d42ccd084",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2018-25057/mikebharris_simplephplinkshortener_96a0af",
+    "name": "CWE-89/CVE-2015-10050",
+    "github_repo": "brandonfire/miRNA_Database_by_PHP_MySql",
+    "commit_hex": "7838dbb3b799c7b7d4e69e119719a788bf04c78e",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2018-25067/JoomGallery_JoomGallery_67b041",
+    "name": "CWE-89/CVE-2024-39304",
+    "github_repo": "ChurchCRM/CRM",
+    "commit_hex": "a16602b05c4c458ea459dc488b96b5251e9dd28d",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2018-25071/roxlukas_lmeve_f22517",
+    "name": "CWE-89/CVE-2015-10066",
+    "github_repo": "tynx/wuersch",
+    "commit_hex": "039d04f92d65061568eb6dce88c74194c2b0b8e6",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2018-25076/timbuckingham_bigtree-events_7b2fef",
+    "name": "CWE-89/CVE-2024-27299",
+    "github_repo": "thorsten/phpMyFAQ",
+    "commit_hex": "1f9d46e65b12a4b8008ce31957be4f38f42a34ee",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2018-25106/webuidesigning_NebulaX_7d3ddb",
+    "name": "CWE-89/CVE-2022-24707",
+    "github_repo": "anuko/timetracker",
+    "commit_hex": "992bcdd2f13da3ffa7161bbb9ed7c7d118e9297a",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2019-25100/happyman_twmap_f13a8d",
+    "name": "CWE-89/CVE-2022-3827",
+    "github_repo": "centreon/centreon",
+    "commit_hex": "b5621438307559388a2123d770353720c677d1cd",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2019-25159/mpedraza2020_IESMONTEROSOINTRANET_5e6274",
+    "name": "CWE-89/CVE-2019-25159",
+    "github_repo": "mpedraza2020/IESMONTEROSOINTRANET",
+    "commit_hex": "5e627496305d1854ae95af3ba9ae4bb20de830fe",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2020-36630/FreePBX_cdr_e933ce",
+    "name": "CWE-89/CVE-2022-21643",
+    "github_repo": "Aaron-Junker/USOC",
+    "commit_hex": "06217c66c8f9b114726b21633eabcd88ac9034aa",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2020-5292/Leantime_leantime_bf3339",
+    "name": "CWE-89/CVE-2015-10051",
+    "github_repo": "bony2023/Discussion-Board",
+    "commit_hex": "bbfb295539ab23a3a8966892983e4072f17c9725",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2021-4301/slackero_phpwcms_0d27ad",
+    "name": "CWE-89/CVE-2007-10001",
+    "github_repo": "web-cyradm/web-cyradm",
+    "commit_hex": "610d7bccb071ebe0ff8468cd3a211dcf86bb7973",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2021-4313/NethServer_nethserver-phonehome_ef5af2",
+    "name": "CWE-89/CVE-2022-21644",
+    "github_repo": "Aaron-Junker/USOC",
+    "commit_hex": "9b65bd08c2ef0c4c6bede3cd5d295b0f77101b0e",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2021-4336/ITRS-Group_monitor-ninja_985d20",
+    "name": "CWE-89/CVE-2014-125032",
+    "github_repo": "porpeeranut/go-with-me",
+    "commit_hex": "d91c648f4d7da7f355af7c2bbf809dbfdc1cb786",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2021-43822/jackalope_jackalope-doctrine-dbal_86e7bb",
-    "vulnerabilities": [null]
-  },
-  {
-    "name": "CWE-89/CVE-2021-43851/anuko_timetracker_94fda0",
+    "name": "CWE-89/CVE-2024-51482",
+    "github_repo": "ZoneMinder/zoneminder",
+    "commit_hex": "335900a727aaf85fcbe5ec92ddc0a36cf1fa73c0",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2022-1219/pimcore_pimcore_e64959",
+    "name": "CWE-89/CVE-2011-10002",
+    "github_repo": "rotelok/weblabyrinth",
+    "commit_hex": "bc89921af4201898ffb922d3e508e444e42012cf",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2022-1339/pimcore_pimcore_809851",
+    "name": "CWE-89/CVE-2024-48249",
+    "github_repo": "wavelog/wavelog",
+    "commit_hex": "7d716d9a066778a769fbd36d95ad0afdba7d9327",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2022-1429/pimcore_pimcore_f29d3b",
+    "name": "CWE-89/CVE-2021-4336",
+    "github_repo": "ITRS-Group/monitor-ninja",
+    "commit_hex": "985d206dfb78e872984a4f7568fe8e42bf832dd0",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2022-21643/Aaron-Junker_USOC_06217c",
+    "name": "CWE-89/CVE-2017-20170",
+    "github_repo": "ollpu/parontalli",
+    "commit_hex": "422be98d34b6b21fb0c33a895fd4238628e996e2",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2022-21644/Aaron-Junker_USOC_9b65bd",
+    "name": "CWE-89/CVE-2024-32461",
+    "github_repo": "librenms/librenms",
+    "commit_hex": "d7737b9889e145b72c414fd5218b63d29212f41e",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2022-21664/WordPress_wordpress-develop_17efac",
+    "name": "CWE-89/CVE-2024-31821",
+    "github_repo": "kirilkirkov/Ecommerce-CodeIgniter-Bootstrap",
+    "commit_hex": "cfff7c1acb65e21606ef4dfb28daabf19b35a7e7",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2022-21666/Aaron-Junker_USOC_1be52f",
+    "name": "CWE-89/CVE-2021-4301",
+    "github_repo": "slackero/phpwcms",
+    "commit_hex": "0d27adc81da4c2161261240c1a947b5872be61d0",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2022-24752/Sylius_SyliusGridBundle_789ab3",
+    "name": "CWE-89/CVE-2024-31820",
+    "github_repo": "kirilkirkov/Ecommerce-CodeIgniter-Bootstrap",
+    "commit_hex": "cfff7c1acb65e21606ef4dfb28daabf19b35a7e7",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2022-31181/PrestaShop_PrestaShop_dc8dc1",
+    "name": "CWE-89/CVE-2008-10003",
+    "github_repo": "iGamingModules/flashgames",
+    "commit_hex": "a4ae2e836e0f0d8f9ca871228cf5403c505be473",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2022-4871/ummmmm_nflpick-em.com_1612e2",
+    "name": "CWE-89/CVE-2024-28107",
+    "github_repo": "thorsten/phpMyFAQ",
+    "commit_hex": "4fed1d9602f0635260f789fe85995789d94d6634",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2022-4889/visegripped_stracker_b662ea",
+    "name": "CWE-89/CVE-2025-26520",
+    "github_repo": "Cacti/cacti",
+    "commit_hex": "94526a92b96c01848748602977819cd403932f0a",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2022-4933/ATM-Consulting_dolibarrmodulequicksupplierprice_9304ff",
+    "name": "CWE-89/CVE-2024-48251",
+    "github_repo": "wavelog/wavelog",
+    "commit_hex": "7d716d9a066778a769fbd36d95ad0afdba7d9327",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2023-1211/phpipam_phpipam_470a17",
+    "name": "CWE-89/CVE-2024-37906",
+    "github_repo": "Admidio/admidio",
+    "commit_hex": "a4d8ab2dd795df2be39404408c402d0f97892f6d",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2023-22727/cakephp_cakephp_d22961",
+    "name": "CWE-89/CVE-2017-20168",
+    "github_repo": "jfm-so/piWallet",
+    "commit_hex": "c8adf52f828db3bf4ae9e7784eaa1ab3d0f891dc",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2023-32308/anuko_timetracker_010a05",
+    "name": "CWE-89/CVE-2022-4592",
+    "github_repo": "luckyshot/CRMx",
+    "commit_hex": "e5585639df45be373d120a57d83ef2891bbfe539",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2023-37270/Piwigo_Piwigo_639c9d",
+    "name": "CWE-89/CVE-2017-20195",
+    "github_repo": "LUNAD3v/areaload",
+    "commit_hex": "1a1103182ed63a06dde63d1712f3262eda19c3ec",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2023-41884/ZoneMinder_zoneminder_3f95e0",
+    "name": "CWE-89/CVE-2013-10015",
+    "github_repo": "fanzila/WebFinance",
+    "commit_hex": "6b0a8033a68e3239e25877a7434c3dcec22d92f4",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2023-45826/Leantime_leantime_fa5fa3",
+    "name": "CWE-89/CVE-2024-48257",
+    "github_repo": "wavelog/wavelog",
+    "commit_hex": "7d716d9a066778a769fbd36d95ad0afdba7d9327",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2023-47637/pimcore_pimcore_33cb0b",
+    "name": "CWE-89/CVE-2021-43851",
+    "github_repo": "anuko/timetracker",
+    "commit_hex": "94fda0cc0c9c20ab98d38ccc75ff040d13dc7f1b",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2024-12894/TreasureHuntGame_TreasureHunt_963e0e",
+    "name": "CWE-89/CVE-2017-20169",
+    "github_repo": "GGGGGGGG/ToN-MasterServer",
+    "commit_hex": "a2ed9d44084c7b8f60c07ffe42ef65f5a2d939b2",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2024-12895/TreasureHuntGame_TreasureHunt_963e0e",
+    "name": "CWE-89/CVE-2014-125076",
+    "github_repo": "NoxxieNl/Criminals",
+    "commit_hex": "0feeea4700dbe2938a5a8b93ce0df50bddec3f84",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2024-23646/pimcore_admin-ui-classic-bundle_8a1361",
+    "name": "CWE-89/CVE-2023-1211",
+    "github_repo": "phpipam/phpipam",
+    "commit_hex": "470a175f0ba2f434f7536354f20cd5381da12c60",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2024-24572/WillyXJ_facileManager_5613ba",
+    "name": "CWE-89/CVE-2023-41884",
+    "github_repo": "ZoneMinder/zoneminder",
+    "commit_hex": "3f95e04ede748982f7872396df88b849fd917317",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2024-27299/thorsten_phpMyFAQ_1f9d46",
+    "name": "CWE-89/CVE-2015-10070",
+    "github_repo": "copperwall/twiddit",
+    "commit_hex": "0c8b7772ac30c9621af94ac4359b031c81d9d458",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2024-28107/thorsten_phpMyFAQ_4fed1d",
+    "name": "CWE-89/CVE-2014-125040",
+    "github_repo": "stevejagodzinski/DevNewsAggregator",
+    "commit_hex": "49ac5b49d34aa104c288474b236284cd1876d39e",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2024-31445/Cacti_cacti_f946fa",
+    "name": "CWE-89/CVE-2025-24368",
+    "github_repo": "Cacti/cacti",
+    "commit_hex": "096a4035c0cf3df505e20237256cc43ede740272",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2024-32461/librenms_librenms_d7737b",
+    "name": "CWE-89/CVE-2015-10041",
+    "github_repo": "Dovgalyuk/AIBattle-disabled-",
+    "commit_hex": "5e51243dfb33965a207770886570287592f90506",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2024-32480/librenms_librenms_36dc9d",
+    "name": "CWE-89/CVE-2010-10007",
+    "github_repo": "lierdakil/click-reminder",
+    "commit_hex": "293192351cf4fc9fd3d0af2caff8434a5cbecec4",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2024-37906/Admidio_admidio_a4d8ab",
+    "name": "CWE-89/CVE-2016-15031",
+    "github_repo": "ipoelnet/php-login",
+    "commit_hex": "c3b62db5c5d4a2abc9fc9f85d0674d90a13a39d0",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2024-39304/ChurchCRM_CRM_a16602",
+    "name": "CWE-89/CVE-2024-45059",
+    "github_repo": "portabilis/i-educar",
+    "commit_hex": "701a1b0b6cdd24414be8e71ecd3e7a67596672ab",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2024-45059/portabilis_i-educar_701a1b",
+    "name": "CWE-89/CVE-2022-21664",
+    "github_repo": "WordPress/wordpress-develop",
+    "commit_hex": "17efac8c8ec64555eff5cf51a3eff81e06317214",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2024-51482/ZoneMinder_zoneminder_335900",
+    "name": "CWE-89/CVE-2014-125077",
+    "github_repo": "pointhi/searx_stats",
+    "commit_hex": "49f1598e4e5bb90ea4ccc1e430112d5d4c2f6ec4",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2024-54145/Cacti_cacti_096a40",
+    "name": "CWE-89/CVE-2024-54146",
+    "github_repo": "Cacti/cacti",
+    "commit_hex": "096a4035c0cf3df505e20237256cc43ede740272",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2024-54146/Cacti_cacti_096a40",
+    "name": "CWE-89/CVE-2022-4889",
+    "github_repo": "visegripped/stracker",
+    "commit_hex": "b662ea097fe0b40f2085f7e18c42a7c8901846e5",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2025-23218/LabRedesCefetRJ_WeGIA_1ac0d0",
+    "name": "CWE-89/CVE-2015-10031",
+    "github_repo": "purpleparrots/491-Project",
+    "commit_hex": "e53baf595b3f214731570a337fb84a897d1cca9c",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2025-23219/LabRedesCefetRJ_WeGIA_1739e1",
+    "name": "CWE-89/CVE-2019-25100",
+    "github_repo": "happyman/twmap",
+    "commit_hex": "f13a8d1cde78d9ffe8ae925921e89ee9edce626f",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2025-23220/LabRedesCefetRJ_WeGIA_7465f7",
+    "name": "CWE-89/CVE-2015-10063",
+    "github_repo": "saemorris/TheRadSystem",
+    "commit_hex": "45d5889368105d0042106cbe9aaac818cbdc29cc",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2025-24368/Cacti_cacti_096a40",
+    "name": "CWE-89/CVE-2015-10097",
+    "github_repo": "grinnellplans/grinnellplans-php",
+    "commit_hex": "4512e3f39eb0abe199f4d1f676bfdabb9640ebbf",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-89/CVE-2025-26520/Cacti_cacti_94526a",
+    "name": "CWE-89/CVE-2015-10064",
+    "github_repo": "VictorFerraresi/pokemon-database-php",
+    "commit_hex": "3727400a5384333a7cd76b107d272f135087c0e7",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-94/CVE-2015-10009/nonfiction_nterchangebackend_510127",
+    "name": "CWE-89/CVE-2023-32308",
+    "github_repo": "anuko/timetracker",
+    "commit_hex": "010a05a6e7b76d1bafb4d362ee83be548b9e8671",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-94/CVE-2019-16774/PHPSocialNetwork_phpfastcache_afb1d1",
+    "name": "CWE-89/CVE-2018-25057",
+    "github_repo": "mikebharris/simple_php_link_shortener",
+    "commit_hex": "96a0af6e75beb4f77282c1eff4e2424619e7d727",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-94/CVE-2022-29221/smarty-php_smarty_3f97b7",
+    "name": "CWE-89/CVE-2014-125062",
+    "github_repo": "ananich/bitstorm",
+    "commit_hex": "f0a662662c3e1dd1a8f158e12233a7af81c62dbd",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-94/CVE-2023-0788/thorsten_phpmyfaq_40515c",
+    "name": "CWE-89/CVE-2007-10002",
+    "github_repo": "web-cyradm/web-cyradm",
+    "commit_hex": "3e8f0717f133907bb6a09cb674b05c5f273da3e1",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-94/CVE-2023-0792/thorsten_phpmyfaq_00c040",
+    "name": "CWE-89/CVE-2025-23219",
+    "github_repo": "LabRedesCefetRJ/WeGIA",
+    "commit_hex": "1739e1589948a207b8a82b9bfe078cb826d420de",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-94/CVE-2023-34251/getgrav_grav_259e77",
+    "name": "CWE-89/CVE-2024-12895",
+    "github_repo": "TreasureHuntGame/TreasureHunt",
+    "commit_hex": "963e0e0e422e3fc8b10aeed7cb1bf00d2733a9d9",
+    "project_type": "Web App",
     "vulnerabilities": []
-  },
-  {
-    "name": "CWE-94/CVE-2023-48217/statamic_cms_334ebc",
-    "vulnerabilities": [null]
   },
   {
-    "name": "CWE-94/CVE-2024-28119/getgrav_grav_592841",
+    "name": "CWE-89/CVE-2024-40614",
+    "github_repo": "EGroupware/egroupware",
+    "commit_hex": "3d5a9b63ae3254d0e58fd790ac3173cee3996b5f",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-94/CVE-2024-35226/smarty-php_smarty_61db28",
+    "name": "CWE-89/CVE-2024-31445",
+    "github_repo": "Cacti/cacti",
+    "commit_hex": "f946fa537d19678f938ddbd784a10e3290d275cf",
+    "project_type": "Web App",
     "vulnerabilities": []
-  },
-  {
-    "name": "CWE-94/CVE-2024-55661/laravel_pulse_f8dc14",
-    "vulnerabilities": [null]
   },
   {
-    "name": "CWE-94/CVE-2024-56145/craftcms_cms_2c9177",
+    "name": "CWE-89/CVE-2024-12894",
+    "github_repo": "TreasureHuntGame/TreasureHunt",
+    "commit_hex": "963e0e0e422e3fc8b10aeed7cb1bf00d2733a9d9",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-94/CVE-2024-9006/jeanmarc77_123solar_94bf9a",
+    "name": "CWE-89/CVE-2025-23218",
+    "github_repo": "LabRedesCefetRJ/WeGIA",
+    "commit_hex": "1ac0d0701ad93103482374e8092ad1a5ab15d3fc",
+    "project_type": "Web App",
     "vulnerabilities": []
   },
   {
-    "name": "CWE-94/CVE-2025-22133/nilsonLazarin_WeGIA_211769",
+    "name": "CWE-89/CVE-2025-23220",
+    "github_repo": "LabRedesCefetRJ/WeGIA",
+    "commit_hex": "7465f785651c0cff65059bba96b015ab54235de4",
+    "project_type": "Web App",
     "vulnerabilities": []
   }
 ]
